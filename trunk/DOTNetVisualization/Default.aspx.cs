@@ -14,6 +14,7 @@ using System.Xml.Linq;
 namespace DOTNetVisualization
 {
     using System.Web.UI.DataVisualization.Charting;
+    using ChartConfig;
     using System.Xml;
     using System.Text;
     using System.Net;
@@ -130,6 +131,49 @@ namespace DOTNetVisualization
 
             // Finally I add the series to my chart
             Chart2.Series.Add(series);
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            // Variable declarations
+            WebClient webClient = new WebClient();
+            XmlDocument xmlChartConfig = new XmlDocument();
+            XmlDocument xmlData = new XmlDocument();
+            // Get the chart config
+            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/PriceHistory1.xml"),
+              UriKind.RelativeOrAbsolute);
+            Stream configData = webClient.OpenRead(uri);
+            XmlTextReader xmlText = new XmlTextReader(configData);
+            xmlChartConfig.Load(xmlText);
+
+            ChartConfigProvider chartConfig = new ChartConfigProvider(xmlChartConfig);
+
+            // Now that we have the URI, we can call it and get the XML
+            uri = new Uri(chartConfig.URI);
+            Stream phData = webClient.OpenRead(uri);
+            xmlText = new XmlTextReader(phData);
+            xmlData.Load(xmlText);
+
+            double nCurrent = 0.0;
+            int currentSeries = 0;
+
+            foreach (string xPath in chartConfig.SeriesXPath)
+            {
+                XmlNodeList data = xmlData.SelectNodes(xPath);
+
+                foreach (XmlNode nd in data)
+                {
+                    // .. create a DataPoint from them, which is added to the Series
+                    DataPoint d = new DataPoint(nCurrent, Convert.ToDouble(nd.
+                      InnerText));
+                    ((Series)chartConfig.Series[currentSeries]).Points.Add(d);
+                    nCurrent++;
+                }
+
+                Chart2.Series.Add(((Series)chartConfig.Series[currentSeries]));
+                currentSeries++;
+            }
+
         }
 
     }

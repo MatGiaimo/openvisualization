@@ -12,6 +12,10 @@
           <Data>/YahooFinance/TimeSeries/Close</Data>
           <Type>Line</Type>
         </Series>
+        <Series id="OpenPrice">
+          <Data>/YahooFinance/TimeSeries/Open</Data>
+          <Type>Line</Type>
+        </Series>
       </SeriesDefinitions>
     </Data>
   </Chart>
