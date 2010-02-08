@@ -56,21 +56,40 @@ namespace DOTNetVisualization
             // The first child contains the root URI
             dataURI.Append(lst.Item(0).InnerText.ToString());
 
-            // The rest of the children of this node contain the parameters
-            // the first parameter is prefixed with ?, the rest with &
-            // i.e. http://url?firstparam=firstval&secondparam=secondval etc
-            for (int lp = 1; lp < lst.Count; lp++)
+            // If the textboxes are full use the values else use the config file
+            if (!string.IsNullOrEmpty(ticker.Text) && startdate.SelectedDate != null && enddate.SelectedDate != null)
             {
-                if (lp == 1)
-                    dataURI.Append("?");
-                else
-                    dataURI.Append("&");
-
-                // In this case the desired parameters are hard coded into the XML.
-                // in a 'real' server you'd likely accept them as params to this page
-                dataURI.Append(lst.Item(lp).Attributes.Item(0).Value.ToString());
+                dataURI.Append("?");
+                dataURI.Append(ticker.ID);
                 dataURI.Append("=");
-                dataURI.Append(lst.Item(lp).InnerText);
+                dataURI.Append(ticker.Text);
+                dataURI.Append("&");
+                dataURI.Append(startdate.ID);
+                dataURI.Append("=");
+                dataURI.Append(string.Format("{0:MM-dd-yyyy}",startdate.SelectedDate));
+                dataURI.Append("&");
+                dataURI.Append(enddate.ID);
+                dataURI.Append("=");
+                dataURI.Append(string.Format("{0:MM-dd-yyyy}", enddate.SelectedDate));
+            }
+            else
+            {
+                // The rest of the children of this node contain the parameters
+                // the first parameter is prefixed with ?, the rest with &
+                // i.e. http://url?firstparam=firstval&secondparam=secondval etc
+                for (int lp = 1; lp < lst.Count; lp++)
+                {
+                    if (lp == 1)
+                        dataURI.Append("?");
+                    else
+                        dataURI.Append("&");
+
+                    // In this case the desired parameters are hard coded into the XML.
+                    // in a 'real' server you'd likely accept them as params to this page
+                    dataURI.Append(lst.Item(lp).Attributes.Item(0).Value.ToString());
+                    dataURI.Append("=");
+                    dataURI.Append(lst.Item(lp).InnerText);
+                }
             }
 
             // Now that we have the URI, we can call it and get the XML

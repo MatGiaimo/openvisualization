@@ -43,6 +43,9 @@
             </asp:ChartArea>
         </ChartAreas>
     </asp:Chart>
+    <div>Ticker Symbol:<asp:TextBox ID="ticker" runat="server"></asp:TextBox></div>
+    <div>Start Date:<asp:Calendar ID="startdate" runat="server"></asp:Calendar></div>
+    <div>End Date:<asp:Calendar ID="enddate" runat="server"></asp:Calendar></div>
     <asp:Button ID="Button1" runat="server" Text="Build Chart" OnClick="Button1_Click" />
     </form>
 </body>
