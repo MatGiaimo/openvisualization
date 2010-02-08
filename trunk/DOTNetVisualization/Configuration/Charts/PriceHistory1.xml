@@ -1,0 +1,18 @@
+﻿<root>
+  <Chart Name="PriceHistory1">
+    <Uri>
+      <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>
+      <Param Name="ticker">MSFT</Param>
+      <Param Name="startdate">1-1-2008</Param>
+      <Param name="enddate">1-1-2009</Param>
+    </Uri>
+    <Data>
+      <SeriesDefinitions>
+        <Series id="ClosePrice">
+          <Data>/YahooFinance/TimeSeries/Close</Data>
+          <Type>Line</Type>
+        </Series>
+      </SeriesDefinitions>
+    </Data>
+  </Chart>
+</root>

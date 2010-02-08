@@ -1,0 +1,15 @@
+C:\projects\DOTNetVisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.dll
+C:\projects\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.pdb
+C:\projects\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.dll
+C:\projects\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.pdb
+C:\Documents and Settings\EEC 626\My Documents\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.dll
+C:\Documents and Settings\EEC 626\My Documents\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.pdb
+C:\Documents and Settings\EEC 626\My Documents\DOTNetVisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\EEC 626\My Documents\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.dll
+C:\Documents and Settings\EEC 626\My Documents\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.pdb
+C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.dll
+C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualization.pdb
+C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.dll
+C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.pdb
