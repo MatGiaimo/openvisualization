@@ -1,0 +1,10 @@
+#summary A shared paged with links relavant to the project development.
+
+= Introduction =
+
+Use this page to share links with the team
+
+
+= Details =
+
+Chart samples: http://code.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
