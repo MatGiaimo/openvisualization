@@ -13,3 +13,8 @@ C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\bin\DOTNetVisualizati
 C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
 C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.dll
 C:\projects\EEC626\DOTNetVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.pdb
+C:\projects\EEC626\OpenVisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\EEC626\OpenVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.dll
+C:\projects\EEC626\OpenVisualization\DOTNetVisualization\bin\DOTNetVisualization.dll
+C:\projects\EEC626\OpenVisualization\DOTNetVisualization\bin\DOTNetVisualization.pdb
+C:\projects\EEC626\OpenVisualization\DOTNetVisualization\obj\Debug\DOTNetVisualization.pdb

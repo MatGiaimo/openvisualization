@@ -172,6 +172,7 @@ namespace DOTNetVisualization
 
                 Chart2.Series.Add(((Series)chartConfig.Series[currentSeries]));
                 currentSeries++;
+                nCurrent = 0.0;
             }
 
         }

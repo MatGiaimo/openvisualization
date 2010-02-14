@@ -4,17 +4,23 @@
       <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>
       <Param Name="ticker">MSFT</Param>
       <Param Name="startdate">1-1-2008</Param>
-      <Param name="enddate">1-1-2009</Param>
+      <Param Name="enddate">1-1-2009</Param>
     </Uri>
     <Data>
       <SeriesDefinitions>
+        <Series id="Date">
+          <Data>/YahooFinanace/TimeSeries/Date</Data>
+          <IsXValueIndexed>true</IsXValueIndexed>
+        </Series>
         <Series id="ClosePrice">
           <Data>/YahooFinance/TimeSeries/Close</Data>
           <Type>Line</Type>
+          <Color>Red</Color>
         </Series>
         <Series id="OpenPrice">
           <Data>/YahooFinance/TimeSeries/Open</Data>
           <Type>Line</Type>
+          <Color>Blue</Color>
         </Series>
       </SeriesDefinitions>
     </Data>

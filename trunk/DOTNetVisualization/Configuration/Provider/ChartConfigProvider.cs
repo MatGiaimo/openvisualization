@@ -2,7 +2,9 @@
 using System.Xml;
 using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 using System.Web.UI.DataVisualization.Charting;
+using System.Xml.Linq;
 
 namespace ChartConfig
 {
@@ -39,6 +41,7 @@ namespace ChartConfig
     {
         #region Private members
         private XmlDocument xmlChartDefinition;
+        private XDocument xDocChartDefinition;
         private ArrayList series;
         private ArrayList seriesXPath;
         private DataSourceType dataSource;
@@ -89,20 +92,24 @@ namespace ChartConfig
         {
             XmlTextReader xmlText = new XmlTextReader(chartDefinition);
             xmlChartDefinition.Load(xmlText);
+
+            xDocChartDefinition = XDocument.Load(xmlText);
+
             seriesXPath = new ArrayList();
             series = new ArrayList();
 
 
-            ParseCharts();
+            ParseChartsXDoc();
         }
 
         public ChartConfigProvider(XmlDocument chartDefinition)
         {
             xmlChartDefinition = chartDefinition;
+            xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(chartDefinition);
             seriesXPath = new ArrayList();
             series = new ArrayList();
 
-            ParseCharts();
+            ParseChartsXDoc();
         }
         #endregion
 
@@ -110,12 +117,113 @@ namespace ChartConfig
         /// <summary>
         /// This method reads series definitions from the xml config and builds a SeriesCollection which can then be used to build a chart.
         /// </summary>
-        private void BuildSeries()
+        private void BuildSeries(IEnumerable<XElement> xSeriesList)
         {
-            //foreach(SeriesType series in xmlChartDefinition.Chart.Data.Items[0])
-            //{
+            foreach (XElement xSeries in xSeriesList)
+            {
+                Series currSeries = new Series();
 
-            //}
+                // Set the Name (id in current xml definition)
+                currSeries.Name = xSeries.Attribute("id").Value.ToString();
+
+                seriesXPath.Add(xSeries.Element("Data").Value.ToString());
+
+                try
+                {
+                    // Type (Line, Column, Bar, Etc)
+                    SeriesChartType seriesType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), xSeries.Element("Type").Value.ToString());
+                    currSeries.ChartType = seriesType;
+                }
+                catch (Exception ex)
+                {
+                    //throw new Exception("Unrecognized chart type", ex);
+                }
+
+                // Color
+                try
+                {
+                    currSeries.Color = System.Drawing.Color.FromName(xSeries.Element("Color").Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+                // Axis Label
+                try
+                {
+                    currSeries.AxisLabel = xSeries.Element("AxisLabel").Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+
+                //Is XAxis values
+                try
+                {
+                }
+                catch (Exception ex)
+                {
+                    currSeries.IsXValueIndexed = bool.Parse(xSeries.Element("IsXValueIndexed").Value.ToString());
+                }
+
+      
+                
+
+                series.Add(currSeries);
+            }
+        }
+
+        private void ParseChartsXDoc()
+        {
+            IEnumerable<XElement> xChartList = xDocChartDefinition.Root.Elements("Chart");
+
+            foreach (XElement el in xChartList)
+            {
+                // We're starting with Uri DataSourceTypes so lets check for that first
+                // We only support one uri config (for now) so use SelectSingleNode
+                StringBuilder dataURI = new StringBuilder();
+
+                XElement xUri = el.Element("Uri");
+
+                try
+                {
+                    dataSource = DataSourceType.Uri;
+
+                    string uriPath = xUri.Element("Path").Value.ToString();
+
+                    dataURI.Append(uriPath);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Uri path not found",ex);
+                }
+                             
+                IEnumerable<XElement> xParamList = xUri.Elements("Param");
+
+                int paramCount = 1;
+                foreach (XElement xParam in xParamList)
+                {
+                    if (paramCount == 1)
+                        dataURI.Append("?");
+                    else
+                        dataURI.Append("&");
+
+                    // In this case the desired parameters are hard coded into the XML.
+                    // in a 'real' server you'd likely accept them as params to this page
+                    dataURI.Append(xParam.Attribute("Name").Value.ToString());
+                    dataURI.Append("=");
+                    dataURI.Append(xParam.Value.ToString());
+                    paramCount++;
+                }
+
+                // Set the uri variable for access through property
+                uri = dataURI.ToString();
+
+                //Get the series definitions
+                BuildSeries(el.Descendants("Data").Descendants("SeriesDefinitions").Descendants("Series"));
+            }
         }
 
         private void ParseCharts()
@@ -191,6 +299,13 @@ namespace ChartConfig
             }
         }
 
+        #endregion
+
+        #region Static Helper Methods
+        private static XDocument DocumentToXDocumentReader(XmlDocument doc)
+        {
+            return XDocument.Load(new XmlNodeReader(doc));
+        }
         #endregion
 
 
