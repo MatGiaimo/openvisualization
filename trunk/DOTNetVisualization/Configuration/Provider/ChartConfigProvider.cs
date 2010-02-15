@@ -14,12 +14,13 @@ namespace ChartConfig
     }
 
     /// <summary>
-    /// Not used yet.  Inteded to expand the series class to include an XPath for the Data Interface to use
+    /// ChartConfigSeries builds upon the Series class to add extra properties used in configuration.
     /// </summary>
     public class ChartConfigSeries : System.Web.UI.DataVisualization.Charting.Series
     {
         #region Private members
         private string xPath;
+        private bool isXAxisLabel;
         #endregion
 
         #region Properties
@@ -34,16 +35,26 @@ namespace ChartConfig
                 xPath = value;
             }
         }
+
+        public bool IsXAxisLabel
+        {
+            get
+            {
+                return isXAxisLabel;
+            }
+            set
+            {
+                isXAxisLabel = value;
+            }
+        }
         #endregion
     }
 
     public class ChartConfigProvider
     {
         #region Private members
-        private XmlDocument xmlChartDefinition;
         private XDocument xDocChartDefinition;
         private ArrayList series;
-        private ArrayList seriesXPath;
         private DataSourceType dataSource;
         private string uri;
         #endregion
@@ -54,14 +65,6 @@ namespace ChartConfig
             get
             {
                 return series;
-            }
-        }
-
-        public ArrayList SeriesXPath
-        {
-            get
-            {
-                return seriesXPath;
             }
         }
 
@@ -91,11 +94,9 @@ namespace ChartConfig
         public ChartConfigProvider(string chartDefinition)
         {
             XmlTextReader xmlText = new XmlTextReader(chartDefinition);
-            xmlChartDefinition.Load(xmlText);
 
             xDocChartDefinition = XDocument.Load(xmlText);
 
-            seriesXPath = new ArrayList();
             series = new ArrayList();
 
 
@@ -104,9 +105,7 @@ namespace ChartConfig
 
         public ChartConfigProvider(XmlDocument chartDefinition)
         {
-            xmlChartDefinition = chartDefinition;
             xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(chartDefinition);
-            seriesXPath = new ArrayList();
             series = new ArrayList();
 
             ParseChartsXDoc();
@@ -121,16 +120,19 @@ namespace ChartConfig
         {
             foreach (XElement xSeries in xSeriesList)
             {
-                Series currSeries = new Series();
+                ChartConfigSeries currSeries = new ChartConfigSeries();
 
                 // Set the Name (id in current xml definition)
                 currSeries.Name = xSeries.Attribute("id").Value.ToString();
 
-                seriesXPath.Add(xSeries.Element("Data").Value.ToString());
-
+                // Set the xpath to get data
+                currSeries.XPath = xSeries.Element("Data").Value.ToString();
+                
+                //Not sure to do when these properties are not found so
+                //just swallow exceptions for now
+                // Type (Line, Column, Bar, Etc)
                 try
                 {
-                    // Type (Line, Column, Bar, Etc)
                     SeriesChartType seriesType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), xSeries.Element("Type").Value.ToString());
                     currSeries.ChartType = seriesType;
                 }
@@ -159,17 +161,24 @@ namespace ChartConfig
                     
                 }
 
-                //Is XAxis values
+                //XValueType
                 try
                 {
+                    currSeries.XValueType = (ChartValueType)Enum.Parse(typeof(ChartValueType), xSeries.Element("XValueType").Value.ToString());
                 }
                 catch (Exception ex)
                 {
-                    currSeries.IsXValueIndexed = bool.Parse(xSeries.Element("IsXValueIndexed").Value.ToString());
+                    
                 }
 
-      
-                
+                //IsXAxisLabel
+                try
+                {
+                    currSeries.IsXAxisLabel = bool.Parse(xSeries.Element("IsXAxisLabel").Value.ToString());
+                }
+                catch (Exception ex)
+                {
+                }
 
                 series.Add(currSeries);
             }
@@ -226,79 +235,6 @@ namespace ChartConfig
             }
         }
 
-        private void ParseCharts()
-        {
-            XmlNodeList charts = xmlChartDefinition.SelectNodes("/root/Chart");
-
-            foreach (XmlNode chartNode in charts)
-            {
-                // We're starting with Uri DataSourceTypes so lets check for that first
-                // We only support one uri config (for now) so use SelectSingleNode
-                StringBuilder dataURI = new StringBuilder();
-                XmlNode uriNode = chartNode.SelectSingleNode("/root/Chart/Uri");
-
-                if (uriNode != null)
-                    dataSource = DataSourceType.Uri;
-
-                //Check for Path
-                string uriPath = uriNode["Path"].InnerText;
-
-                if (string.IsNullOrEmpty(uriPath))
-                    throw new Exception("Uri path not found");
-
-                dataURI.Append(uriPath);
-
-                XmlNodeList uriParams = uriNode.SelectNodes("/root/Chart/Uri/Param");
-
-                // Get params
-                for (int lp = 1; lp < uriParams.Count; lp++)
-                {
-                    if (lp == 1)
-                        dataURI.Append("?");
-                    else
-                        dataURI.Append("&");
-
-                    // In this case the desired parameters are hard coded into the XML.
-                    // in a 'real' server you'd likely accept them as params to this page
-                    dataURI.Append(uriParams.Item(lp).Attributes.Item(0).Value.ToString());
-                    dataURI.Append("=");
-                    dataURI.Append(uriParams.Item(lp).InnerText);
-                }
-
-                uri = dataURI.ToString();
-     
-                //Get the series definitions
-                XmlNodeList seriesList = chartNode.SelectNodes("/root/Chart/Data/SeriesDefinitions/Series");
-
-                foreach (XmlNode seriesNode in seriesList)
-                {
-                    Series currSeries = new Series();
-
-                    // Set the Name (id in current xml definition)
-                    currSeries.Name = seriesNode.Attributes["id"].Value.ToString();
-
-                    XmlNode xPathNode = seriesNode.SelectSingleNode(string.Format("/root/Chart/Data/SeriesDefinitions/Series[@id='{0}']/Data",currSeries.Name));
-
-                    seriesXPath.Add(xPathNode.InnerText);
-
-                    XmlNode chartTypeNode = seriesNode.SelectSingleNode(string.Format("/root/Chart/Data/SeriesDefinitions/Series[@id='{0}']/Type",currSeries.Name));
-
-                    try
-                    {
-                        SeriesChartType seriesType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType),chartTypeNode.InnerText);
-
-                        currSeries.ChartType = seriesType;
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Unrecognized chart type", ex);
-                    }
-
-                    series.Add(currSeries);
-                }
-            }
-        }
-
         #endregion
 
         #region Static Helper Methods
@@ -307,8 +243,5 @@ namespace ChartConfig
             return XDocument.Load(new XmlNodeReader(doc));
         }
         #endregion
-
-
-
     }
 }
