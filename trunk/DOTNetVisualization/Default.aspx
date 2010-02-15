@@ -14,6 +14,7 @@
 </head>
 <body>
     <form id="form2" runat="server">
+    <asp:scriptmanager ID="Scriptmanager1" runat="server"></asp:scriptmanager>
     <div>
         <a href="Services/GetPriceHistory.aspx">Services/GetPriceHistory.aspx</a>
     </div>  
@@ -33,6 +34,8 @@
     <div>
         Time Series Example
     </div>
+    <asp:UpdatePanel runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
     <asp:Chart ID="Chart2" runat="server">
         <Series>
             <asp:Series Name="Series1">
@@ -44,10 +47,12 @@
         </ChartAreas>
     </asp:Chart>
     <asp:Button ID="Button2" runat="server" Text="Build Chart Using ConfigProvider" OnClick="Button2_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Build Chart Using Parameters" OnClick="Button1_Click" />
     <div>Ticker Symbol:<asp:TextBox ID="ticker" runat="server"></asp:TextBox></div>
     <div>Start Date:<asp:Calendar ID="startdate" runat="server"></asp:Calendar></div>
     <div>End Date:<asp:Calendar ID="enddate" runat="server"></asp:Calendar></div>
-    <asp:Button ID="Button1" runat="server" Text="Build Chart" OnClick="Button1_Click" />
+    </ContentTemplate>
+    </asp:UpdatePanel>
     </form>
 </body>
 </html>

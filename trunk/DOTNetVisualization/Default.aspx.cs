@@ -25,6 +25,7 @@ namespace DOTNetVisualization
         protected void Page_Load(object sender, EventArgs e)
         {
             Chart1.ImageStorageMode = ImageStorageMode.UseImageLocation;
+            Chart2.ImageStorageMode = ImageStorageMode.UseImageLocation;
 
             double[] yValues = { 20, 10, 24, 23 };
             string[] xValues = { "England", "Scotland", "Ireland", "Wales" };
@@ -154,27 +155,43 @@ namespace DOTNetVisualization
             xmlText = new XmlTextReader(phData);
             xmlData.Load(xmlText);
 
-            double nCurrent = 0.0;
-            int currentSeries = 0;
-
-            foreach (string xPath in chartConfig.SeriesXPath)
+            string xAxisLabelSeriesName = string.Empty;
+            ArrayList xAxisValues = new ArrayList();
+            //Find the name of the series with the xaxis label
+            //Get the xAxisLabel values
+            foreach (ChartConfigSeries ccSeries in chartConfig.Series)
             {
-                XmlNodeList data = xmlData.SelectNodes(xPath);
-
-                foreach (XmlNode nd in data)
+                if (ccSeries.IsXAxisLabel == true)
                 {
-                    // .. create a DataPoint from them, which is added to the Series
-                    DataPoint d = new DataPoint(nCurrent, Convert.ToDouble(nd.
-                      InnerText));
-                    ((Series)chartConfig.Series[currentSeries]).Points.Add(d);
-                    nCurrent++;
+                    xAxisLabelSeriesName = ccSeries.Name;
+
+                    XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
+
+                    foreach (XmlNode nd in data)
+                    {
+                        xAxisValues.Add(DateTime.Parse(nd.InnerText));
+                    }
                 }
-
-                Chart2.Series.Add(((Series)chartConfig.Series[currentSeries]));
-                currentSeries++;
-                nCurrent = 0.0;
             }
+           
+            foreach (ChartConfigSeries ccSeries in chartConfig.Series)
+            {
+                //Ignore the xAxisLabelSeries when populating y axis data
+                if (ccSeries.Name != xAxisLabelSeriesName)
+                {
+                    XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
 
+                    int xAxisIndex = 0;
+                    foreach (XmlNode nd in data)
+                    {
+                        ccSeries.Points.AddXY(xAxisValues[xAxisIndex],nd.InnerText);
+                        xAxisIndex++;
+                    }
+                    xAxisIndex = 0;
+                    Chart2.Series.Add((Series)ccSeries);
+                }
+            }
+            configData.Close();
         }
 
     }
