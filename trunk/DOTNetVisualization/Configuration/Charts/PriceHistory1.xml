@@ -10,20 +10,17 @@
       <SeriesDefinitions>
         <Series id="Date">
           <Data>/YahooFinance/TimeSeries/Date</Data>
-          <XValueType>DateTime</XValueType>
           <IsXAxisLabel>true</IsXAxisLabel>
         </Series>
         <Series id="ClosePrice">
           <Data>/YahooFinance/TimeSeries/Close</Data>
           <Type>Line</Type>
           <Color>Green</Color>
-          <XValueType>DateTime</XValueType>
         </Series>
         <Series id="OpenPrice">
           <Data>/YahooFinance/TimeSeries/Open</Data>
           <Type>Line</Type>
           <Color>Blue</Color>
-          <XValueType>DateTime</XValueType>
         </Series>
       </SeriesDefinitions>
     </Data>

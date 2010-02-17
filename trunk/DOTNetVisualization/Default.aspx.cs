@@ -196,7 +196,15 @@ namespace DOTNetVisualization
                     int xAxisIndex = 0;
                     foreach (XmlNode nd in data)
                     {
-                        ccSeries.Points.AddXY(xAxisValues[xAxisIndex],nd.InnerText);
+                        if (xAxisValues.Count > 0)
+                        {
+                            ccSeries.Points.AddXY(xAxisValues[xAxisIndex], nd.InnerText);
+                            
+                        }
+                        else
+                        {
+                            ccSeries.Points.AddXY(xAxisIndex, nd.InnerText);
+                        }                       
                         xAxisIndex++;
                     }
                     xAxisIndex = 0;
