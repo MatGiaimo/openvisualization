@@ -34,6 +34,18 @@ namespace DOTNetVisualization
             mySeries.ChartType = SeriesChartType.Pie;
         }
 
+        protected void btnShowPieChart_Click(object sender, EventArgs e)
+        {
+            pnlPieChart.Visible = true;
+            pnlTimeSeries.Visible = false;
+        }
+
+        protected void btnShowTimeSeries_Click(object sender, EventArgs e)
+        {
+            pnlPieChart.Visible = false;
+            pnlTimeSeries.Visible = true;
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             // Variable declarations

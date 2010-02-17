@@ -16,7 +16,7 @@
         <Series id="ClosePrice">
           <Data>/YahooFinance/TimeSeries/Close</Data>
           <Type>Line</Type>
-          <Color>Red</Color>
+          <Color>Green</Color>
           <XValueType>DateTime</XValueType>
         </Series>
         <Series id="OpenPrice">
