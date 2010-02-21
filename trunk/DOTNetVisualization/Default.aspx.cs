@@ -15,6 +15,7 @@ namespace DOTNetVisualization
 {
     using System.Web.UI.DataVisualization.Charting;
     using ChartConfig;
+    using Charting;
     using System.Xml;
     using System.Text;
     using System.Net;
@@ -158,60 +159,11 @@ namespace DOTNetVisualization
             Stream configData = webClient.OpenRead(uri);
             XmlTextReader xmlText = new XmlTextReader(configData);
             xmlChartConfig.Load(xmlText);
+            configData.Close();
 
             ChartConfigProvider chartConfig = new ChartConfigProvider(xmlChartConfig);
 
-            // Now that we have the URI, we can call it and get the XML
-            uri = new Uri(chartConfig.URI);
-            Stream phData = webClient.OpenRead(uri);
-            xmlText = new XmlTextReader(phData);
-            xmlData.Load(xmlText);
-
-            string xAxisLabelSeriesName = string.Empty;
-            ArrayList xAxisValues = new ArrayList();
-            //Find the name of the series with the xaxis label
-            //Get the xAxisLabel values
-            foreach (ChartConfigSeries ccSeries in chartConfig.Series)
-            {
-                if (ccSeries.IsXAxisLabel == true)
-                {
-                    xAxisLabelSeriesName = ccSeries.Name;
-
-                    XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
-
-                    foreach (XmlNode nd in data)
-                    {
-                        xAxisValues.Add(DateTime.Parse(nd.InnerText));
-                    }
-                }
-            }
-           
-            foreach (ChartConfigSeries ccSeries in chartConfig.Series)
-            {
-                //Ignore the xAxisLabelSeries when populating y axis data
-                if (ccSeries.Name != xAxisLabelSeriesName)
-                {
-                    XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
-
-                    int xAxisIndex = 0;
-                    foreach (XmlNode nd in data)
-                    {
-                        if (xAxisValues.Count > 0)
-                        {
-                            ccSeries.Points.AddXY(xAxisValues[xAxisIndex], nd.InnerText);
-                            
-                        }
-                        else
-                        {
-                            ccSeries.Points.AddXY(xAxisIndex, nd.InnerText);
-                        }                       
-                        xAxisIndex++;
-                    }
-                    xAxisIndex = 0;
-                    Chart2.Series.Add((Series)ccSeries);
-                }
-            }
-            configData.Close();
+            ChartBuilder cb = new ChartBuilder(chartConfig, Chart2);
         }
 
     }

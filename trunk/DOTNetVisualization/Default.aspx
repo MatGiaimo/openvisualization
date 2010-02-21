@@ -9,7 +9,6 @@
 <html>
 <head>
     <title>GetPriceHistory</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
 </head>
 <body>
     <form id="form2" runat="server">

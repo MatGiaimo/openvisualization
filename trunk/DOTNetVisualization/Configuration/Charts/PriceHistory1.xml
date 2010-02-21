@@ -4,7 +4,7 @@
       <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>
       <Param Name="ticker">GOOG</Param>
       <Param Name="startdate">1-1-2008</Param>
-      <Param Name="enddate">1-4-2008</Param>
+      <Param Name="enddate">1-15-2008</Param>
     </Uri>
     <Data>
       <SeriesDefinitions>
