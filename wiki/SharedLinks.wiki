@@ -13,7 +13,7 @@ Use this page to share links with the team
   * Rendering ASP.NET controls by web services: http://bit.ly/4WjFSh, http://bit.ly/KptNc
 
 *Tooling*
-  * || C# Development Tools || http://msdn.microsoft.com/en-us/vcsharp/aa336818.aspx ||
-  * || Doxygen: || http://www.stack.nl/~dimitri/doxygen/index.html ||
+  * C# Development Tools: http://msdn.microsoft.com/en-us/vcsharp/aa336818.aspx
+  * Doxygen: http://www.stack.nl/~dimitri/doxygen/index.html
   * Doxygen Styling: http://bitbucket.org/rc1/doxygen-style/downloads/
   * Graphviz: http://www.graphviz.org/
