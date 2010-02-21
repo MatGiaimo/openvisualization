@@ -7,14 +7,16 @@ Use this page to share links with the team
 
 = References =
 
+*Charting*
 Chart samples: http://code.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
 
 Rendering ASP.NET controls by web services:
 http://bit.ly/4WjFSh
 http://bit.ly/KptNc
 
+*Tooling*
+C# Development Tools: http://msdn.microsoft.com/en-us/vcsharp/aa336818.aspx
+
 Doxygen: http://www.stack.nl/~dimitri/doxygen/index.html
 
 Graphviz: http://www.graphviz.org/
-
-C# Development Tools: http://msdn.microsoft.com/en-us/vcsharp/aa336818.aspx
