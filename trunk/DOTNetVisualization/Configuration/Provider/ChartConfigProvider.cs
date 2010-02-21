@@ -145,18 +145,14 @@ namespace ChartConfig
                         if (pi.PropertyType.BaseType.FullName == "System.Enum")
                         {
                             o = Enum.Parse(pi.PropertyType, val);
-                            //pi.SetValue(currSeries, o, null);
                         }
                         else if (pi.PropertyType.FullName == "System.Drawing.Color")
                         {
                             o = System.Drawing.Color.FromName(val);
-                            //System.Drawing.Color color = System.Drawing.Color.FromName(val);
-                            //pi.SetValue(currSeries, color, null);
                         }
                         else 
                         {
                             o = Convert.ChangeType(val, pi.PropertyType);
-                            //pi.SetValue(currSeries, o, null);
                         }
 
                         pi.SetValue(currSeries, o, null);
@@ -168,59 +164,6 @@ namespace ChartConfig
 
                 }
                 
-                //Not sure to do when these properties are not found so
-                //just swallow exceptions for now
-                // Type (Line, Column, Bar, Etc)
-                /*
-                try
-                {
-                    SeriesChartType seriesType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), xSeries.Element("Type").Value.ToString());
-                    currSeries.ChartType = seriesType;
-                }
-                catch (Exception ex)
-                {
-                    //throw new Exception("Unrecognized chart type", ex);
-                }
-
-                // Color
-                try
-                {
-                    currSeries.Color = System.Drawing.Color.FromName(xSeries.Element("Color").Value.ToString());
-                }
-                catch (Exception ex)
-                {
-                    
-                }
-
-                // Axis Label
-                try
-                {
-                    currSeries.AxisLabel = xSeries.Element("AxisLabel").Value.ToString();
-                }
-                catch (Exception ex)
-                {
-                    
-                }
-
-                //XValueType
-                try
-                {
-                    currSeries.XValueType = (ChartValueType)Enum.Parse(typeof(ChartValueType), xSeries.Element("XValueType").Value.ToString());
-                }
-                catch (Exception ex)
-                {
-                    
-                }
-
-                //IsXAxisLabel
-                try
-                {
-                    currSeries.IsXAxisLabel = bool.Parse(xSeries.Element("IsXAxisLabel").Value.ToString());
-                }
-                catch (Exception ex)
-                {
-                }
-                */
                 series.Add(currSeries);
             }
         }
