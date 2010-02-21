@@ -14,3 +14,5 @@ http://bit.ly/4WjFSh
 http://bit.ly/KptNc
 
 Doc Utility: (NDoc looks like it's done...researching alts.)
+
+C# Development Tools: http://msdn.microsoft.com/en-us/vcsharp/aa336818.aspx
