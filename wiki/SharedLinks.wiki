@@ -10,9 +10,9 @@ Use this page to share links with the team
 
 *Charting*  
 
-*Chart samples: http://code.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
-
-*Rendering ASP.NET controls by web services:
+* Chart samples: http://code.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
+* test
+* Rendering ASP.NET controls by web services:
 http://bit.ly/4WjFSh
 http://bit.ly/KptNc
 
