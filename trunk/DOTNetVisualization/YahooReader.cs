@@ -75,7 +75,7 @@ public class YahooReader
     {
         //filename = SaveStreamToTempFile(data);
 
-        string tempFilePath = @"C:\projects\EEC626\DOTNetVisualization\TempData.csv";
+        string tempFilePath = @"C:\projects\EEC626\openvisualization\TempData.csv";
 
         FileStream fs = new FileStream(tempFilePath,FileMode.OpenOrCreate);
 

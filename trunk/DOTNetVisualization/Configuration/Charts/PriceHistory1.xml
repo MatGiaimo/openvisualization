@@ -4,23 +4,23 @@
       <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>
       <Param Name="ticker">GOOG</Param>
       <Param Name="startdate">1-1-2008</Param>
-      <Param Name="enddate">1-1-2009</Param>
+      <Param Name="enddate">1-4-2008</Param>
     </Uri>
     <Data>
       <SeriesDefinitions>
         <Series id="Date">
           <Data>/YahooFinance/TimeSeries/Date</Data>
-          <IsXAxisLabel>true</IsXAxisLabel>
+          <Param name="IsXAxisLabel">true</Param>
         </Series>
         <Series id="ClosePrice">
-          <Data>/YahooFinance/TimeSeries/Close</Data>
-          <Type>Line</Type>
-          <Color>Green</Color>
+          <Data>/YahooFinance/TimeSeries/High</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Orange</Param>
         </Series>
         <Series id="OpenPrice">
-          <Data>/YahooFinance/TimeSeries/Open</Data>
-          <Type>Line</Type>
-          <Color>Blue</Color>
+          <Data>/YahooFinance/TimeSeries/Low</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Blue</Param>
         </Series>
       </SeriesDefinitions>
     </Data>

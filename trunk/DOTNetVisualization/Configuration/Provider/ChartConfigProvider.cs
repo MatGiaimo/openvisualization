@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web.UI.DataVisualization.Charting;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace ChartConfig
 {
@@ -21,6 +22,7 @@ namespace ChartConfig
         #region Private members
         private string xPath;
         private bool isXAxisLabel;
+        private Hashtable seriesParams;
         #endregion
 
         #region Properties
@@ -127,10 +129,49 @@ namespace ChartConfig
 
                 // Set the xpath to get data
                 currSeries.XPath = xSeries.Element("Data").Value.ToString();
+
+                // Loop through all Param values in the nodelist for the series
+                foreach (XElement xe in xSeries.Elements("Param"))
+                {
+                    string name = xe.Attribute("name").Value.ToString();
+                    string val = xe.Value.ToString();
+
+                    PropertyInfo pi = currSeries.GetType().GetProperty(name);
+                    
+                    // Evaluate special cases: Enum, Color, etc. Else do basic conversion
+                    try{
+                        Object o;
+
+                        if (pi.PropertyType.BaseType.FullName == "System.Enum")
+                        {
+                            o = Enum.Parse(pi.PropertyType, val);
+                            //pi.SetValue(currSeries, o, null);
+                        }
+                        else if (pi.PropertyType.FullName == "System.Drawing.Color")
+                        {
+                            o = System.Drawing.Color.FromName(val);
+                            //System.Drawing.Color color = System.Drawing.Color.FromName(val);
+                            //pi.SetValue(currSeries, color, null);
+                        }
+                        else 
+                        {
+                            o = Convert.ChangeType(val, pi.PropertyType);
+                            //pi.SetValue(currSeries, o, null);
+                        }
+
+                        pi.SetValue(currSeries, o, null);
+                    } catch (Exception e) 
+                        // DO NOTHING ... Yet
+                    {
+                        
+                    }
+
+                }
                 
                 //Not sure to do when these properties are not found so
                 //just swallow exceptions for now
                 // Type (Line, Column, Bar, Etc)
+                /*
                 try
                 {
                     SeriesChartType seriesType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), xSeries.Element("Type").Value.ToString());
@@ -179,7 +220,7 @@ namespace ChartConfig
                 catch (Exception ex)
                 {
                 }
-
+                */
                 series.Add(currSeries);
             }
         }
