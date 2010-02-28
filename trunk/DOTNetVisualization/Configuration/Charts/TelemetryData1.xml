@@ -1,0 +1,38 @@
+﻿<root>
+  <Chart Name="PriceHistory1">
+    <Uri>
+      <Path>http://localhost:55059/Services/GetTelemetryData.aspx</Path>
+      <Param Name="sensors">091F0022,0A3E10D8,091F0064,0A3E018B</Param>
+      <Param Name="startdate">2010-01-12</Param>
+      <Param Name="enddate">2010-01-13</Param>
+    </Uri>
+    <Data>
+      <SeriesDefinitions>
+        <Series id="Read Date">
+          <Data>/Telemetry/Data/read_date</Data>
+          <Param name="IsXAxisLabel">true</Param>
+        </Series>
+        <Series id="Sensor 1">
+          <Data>/Telemetry/Data[sensor_id[.='091F0022']]/temperature</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Red</Param>
+        </Series>
+        <Series id="Sensor 2">
+          <Data>/Telemetry/Data[sensor_id[.='0A3E10D8']]/temperature</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Blue</Param>
+        </Series>
+        <Series id="Sensor 3">
+          <Data>/Telemetry/Data[sensor_id[.='091F0064']]/temperature</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Green</Param>
+        </Series>
+        <Series id="Sensor 4">
+          <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>
+          <Param name="ChartType">Line</Param>
+          <Param name="Color">Yellow</Param>
+        </Series>
+      </SeriesDefinitions>
+    </Data>
+  </Chart>
+</root>

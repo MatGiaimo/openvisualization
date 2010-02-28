@@ -25,10 +25,16 @@
                             <a href="Services/GetPriceHistory.aspx">Services/GetPriceHistory.aspx</a>
                         </div>
                         <div>
+                            <a href="Services/GetTelemetryData.aspx">Services/GetTelemetryData.aspx</a>
+                        </div>
+                        <div>
                             <asp:LinkButton ID="btnShowPieChart" runat="server" OnClick="btnShowPieChart_Click">Simple Pie Chart Example</asp:LinkButton>
                         </div>
                         <div>
                             <asp:LinkButton ID="btnShowTimeSeries" runat="server" OnClick="btnShowTimeSeries_Click">Time Series Example</asp:LinkButton>
+                        </div>
+                        <div>
+                            <asp:LinkButton ID="btnShowTelemeteryData" runat="server" OnClick="btnShowTelemetryData_Click">Telemetry Data Example</asp:LinkButton>
                         </div>
                     </td>
                     <td>
@@ -74,6 +80,23 @@
                         End Date:<asp:Calendar ID="enddate" runat="server"></asp:Calendar>
                     </div>
                 </asp:Panel>
+            </asp:Panel>
+            <asp:Panel ID="pnlTelemetryData" runat="server" Visible="false">
+                <div>
+                    <asp:Chart ID="Chart3" runat="server">
+                        <Series>
+                            <asp:Series Name="Series1">
+                            </asp:Series>
+                        </Series>
+                        <ChartAreas>
+                            <asp:ChartArea Name="ChartArea1">
+                            </asp:ChartArea>
+                        </ChartAreas>
+                    </asp:Chart>
+                </div>
+                <div>
+                    <asp:Button ID="Button3" runat="server" Text="Build Telemetry Data Chart" OnClick="Button3_Click" />
+                </div>
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>

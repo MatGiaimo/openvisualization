@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="oms" Class="OmsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=CSU-20FB90A11F2\SQLEXPRESS;Initial Catalog=oms;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="omsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Query" Member="Queries">
+    <Type Name="Query">
+      <Column Name="sensor_id" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="read_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="sensor_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sensor_rev" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="sensor_config_rev" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="gway_id" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="gway_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="gway_rev" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="gway_config_rev" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="gway_seq_nbr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="network_id" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="site_nbr" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="data_sentence" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="battery_voltage" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="temperature" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="humidity" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="wood_pct" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="aux_voltage" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="gpp" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="dew_point" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="gallons" Type="System.Decimal" DbType="Decimal(9,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -27,6 +27,7 @@ namespace DOTNetVisualization
         {
             Chart1.ImageStorageMode = ImageStorageMode.UseImageLocation;
             Chart2.ImageStorageMode = ImageStorageMode.UseImageLocation;
+            Chart3.ImageStorageMode = ImageStorageMode.UseImageLocation;
 
             double[] yValues = { 20, 10, 24, 23 };
             string[] xValues = { "England", "Scotland", "Ireland", "Wales" };
@@ -39,12 +40,21 @@ namespace DOTNetVisualization
         {
             pnlPieChart.Visible = true;
             pnlTimeSeries.Visible = false;
+            pnlTelemetryData.Visible = false;
         }
 
         protected void btnShowTimeSeries_Click(object sender, EventArgs e)
         {
             pnlPieChart.Visible = false;
             pnlTimeSeries.Visible = true;
+            pnlTelemetryData.Visible = false;
+        }
+
+        protected void btnShowTelemetryData_Click(object sender, EventArgs e)
+        {
+            pnlPieChart.Visible = false;
+            pnlTimeSeries.Visible = false;
+            pnlTelemetryData.Visible = true;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -166,5 +176,32 @@ namespace DOTNetVisualization
             ChartBuilder cb = new ChartBuilder(chartConfig, Chart2);
         }
 
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            //OMSReader omsrdr = new OMSReader();
+
+            //string startDate = "2010-01-12";
+            //string endDate = "2010-01-13";
+
+            //XmlDocument xmlDoc = omsrdr.getXML(new string[] { "091F0022" }, startDate, endDate);
+
+            //int i = 0;
+
+            // Variable declarations
+            WebClient webClient = new WebClient();
+            XmlDocument xmlChartConfig = new XmlDocument();
+            XmlDocument xmlData = new XmlDocument();
+            // Get the chart config
+            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/TelemetryData1.xml"),
+              UriKind.RelativeOrAbsolute);
+            Stream configData = webClient.OpenRead(uri);
+            XmlTextReader xmlText = new XmlTextReader(configData);
+            xmlChartConfig.Load(xmlText);
+            configData.Close();
+
+            ChartConfigProvider chartConfig = new ChartConfigProvider(xmlChartConfig);
+
+            ChartBuilder cb = new ChartBuilder(chartConfig, Chart3);
+        }
     }
 }
