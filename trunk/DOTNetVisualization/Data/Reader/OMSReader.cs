@@ -21,26 +21,83 @@ using System.IO;
 
 namespace DOTNetVisualization
 {
-    public class OMSReader
+    public class OMSReader : ChartDataReaderBase
     {
-        public OMSReader()
+        public OMSReader() : base()
         {
         }
 
-        public XmlDocument getXML(string[] sensors, string strStartDateTime, string strEndDateTime)
+        private string[] _sensors;
+
+        public string[] Sensors
+        {
+            get
+            {
+                if (_sensors == null)
+                {
+                    throw (new Exception("Sensors must be set"));
+                }
+                else
+                    return _sensors;
+            }
+            set
+            {
+                _sensors = value;
+            }
+        }
+
+        private string _startDate;
+
+        public string StartDate
+        {
+            get
+            {
+                if (_startDate == null)
+                {
+                    throw (new Exception("StartDate must be set"));
+                }
+                else
+                    return _startDate;
+            }
+            set
+            {
+                _startDate = value;
+            }
+        }
+
+        private string _endDate;
+
+        public string EndDate
+        {
+            get
+            {
+                if (_endDate == null)
+                {
+                    throw (new Exception("EndDate must be set"));
+                }
+                else
+                    return _endDate;
+            }
+            set
+            {
+                _endDate = value;
+            }
+        }
+
+        public override XmlDocument getXML()
         {
             XmlDocument xReturn = new XmlDocument();
 
             DateTime startDate = new DateTime();
-            startDate = DateTime.Parse(strStartDateTime);
+            startDate = DateTime.Parse(StartDate);
 
             DateTime endDate = new DateTime();
-            endDate = DateTime.Parse(strEndDateTime);
+            endDate = DateTime.Parse(EndDate);
 
             OmsDataContext db = new OmsDataContext();
 
             var results = from q in db.Queries
-                          where sensors.Contains(q.sensor_id)
+                          where Sensors.Contains(q.sensor_id)
                           where q.read_date > startDate
                           where q.read_date < endDate
                           select q;
@@ -60,49 +117,6 @@ namespace DOTNetVisualization
             xReturn.LoadXml(stringWriter.ToString());
 
             return xReturn;
-        }
-
-
-        private DataTable LINQToDataTable<T>(IEnumerable<T> varlist)
-        {
-            DataTable dtReturn = new DataTable();
-
-            // column names 
-            PropertyInfo[] oProps = null;
-
-            if (varlist == null) return dtReturn;
-
-            foreach (T rec in varlist)
-            {
-                // Use reflection to get property names, to create table, Only first time, others will follow 
-                if (oProps == null)
-                {
-                    oProps = ((Type)rec.GetType()).GetProperties();
-                    foreach (PropertyInfo pi in oProps)
-                    {
-                        Type colType = pi.PropertyType;
-
-                        if ((colType.IsGenericType) && (colType.GetGenericTypeDefinition()
-                        == typeof(Nullable<>)))
-                        {
-                            colType = colType.GetGenericArguments()[0];
-                        }
-
-                        dtReturn.Columns.Add(new DataColumn(pi.Name, colType));
-                    }
-                }
-
-                DataRow dr = dtReturn.NewRow();
-
-                foreach (PropertyInfo pi in oProps)
-                {
-                    dr[pi.Name] = pi.GetValue(rec, null) == null ? DBNull.Value : pi.GetValue
-                    (rec, null);
-                }
-
-                dtReturn.Rows.Add(dr);
-            }
-            return dtReturn;
         }
     }
 }

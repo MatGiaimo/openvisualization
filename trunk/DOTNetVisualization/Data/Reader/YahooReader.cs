@@ -7,122 +7,141 @@ using System.Text;
 using System.Data.OleDb;
 
 
-public class YahooReader
+namespace DOTNetVisualization
 {
-    public YahooReader()
+    public class YahooReader : ChartDataReaderBase
     {
-    }
-
-    public string BuildYahooURI(string strTicker,string strStartDate, string strEndDate)
-    {
-        string strReturn = "";
-
-        DateTime dStart = Convert.ToDateTime(strStartDate);
-        DateTime dEnd = Convert.ToDateTime(strEndDate);
-        string sStartDay = dStart.Day.ToString();
-        string sStartMonth = (dStart.Month - 1).ToString();
-        string sStartYear = dStart.Year.ToString();
-        string sEndDay = dEnd.Day.ToString();
-        string sEndMonth = (dEnd.Month - 1).ToString();
-        string sEndYear = dEnd.Year.ToString();
-        StringBuilder sYahooURI =
-          new StringBuilder("http://ichart.finance.yahoo.com/table.csv?s=");
-        sYahooURI.Append(strTicker);
-        sYahooURI.Append("&a=");
-        sYahooURI.Append(sStartMonth);
-        sYahooURI.Append("&b=");
-        sYahooURI.Append(sStartDay);
-        sYahooURI.Append("&c=");
-        sYahooURI.Append(sStartYear);
-        sYahooURI.Append("&d=");
-        sYahooURI.Append(sEndMonth);
-        sYahooURI.Append("&e=");
-        sYahooURI.Append(sEndDay);
-        sYahooURI.Append("&f=");
-        sYahooURI.Append(sEndYear);
-        sYahooURI.Append("&g=d");
-        sYahooURI.Append("&ignore=.csv");
-        strReturn = sYahooURI.ToString();
-
-        return strReturn;
-    }
-
-    public XmlDocument getXML(string strTicker,string strStartDate, string strEndDate)
-    {
-        XmlDocument xReturn = new XmlDocument();
-        DataSet result = new DataSet();
-
-        string sYahooURI = BuildYahooURI(strTicker, strStartDate, strEndDate);
-
-        WebClient wc = new WebClient();
-        Stream yData = wc.OpenRead(sYahooURI);
-
-        result = GenerateDataSet(yData);
-
-        StringWriter stringWriter = new StringWriter();
-        XmlTextWriter xmlTextwriter = new XmlTextWriter(stringWriter);
-
-        result.WriteXml(xmlTextwriter, XmlWriteMode.IgnoreSchema);
-
-        XmlNode xRoot = xReturn.CreateElement("root");
-        xReturn.AppendChild(xRoot);
-        xReturn.LoadXml(stringWriter.ToString());
-
-        return xReturn;
-    }
-
-    public DataSet GenerateDataSet(Stream data)
-    {
-        //filename = SaveStreamToTempFile(data);
-
-        string tempFilePath = @"C:\projects\EEC626\openvisualization\TempData.csv";
-
-        FileStream fs = new FileStream(tempFilePath,FileMode.OpenOrCreate);
-
-        Copy(data, fs);
-
-        fs.Close();
-
-        String conn = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\;Extended Properties=""Text;HDR=No;FMT=Delimited""";
-
-        OleDbConnection cn = new OleDbConnection(conn);
-        OleDbCommand cmd = new OleDbCommand(string.Format(@"SELECT * FROM {0}",tempFilePath), cn);
-        OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-
-        cn.Open();
-
-        DataSet ds = new DataSet("YahooFinance");
-
-
-        da.Fill(ds);
-        ds.Tables[0].TableName = "TimeSeries";
-
-        File.Delete(tempFilePath);
-
-        return ds;
-
-        //DataTable dt = ds.Tables[0]; 
-    }
-
-    public void Copy(Stream source, Stream target)
-    {
-        byte[] buffer = new byte[0x10000];
-        int bytes;
-        try
+        public YahooReader() : base()
         {
-            while ((bytes = source.Read(buffer, 0, buffer.Length)) > 0)
+        }
+
+        private string _ticker;
+
+        public string Ticker
+        {
+            get
             {
-                target.Write(buffer, 0, bytes);
+                if (_ticker == null)
+                {
+                    throw (new Exception("Ticker must be set"));
+                }
+                else
+                    return _ticker;
+            }
+            set
+            {
+                _ticker = value;
             }
         }
-        finally
+
+        private string _startDate;
+
+        public string StartDate
         {
-            target.Flush();
-            target.Close();
+            get
+            {
+                if (_startDate == null)
+                {
+                    throw (new Exception("StartDate must be set"));
+                }
+                else
+                    return _startDate;
+            }
+            set
+            {
+                _startDate = value;
+            }
+        }
+
+        private string _endDate;
+
+        public string EndDate
+        {
+            get
+            {
+                if (_endDate == null)
+                {
+                    throw (new Exception("EndDate must be set"));
+                }
+                else
+                    return _endDate;
+            }
+            set
+            {
+                _endDate = value;
+            }
+        }
+
+        /// <summary>
+        /// Builds the URI used to call Yahoo's stock ticker service
+        /// </summary>
+        /// <param name="strTicker">Stock ticker symbol</param>
+        /// <param name="strStartDate">Start date</param>
+        /// <param name="strEndDate">End date</param>
+        /// <returns></returns>
+        private string BuildYahooURI(string strTicker, string strStartDate, string strEndDate)
+        {
+            string strReturn = "";
+
+            DateTime dStart = Convert.ToDateTime(strStartDate);
+            DateTime dEnd = Convert.ToDateTime(strEndDate);
+            string sStartDay = dStart.Day.ToString();
+            string sStartMonth = (dStart.Month - 1).ToString();
+            string sStartYear = dStart.Year.ToString();
+            string sEndDay = dEnd.Day.ToString();
+            string sEndMonth = (dEnd.Month - 1).ToString();
+            string sEndYear = dEnd.Year.ToString();
+            StringBuilder sYahooURI =
+              new StringBuilder("http://ichart.finance.yahoo.com/table.csv?s=");
+            sYahooURI.Append(strTicker);
+            sYahooURI.Append("&a=");
+            sYahooURI.Append(sStartMonth);
+            sYahooURI.Append("&b=");
+            sYahooURI.Append(sStartDay);
+            sYahooURI.Append("&c=");
+            sYahooURI.Append(sStartYear);
+            sYahooURI.Append("&d=");
+            sYahooURI.Append(sEndMonth);
+            sYahooURI.Append("&e=");
+            sYahooURI.Append(sEndDay);
+            sYahooURI.Append("&f=");
+            sYahooURI.Append(sEndYear);
+            sYahooURI.Append("&g=d");
+            sYahooURI.Append("&ignore=.csv");
+            strReturn = sYahooURI.ToString();
+
+            return strReturn;
+        }
+
+
+        /// <summary>
+        /// Returns an XML representation of Yahoo's stock qoute service
+        /// </summary>
+        /// <returns></returns>
+        public override XmlDocument getXML()
+        {
+            XmlDocument xReturn = new XmlDocument();
+            DataSet result = new DataSet();
+
+            string sYahooURI = BuildYahooURI(Ticker, StartDate, EndDate);
+
+            WebClient wc = new WebClient();
+            Stream yData = wc.OpenRead(sYahooURI);
+
+            result = GenerateDataSet(yData);
+
+            StringWriter stringWriter = new StringWriter();
+            XmlTextWriter xmlTextwriter = new XmlTextWriter(stringWriter);
+
+            result.WriteXml(xmlTextwriter, XmlWriteMode.IgnoreSchema);
+
+            XmlNode xRoot = xReturn.CreateElement("root");
+            xReturn.AppendChild(xRoot);
+            xReturn.LoadXml(stringWriter.ToString());
+
+            return xReturn;
         }
     }
 
 }
-
-
 

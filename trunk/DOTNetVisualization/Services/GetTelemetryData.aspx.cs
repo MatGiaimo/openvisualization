@@ -32,7 +32,11 @@ namespace DOTNetVisualization.Services
             else
                 strEndDate = "2010-01-13";
 
-            XmlDocument xReturn = omsRdr.getXML(sensors, strStartDate, strEndDate);
+            omsRdr.Sensors = sensors;
+            omsRdr.StartDate = strStartDate;
+            omsRdr.EndDate = strEndDate;
+
+            XmlDocument xReturn = omsRdr.getXML();
 
             Response.ContentType = "text/xml";
             Response.Write(xReturn.OuterXml);

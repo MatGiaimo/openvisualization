@@ -37,7 +37,11 @@ namespace DOTNetVisualization
             else
                 strEndDate = "1-26-2010";
 
-            XmlDocument xReturn = yahooRdr.getXML(strTicker, strStartDate, strEndDate);
+            yahooRdr.Ticker = strTicker;
+            yahooRdr.StartDate = strStartDate;
+            yahooRdr.EndDate = strEndDate;
+
+            XmlDocument xReturn = yahooRdr.getXML();
 
             Response.ContentType = "text/xml";
             Response.Write(xReturn.OuterXml);

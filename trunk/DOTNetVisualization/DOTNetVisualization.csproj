@@ -70,6 +70,8 @@
   <ItemGroup>
     <Compile Include="Charting\ChartBuilder.cs" />
     <Compile Include="Configuration\Provider\ChartConfigProvider.cs" />
+    <Compile Include="Data\Reader\ChartDataReaderBase.cs" />
+    <Compile Include="Data\Reader\IChartDataReader.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
