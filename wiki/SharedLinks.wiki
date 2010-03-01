@@ -1,4 +1,4 @@
-#summary A shared paged with links relavant to the project development.
+#summary A shared paged with links relevant to the project development.
 
 = Introduction =
 
