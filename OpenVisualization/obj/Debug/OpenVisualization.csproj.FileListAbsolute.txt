@@ -1,0 +1,10 @@
+C:\projects\eec626\openvisualization\DOTNetVisualization\bin\OpenVisualization.dll
+C:\projects\eec626\openvisualization\DOTNetVisualization\bin\OpenVisualization.pdb
+C:\projects\eec626\openvisualization\DOTNetVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\eec626\openvisualization\DOTNetVisualization\obj\Debug\OpenVisualization.dll
+C:\projects\eec626\openvisualization\DOTNetVisualization\obj\Debug\OpenVisualization.pdb
+C:\projects\eec626\openvisualization\OpenVisualization\bin\OpenVisualization.dll
+C:\projects\eec626\openvisualization\OpenVisualization\bin\OpenVisualization.pdb
+C:\projects\eec626\openvisualization\OpenVisualization\obj\Debug\ResolveAssemblyReference.cache
+C:\projects\eec626\openvisualization\OpenVisualization\obj\Debug\OpenVisualization.dll
+C:\projects\eec626\openvisualization\OpenVisualization\obj\Debug\OpenVisualization.pdb
