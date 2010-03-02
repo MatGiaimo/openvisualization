@@ -7,8 +7,11 @@ using System.Web.UI.DataVisualization.Charting;
 using System.Xml.Linq;
 using System.Reflection;
 
-namespace ChartConfig
+namespace OpenVisualization.Configuration
 {
+    /// <summary>
+    /// Enumeration of supported data source types
+    /// </summary>
     public enum DataSourceType
     {
         Uri
@@ -26,6 +29,10 @@ namespace ChartConfig
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// An XPath expression used to select data from the XML data
+        /// </summary>
         public string XPath
         {
             get
@@ -38,6 +45,9 @@ namespace ChartConfig
             }
         }
 
+        /// <summary>
+        /// True if the Series is used as the xAxis label
+        /// </summary>
         public bool IsXAxisLabel
         {
             get
@@ -52,6 +62,9 @@ namespace ChartConfig
         #endregion
     }
 
+    /// <summary>
+    /// This class reads an XML configuration file that is used to build a chart
+    /// </summary>
     public class ChartConfigProvider
     {
         #region Private members
@@ -62,6 +75,10 @@ namespace ChartConfig
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Holds an array of ChartConfigSeries
+        /// </summary>
         public ArrayList Series
         {
             get
@@ -70,6 +87,9 @@ namespace ChartConfig
             }
         }
 
+        /// <summary>
+        /// The service URI used to retrieve data values
+        /// </summary>
         public string URI
         {
             get
@@ -78,6 +98,9 @@ namespace ChartConfig
             }
         }
 
+        /// <summary>
+        /// The type of the data source
+        /// </summary>
         public DataSourceType DataSource
         {
             get 
@@ -88,11 +111,19 @@ namespace ChartConfig
         #endregion
 
         #region Constructors
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ChartConfigProvider()
         {
 
         }
 
+        /// <summary>
+        /// Overloaded constructor that builds a configuration from an XML string
+        /// </summary>
+        /// <param name="chartDefinition">XML string</param>
         public ChartConfigProvider(string chartDefinition)
         {
             XmlTextReader xmlText = new XmlTextReader(chartDefinition);
@@ -105,6 +136,10 @@ namespace ChartConfig
             ParseChartsXDoc();
         }
 
+        /// <summary>
+        /// Overloaded constructor that builds a configuration from an XmlDocument
+        /// </summary>
+        /// <param name="chartDefinition">XmlDocument configuration</param>
         public ChartConfigProvider(XmlDocument chartDefinition)
         {
             xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(chartDefinition);
@@ -168,6 +203,9 @@ namespace ChartConfig
             }
         }
 
+        /// <summary>
+        /// Parses Chart definitions inside the XML configuration
+        /// </summary>
         private void ParseChartsXDoc()
         {
             IEnumerable<XElement> xChartList = xDocChartDefinition.Root.Elements("Chart");
@@ -222,6 +260,11 @@ namespace ChartConfig
         #endregion
 
         #region Static Helper Methods
+        /// <summary>
+        /// Helper method to convert an XmlDocument to a LINQ XDocument
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <returns></returns>
         private static XDocument DocumentToXDocumentReader(XmlDocument doc)
         {
             return XDocument.Load(new XmlNodeReader(doc));

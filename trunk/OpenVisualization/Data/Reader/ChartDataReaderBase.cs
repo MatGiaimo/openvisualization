@@ -18,8 +18,12 @@ using System.Xml;
 using System.IO;
 using System.Data.OleDb;
 
-namespace OpenVisualization
+namespace OpenVisualization.Data
 {
+
+    /// <summary>
+    /// Base class for a ChartDataReader
+    /// </summary>
     public class ChartDataReaderBase : IChartDataReader
     {
         /// <summary>

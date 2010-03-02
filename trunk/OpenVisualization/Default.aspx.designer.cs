@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OpenVisualization {
+namespace OpenVisualization.Web {
     
     
     public partial class Default {

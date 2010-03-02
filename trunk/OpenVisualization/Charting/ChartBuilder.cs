@@ -7,22 +7,34 @@ using System.Net;
 using System.IO;
 using System.Xml;
 using System;
+using OpenVisualization.Configuration;
 
-namespace Charting
+namespace OpenVisualization.Charting
 {
-    using ChartConfig;
-
     /// <summary>
     /// ChartBuilder interacts with the data source and the chart configuration to provide
     /// a Chart object.
     /// </summary>
     public class ChartBuilder
     {
+        /// <summary>
+        /// The current working configuration for the chart
+        /// </summary>
         private ChartConfigProvider currConfig;
+
+        /// <summary>
+        /// The chart object used to provide the chart
+        /// </summary>
         private Chart chartToBuild;
 
-        //XAxis labeling
+        /// <summary>
+        /// Label for the xAxis seris
+        /// </summary>
         string xAxisLabelSeriesName = string.Empty;
+
+        /// <summary>
+        /// Array of xAxis values
+        /// </summary>
         ArrayList xAxisLabelValues;
 
         /// <summary>
@@ -35,7 +47,8 @@ namespace Charting
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="ChartConfig">A populated ChartConfig object.</param>
+        /// <param name="ChartConfig">A populated ChartConfig object</param>
+        /// <param name="ChartToBuild">The chart object used to provide the chart</param>
         public ChartBuilder(ChartConfigProvider ChartConfig, Chart ChartToBuild)
         {
             currConfig = ChartConfig;
@@ -48,6 +61,10 @@ namespace Charting
             FillSeriesData(xmlData);
         }
 
+        /// <summary>
+        /// Parse the xAxis values from the XML
+        /// </summary>
+        /// <param name="xmlData">XmlDocument containing data in the standardized format</param>
         private void BuildXAxisLabels(XmlDocument xmlData)
         {
             xAxisLabelValues = new ArrayList();
@@ -70,6 +87,10 @@ namespace Charting
             }
         }
 
+        /// <summary>
+        /// Populates the Chart Series with data values from the XML
+        /// </summary>
+        /// <param name="xmlData">XmlDocument containing data in the standardized format</param>
         private void FillSeriesData(XmlDocument xmlData)
         {
             foreach (ChartConfigSeries ccSeries in currConfig.Series)
@@ -101,6 +122,10 @@ namespace Charting
             }
         }
 
+        /// <summary>
+        /// Gets data from the URI provided in the ChartConfigProvider passed in the constructor
+        /// </summary>
+        /// <returns></returns>
         private XmlDocument GetXmlData()
         {
             // Now that we have the URI, we can call it and get the XML

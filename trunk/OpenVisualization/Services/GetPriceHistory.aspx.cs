@@ -11,9 +11,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Xml;
+using OpenVisualization.Data;
 
-namespace OpenVisualization
+namespace OpenVisualization.Services
 {
+    /// <summary>
+    /// Gets a price history result set from Yahoo's stock quote webservice (http://ichart.finance.yahoo.com/)
+    /// </summary>
     public partial class GetPriceHistory : System.Web.UI.Page
     {
         YahooReader yahooRdr = new YahooReader();
