@@ -1,5 +1,0 @@
-C:\projects\eec626\openvisualization\OpenVisualization\bin\OpenVisualization.dll
-C:\projects\eec626\openvisualization\OpenVisualization\bin\OpenVisualization.pdb
-C:\projects\eec626\openvisualization\OpenVisualization\obj\Release\ResolveAssemblyReference.cache
-C:\projects\eec626\openvisualization\OpenVisualization\obj\Release\OpenVisualization.dll
-C:\projects\eec626\openvisualization\OpenVisualization\obj\Release\OpenVisualization.pdb
