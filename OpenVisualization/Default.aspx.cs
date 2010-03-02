@@ -10,21 +10,22 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Xml;
+using System.Text;
+using System.Net;
+using System.IO;
+using System.Web.UI.DataVisualization.Charting;
+using OpenVisualization.Configuration;
+using OpenVisualization.Charting;
 
-namespace OpenVisualization
+
+namespace OpenVisualization.Web
 {
-    using System.Web.UI.DataVisualization.Charting;
-    using ChartConfig;
-    using Charting;
-    using System.Xml;
-    using System.Text;
-    using System.Net;
-    using System.IO;
-
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Set chart image storage mode
             Chart1.ImageStorageMode = ImageStorageMode.UseImageLocation;
             Chart2.ImageStorageMode = ImageStorageMode.UseImageLocation;
             Chart3.ImageStorageMode = ImageStorageMode.UseImageLocation;
@@ -178,15 +179,6 @@ namespace OpenVisualization
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            //OMSReader omsrdr = new OMSReader();
-
-            //string startDate = "2010-01-12";
-            //string endDate = "2010-01-13";
-
-            //XmlDocument xmlDoc = omsrdr.getXML(new string[] { "091F0022" }, startDate, endDate);
-
-            //int i = 0;
-
             // Variable declarations
             WebClient webClient = new WebClient();
             XmlDocument xmlChartConfig = new XmlDocument();

@@ -7,8 +7,11 @@ using System.Text;
 using System.Data.OleDb;
 
 
-namespace OpenVisualization
+namespace OpenVisualization.Data
 {
+    /// <summary>
+    /// A ChartDataReader that reads stock quote data from Yahoo's stock quote webservice (http://ichart.finance.yahoo.com/)
+    /// </summary>
     public class YahooReader : ChartDataReaderBase
     {
         public YahooReader() : base()
@@ -17,6 +20,9 @@ namespace OpenVisualization
 
         private string _ticker;
 
+        /// <summary>
+        /// Stock ticker symbol
+        /// </summary>
         public string Ticker
         {
             get
@@ -36,6 +42,9 @@ namespace OpenVisualization
 
         private string _startDate;
 
+        /// <summary>
+        /// Start date for the stock quote resultset
+        /// </summary>
         public string StartDate
         {
             get
@@ -55,6 +64,9 @@ namespace OpenVisualization
 
         private string _endDate;
 
+        /// <summary>
+        /// Ending date for the stock quote resultset
+        /// </summary>
         public string EndDate
         {
             get
@@ -117,7 +129,7 @@ namespace OpenVisualization
         /// <summary>
         /// Returns an XML representation of Yahoo's stock qoute service
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Standard XML representation of a csv result from the Yahoo stock webservice with the parameters provided through the properties</returns>
         public override XmlDocument getXML()
         {
             XmlDocument xReturn = new XmlDocument();

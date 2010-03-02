@@ -19,8 +19,11 @@ using System.IO;
 
 
 
-namespace OpenVisualization
+namespace OpenVisualization.Data
 {
+    /// <summary>
+    /// A ChartDataReader that reads data from a SQL Telemetry database 'oms'
+    /// </summary>
     public class OMSReader : ChartDataReaderBase
     {
         public OMSReader() : base()
@@ -29,6 +32,9 @@ namespace OpenVisualization
 
         private string[] _sensors;
 
+        /// <summary>
+        /// A string array of sensors to query
+        /// </summary>
         public string[] Sensors
         {
             get
@@ -48,6 +54,9 @@ namespace OpenVisualization
 
         private string _startDate;
 
+        /// <summary>
+        /// The starting date/time for the query
+        /// </summary>
         public string StartDate
         {
             get
@@ -67,6 +76,9 @@ namespace OpenVisualization
 
         private string _endDate;
 
+        /// <summary>
+        /// The ending date/time for the query
+        /// </summary>
         public string EndDate
         {
             get
@@ -84,6 +96,10 @@ namespace OpenVisualization
             }
         }
 
+        /// <summary>
+        /// Reads data from the 'oms' database
+        /// </summary>
+        /// <returns>Standard XML representation of a SQL result from querying the 'oms' table with the parameters provided through the properties</returns>
         public override XmlDocument getXML()
         {
             XmlDocument xReturn = new XmlDocument();

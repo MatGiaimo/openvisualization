@@ -5,9 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using OpenVisualization.Data;
 
 namespace OpenVisualization.Services
 {
+    /// <summary>
+    /// Retrieves telemetry data from the 'oms' webservice
+    /// </summary>
     public partial class GetTelemetryData : System.Web.UI.Page
     {
         OMSReader omsRdr = new OMSReader();
