@@ -32,5 +32,9 @@ Use this page to share links with the team
 *Source Control*
   * TortoiseSVN: http://tortoisesvn.tigris.org/
 
+*Testing*
+  * Selenium IDE: http://seleniumhq.org/
+  * Selenium Fix (XML HTTP Request error): http://code.google.com/p/selenium/issues/detail?id=388 
+
 *Virtual Machine*
   * VirtualBox: http://www.virtualbox.org/
