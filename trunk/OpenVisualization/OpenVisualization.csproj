@@ -152,7 +152,7 @@
 IF "$(ConfigurationName)"=="Debug" Goto Exit
 
 ECHO Building SHFB help file via MSBuild
-"$(SystemRoot)\Microsoft.NET\Framework\v3.5\MSBuild.exe" /p:CleanIntermediates=True /p:Configuration=Release "$(SolutionDir)\api_builder.shfbproj"
+"$(SystemRoot)\Microsoft.NET\Framework\v3.5\MSBuild.exe" /p:CleanIntermediates=True /p:Configuration=Release "$(SolutionDir)api_builder.shfbproj"
 
 :Exit</PostBuildEvent>
   </PropertyGroup>
