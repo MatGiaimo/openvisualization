@@ -25,7 +25,6 @@ namespace OpenVisualization.Configuration
         #region Private members
         private string xPath;
         private bool isXAxisLabel;
-        private Hashtable seriesParams;
         #endregion
 
         #region Properties
@@ -72,6 +71,8 @@ namespace OpenVisualization.Configuration
         private ArrayList series;
         private DataSourceType dataSource;
         private string uri;
+        private Hashtable chartParams;
+        private Hashtable chartAreaParams;
         #endregion
 
         #region Properties
@@ -108,6 +109,23 @@ namespace OpenVisualization.Configuration
                 return dataSource; 
             }
         }
+
+        public Hashtable ChartParams
+        {
+            get
+            {
+                return chartParams;
+            }
+        }
+
+        public Hashtable ChartAreaParams
+        {
+            get
+            {
+                return chartAreaParams;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -131,7 +149,8 @@ namespace OpenVisualization.Configuration
             xDocChartDefinition = XDocument.Load(xmlText);
 
             series = new ArrayList();
-
+            chartParams = new Hashtable();
+            chartAreaParams = new Hashtable();
 
             ParseChartsXDoc();
         }
@@ -144,6 +163,8 @@ namespace OpenVisualization.Configuration
         {
             xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(chartDefinition);
             series = new ArrayList();
+            chartParams = new Hashtable();
+            chartAreaParams = new Hashtable();
 
             ParseChartsXDoc();
         }
@@ -166,39 +187,10 @@ namespace OpenVisualization.Configuration
                 currSeries.XPath = xSeries.Element("Data").Value.ToString();
 
                 // Loop through all Param values in the nodelist for the series
-                foreach (XElement xe in xSeries.Elements("Param"))
-                {
-                    string name = xe.Attribute("name").Value.ToString();
-                    string val = xe.Value.ToString();
+                Object obj = currSeries;
+                FillObjectParameters(ref obj, xSeries.Elements("Param"));
 
-                    PropertyInfo pi = currSeries.GetType().GetProperty(name);
-                    
-                    // Evaluate special cases: Enum, Color, etc. Else do basic conversion
-                    try{
-                        Object o;
-
-                        if (pi.PropertyType.BaseType.FullName == "System.Enum")
-                        {
-                            o = Enum.Parse(pi.PropertyType, val);
-                        }
-                        else if (pi.PropertyType.FullName == "System.Drawing.Color")
-                        {
-                            o = System.Drawing.Color.FromName(val);
-                        }
-                        else 
-                        {
-                            o = Convert.ChangeType(val, pi.PropertyType);
-                        }
-
-                        pi.SetValue(currSeries, o, null);
-                    } catch (Exception e) 
-                        // DO NOTHING ... Yet
-                    {
-                        
-                    }
-
-                }
-                
+                currSeries = (ChartConfigSeries)obj; // Possible redundant code
                 series.Add(currSeries);
             }
         }
@@ -254,9 +246,64 @@ namespace OpenVisualization.Configuration
 
                 //Get the series definitions
                 BuildSeries(el.Descendants("Data").Descendants("SeriesDefinitions").Descendants("Series"));
+
+                // Process ChartArea Parameters
+                XElement xChartArea = el.Element("ChartArea");
+                FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
+
+                FillConfigParameters(chartParams, el.Elements("Param"));
             }
         }
 
+        private void FillConfigParameters(Hashtable ht, IEnumerable<XElement> paramElements)
+        {
+            // Loop through all Param values in the nodelist for the series
+            foreach (XElement xe in paramElements)
+            {
+                string name = xe.Attribute("name").Value.ToString();
+                string val = xe.Value.ToString();
+
+                ht.Add(name, val);
+            }
+        }
+
+        private void FillObjectParameters(ref Object chartObject, IEnumerable<XElement> paramElements)
+        {
+            // Loop through all Param values in the nodelist for the series
+            foreach (XElement xe in paramElements)
+            {
+                string name = xe.Attribute("name").Value.ToString();
+                string val = xe.Value.ToString();
+
+                PropertyInfo pi = chartObject.GetType().GetProperty(name);
+
+                // Evaluate special cases: Enum, Color, etc. Else do basic conversion
+                try
+                {
+                    Object o;
+
+                    if (pi.PropertyType.BaseType.FullName == "System.Enum")
+                    {
+                        o = Enum.Parse(pi.PropertyType, val);
+                    }
+                    else if (pi.PropertyType.FullName == "System.Drawing.Color")
+                    {
+                        o = System.Drawing.Color.FromName(val);
+                    }
+                    else
+                    {
+                        o = Convert.ChangeType(val, pi.PropertyType);
+                    }
+
+                    pi.SetValue(chartObject, o, null);
+                }
+                catch (Exception e)
+                // DO NOTHING ... Yet
+                {
+
+                }
+            }
+        }
         #endregion
 
         #region Static Helper Methods

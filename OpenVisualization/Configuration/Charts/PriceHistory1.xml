@@ -6,16 +6,24 @@
       <Param Name="startdate">1-1-2008</Param>
       <Param Name="enddate">1-15-2008</Param>
     </Uri>
+    <Param name="BackColor">Yellow</Param>
+    <Param name="Height">400</Param>
+    <Param name="Width">600</Param>
     <Data>
       <SeriesDefinitions>
         <Series id="Date">
           <Data>/YahooFinance/TimeSeries/Date</Data>
           <Param name="IsXAxisLabel">true</Param>
+          <!-- BOOL TEST -->
         </Series>
         <Series id="ClosePrice">
           <Data>/YahooFinance/TimeSeries/High</Data>
           <Param name="ChartType">Line</Param>
-          <Param name="Color">Orange</Param>
+          <!-- ENUM TEST -->
+          <Param name="Color">Red</Param>
+          <!-- COLOR TEST -->
+          <Param name="MarkerStep">2</Param>
+          <!-- INT32 TEST -->
         </Series>
         <Series id="OpenPrice">
           <Data>/YahooFinance/TimeSeries/Low</Data>
@@ -24,5 +32,14 @@
         </Series>
       </SeriesDefinitions>
     </Data>
+    <ChartArea>
+      <Param name="BackColor">LightGray</Param>
+      <Param name="ShadowColor">Blue</Param>
+      <Param name="ShadowOffset">5</Param>
+      <XAxis>
+        <Param name="Maximum">700</Param>
+        <Param name="Minimum">600</Param>
+      </XAxis>
+    </ChartArea>
   </Chart>
 </root>

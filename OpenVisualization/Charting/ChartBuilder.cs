@@ -7,6 +7,8 @@ using System.Net;
 using System.IO;
 using System.Xml;
 using System;
+using System.Reflection;
+
 using OpenVisualization.Configuration;
 
 namespace OpenVisualization.Charting
@@ -59,6 +61,8 @@ namespace OpenVisualization.Charting
             BuildXAxisLabels(xmlData);
 
             FillSeriesData(xmlData);
+            SetObjectParameters(chartToBuild, currConfig.ChartParams);
+            SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
         }
 
         /// <summary>
@@ -137,6 +141,46 @@ namespace OpenVisualization.Charting
             xmlData.Load(xmlText);
 
             return xmlData;
+        }
+
+        private void SetObjectParameters(Object chartObject, Hashtable ht)
+        {
+            foreach (string name in ht.Keys)
+            {
+                string val = ht[name].ToString();
+
+                PropertyInfo pi = chartObject.GetType().GetProperty(name);
+
+                // Evaluate special cases: Enum, Color, etc. Else do basic conversion
+                try
+                {
+                    Object o;
+
+                    if (pi.PropertyType.BaseType.FullName == "System.Enum")
+                    {
+                        o = Enum.Parse(pi.PropertyType, val);
+                    }
+                    else if (pi.PropertyType.FullName == "System.Drawing.Color")
+                    {
+                        o = System.Drawing.Color.FromName(val);
+                    }
+                    else if (pi.PropertyType.FullName == "System.Web.UI.WebControls.Unit")
+                    {
+                        o = new System.Web.UI.WebControls.Unit(val);
+                    }
+                    else
+                    {
+                        o = Convert.ChangeType(val, pi.PropertyType);
+                    }
+
+                    pi.SetValue(chartObject, o, null);
+                }
+                catch (Exception e)
+                // DO NOTHING ... Yet
+                {
+
+                }
+            }
         }
     }
 }
