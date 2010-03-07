@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="0d772aad-7051-44b1-9115-3050cab9889d" Title="OpenVisualization.Charting Namespace" Url="html/ca55e8c3-cb26-5978-999c-24a04ca11ce7.htm">
+    <HelpTOCNode Id="23439608-7d90-40e1-9343-02a4729d02ef" Title="ChartBuilder Class" Url="html/aeeb2bc5-051f-8405-7edc-102d1cda8ee0.htm">
+      <HelpTOCNode Title="ChartBuilder Members" Url="html/390a15e5-64c0-9e8e-af44-cab63456d81a.htm" />
+      <HelpTOCNode Id="9b4f96c4-274d-4d12-bea2-1478936f300b" Title="ChartBuilder Constructor " Url="html/cddfcddc-0443-b1d2-35ea-87f3b48c4101.htm">
+        <HelpTOCNode Title="ChartBuilder Constructor " Url="html/e45a9d50-0efd-20e8-9054-a2504117ae9d.htm" />
+        <HelpTOCNode Title="ChartBuilder Constructor (ChartConfigProvider, )" Url="html/640e8578-d328-a703-23ee-234412fe3dab.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ChartBuilder Methods " Url="html/4d685e73-16f7-cb31-ea6f-c4a701329755.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="b2f92351-34df-4e27-aa36-633adaf1bdd8" Title="OpenVisualization.Configuration Namespace" Url="html/2e934dfa-5d06-bd50-a1d3-ed130dd67b2f.htm">
+    <HelpTOCNode Id="2b650603-b206-445c-a71e-57bec90252c1" Title="ChartConfigProvider Class" Url="html/b9529e11-5c1f-aa79-2fd1-591922f5271b.htm">
+      <HelpTOCNode Title="ChartConfigProvider Members" Url="html/89775863-2272-f32a-b3ec-b938de333910.htm" />
+      <HelpTOCNode Id="259c8fa6-6602-45f8-98ee-4acd025b5ac7" Title="ChartConfigProvider Constructor " Url="html/3220d75d-b49a-6b0a-fd99-848042615751.htm">
+        <HelpTOCNode Title="ChartConfigProvider Constructor " Url="html/6cacf089-4fad-32ae-69d4-17d4a7000900.htm" />
+        <HelpTOCNode Title="ChartConfigProvider Constructor (String)" Url="html/3df57338-eb85-c81a-ff32-384c3792d0d4.htm" />
+        <HelpTOCNode Title="ChartConfigProvider Constructor (XmlDocument)" Url="html/ef8865c4-95b6-d5ac-fb35-7b17e7acae80.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="ChartConfigProvider Methods " Url="html/30aab0b5-f88e-5c4e-8d27-f292cb1cfbb7.htm" />
+      <HelpTOCNode Id="b50de055-4594-4aa5-a5ee-aadaaf9a18a7" Title="ChartConfigProvider Properties " Url="html/46d58054-3d45-d2d0-28f7-d2388cad2ec9.htm">
+        <HelpTOCNode Title="ChartAreaParams Property " Url="html/be4a2247-7f18-33e2-292c-ce19ef6d63e0.htm" />
+        <HelpTOCNode Title="ChartParams Property " Url="html/e42b2510-f9b1-62c0-d377-137401664250.htm" />
+        <HelpTOCNode Title="DataSource Property " Url="html/d9495027-a145-e512-dbfc-353f003f2841.htm" />
+        <HelpTOCNode Title="Series Property " Url="html/70166052-3431-8788-2b29-ded7f52d53e6.htm" />
+        <HelpTOCNode Title="URI Property " Url="html/2a055b58-1bdb-b07b-66ef-b2758fd547b4.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="be0777f9-41ff-4973-bbe2-0308a7a7f741" Title="ChartConfigSeries Class" Url="html/09a831a9-ff52-0d8d-cd88-cadb020a1dce.htm">
+      <HelpTOCNode Title="ChartConfigSeries Members" Url="html/ea89c150-82ed-41fe-3283-eddd7428984b.htm" />
+      <HelpTOCNode Title="ChartConfigSeries Constructor " Url="html/ca3173f2-7adb-7d57-8b03-4fba4d2befc8.htm" />
+      <HelpTOCNode Id="36c834bd-8480-463a-9ede-0144e1ef1e1b" Title="ChartConfigSeries Methods " Url="html/5d955946-de51-2345-3233-50f0d0a7a6c2.htm">
+        <HelpTOCNode Title="Dispose Method " Url="html/1dac924d-6973-9786-01c5-860bfde3aa2c.htm" />
+        <HelpTOCNode Title="Sort Method " Url="html/b36fa43c-8b54-6444-ac94-33981040f78a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6882ed87-d3c9-4879-9a7c-1106529d7a76" Title="ChartConfigSeries Properties " Url="html/5a82e8ee-abcd-c2a7-49ad-3447db07cbd2.htm">
+        <HelpTOCNode Title="IsXAxisLabel Property " Url="html/39e0bfc8-48f9-1f09-2873-0b3b03b33d9e.htm" />
+        <HelpTOCNode Title="Item Property " Url="html/1d781c72-a908-cc37-7ec0-967ced03300e.htm" />
+        <HelpTOCNode Title="XPath Property " Url="html/5e0192d5-36a0-c2d5-6397-23ecad297577.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="DataSourceType Enumeration" Url="html/71d6c617-5f2a-3bd5-ebf2-1757a1771316.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="08c5af9c-add3-454f-9de3-6a7ff9d34b2f" Title="OpenVisualization.Data Namespace" Url="html/dca68b9d-8016-a4c5-1c60-01ec1135beed.htm">
+    <HelpTOCNode Id="98ff0174-66b2-4614-bace-ad0693fc8c14" Title="ChartDataReaderBase Class" Url="html/64ac165a-f170-357d-c6cc-daec60c9e84b.htm">
+      <HelpTOCNode Title="ChartDataReaderBase Members" Url="html/becb2648-a8db-c42a-9c31-1c099f3aa5ac.htm" />
+      <HelpTOCNode Title="ChartDataReaderBase Constructor " Url="html/037a7fb3-de36-7267-5aea-c0a8d6ad34ee.htm" />
+      <HelpTOCNode Id="9f63e4c9-0ded-4d18-b699-355934e08811" Title="ChartDataReaderBase Methods " Url="html/850ece23-bdd0-3c95-d3be-7ea9763c1f9d.htm">
+        <HelpTOCNode Title="Copy Method " Url="html/fea92bdd-ee31-8aba-dfdb-57bbdf97bfb1.htm" />
+        <HelpTOCNode Title="GenerateDataSet Method " Url="html/7623c270-e0d5-3a21-84af-362577f94b3c.htm" />
+        <HelpTOCNode Title="getXML Method " Url="html/568e0a2b-f9b7-bb6b-9a7b-6cd7f8137a9f.htm" />
+        <HelpTOCNode Title="LINQToDataTable(T) Method " Url="html/37653209-dce6-1902-1ddb-308123bae194.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="9b269286-a7b5-49a2-8979-81b7766a49a1" Title="OMSReader Class" Url="html/ba56aeba-a1df-cc9e-f5c0-e8cb331a13ff.htm">
+      <HelpTOCNode Title="OMSReader Members" Url="html/d1803e74-add3-77e6-7ddd-c8c3488e92f4.htm" />
+      <HelpTOCNode Title="OMSReader Constructor " Url="html/105a8eb8-dbaf-6f80-235f-af77e7377f61.htm" />
+      <HelpTOCNode Id="d1acc099-4c95-4d2d-9373-51389f7099b9" Title="OMSReader Methods " Url="html/93ebb2ea-a6a6-47ab-a446-2861f65236d5.htm">
+        <HelpTOCNode Title="getXML Method " Url="html/e4235ae2-05ad-2fb5-ade1-f57fb2a6a891.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8c26c17a-127a-4b18-9039-8fabf888010c" Title="OMSReader Properties " Url="html/1ab9e4c9-96f3-8e8e-3d37-a4ba0d3a9624.htm">
+        <HelpTOCNode Title="EndDate Property " Url="html/9d719eb2-f8f0-ce83-943c-3be6a2ffd59e.htm" />
+        <HelpTOCNode Title="Sensors Property " Url="html/83ef186c-89c1-c136-6941-35c694376f83.htm" />
+        <HelpTOCNode Title="StartDate Property " Url="html/025f969a-8262-290c-346f-5a738d02dcd6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7af573a9-1569-4576-be11-0d93d45a83ed" Title="YahooReader Class" Url="html/c877ab5c-a357-ba58-58c2-61b7dfa7025f.htm">
+      <HelpTOCNode Title="YahooReader Members" Url="html/d3bb8e54-dc20-19d3-5525-9f3e687392d3.htm" />
+      <HelpTOCNode Title="YahooReader Constructor " Url="html/154827f3-af97-e885-2ed0-65de6104ba67.htm" />
+      <HelpTOCNode Id="822211bd-359e-4d90-9020-f168a5ab0534" Title="YahooReader Methods " Url="html/9c62135f-9492-29f7-b04d-ab8ae16046c1.htm">
+        <HelpTOCNode Title="getXML Method " Url="html/4c3733d0-cd48-b05f-0c94-8f5de6d3b84e.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="81336f2d-2eff-48a5-a5c2-474d5c59ef1a" Title="YahooReader Properties " Url="html/c6d79015-4faf-b7c1-745a-3dd807eca344.htm">
+        <HelpTOCNode Title="EndDate Property " Url="html/f2d31015-4b74-4821-cb11-f50ed82434f4.htm" />
+        <HelpTOCNode Title="StartDate Property " Url="html/a7d447ed-53e0-13cf-2dae-cd7a0ad0cc8a.htm" />
+        <HelpTOCNode Title="Ticker Property " Url="html/506ebca9-7863-b430-66c2-39d931ac24f6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="dbc3451a-9572-4178-adec-4ccf6344ff2f" Title="OpenVisualization.Data.DataContext Namespace" Url="html/eb869b8e-0241-356a-778f-6632dffd2788.htm">
+    <HelpTOCNode Id="55670f4b-7306-401a-b8ef-be796a5b138a" Title="OmsDataContext Class" Url="html/c8749e03-7a47-f680-3817-03fd6f1246d5.htm">
+      <HelpTOCNode Title="OmsDataContext Members" Url="html/0eb36bf8-d08e-436e-c555-3893e049b950.htm" />
+      <HelpTOCNode Id="c044c0c1-fe63-4519-b0b9-5e427a6fe401" Title="OmsDataContext Constructor " Url="html/c19486c8-701c-a0a5-4291-3b08d72c68ac.htm">
+        <HelpTOCNode Title="OmsDataContext Constructor " Url="html/5774029a-5b18-115d-f78e-6152d96762e3.htm" />
+        <HelpTOCNode Title="OmsDataContext Constructor (IDbConnection)" Url="html/a8a96fe8-2a7a-c856-4349-18c3c3991cc3.htm" />
+        <HelpTOCNode Title="OmsDataContext Constructor (String)" Url="html/73493176-87d0-01bc-95e6-f59d58de8f81.htm" />
+        <HelpTOCNode Title="OmsDataContext Constructor (IDbConnection, MappingSource)" Url="html/408e4017-3e18-4083-1a60-5d6f31268a4d.htm" />
+        <HelpTOCNode Title="OmsDataContext Constructor (String, MappingSource)" Url="html/4530719e-fbca-219c-1379-48be67688963.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b473bc5a-f00f-409e-a44e-f7eac3e02bd8" Title="OmsDataContext Methods " Url="html/ae86161d-a143-3287-9860-221562ab7a11.htm">
+        <HelpTOCNode Title="Dispose Method " Url="html/fe7b9811-bb6d-371d-23cc-ca94b74af82b.htm" />
+        <HelpTOCNode Title="ExecuteQuery Method " Url="html/81176809-a45b-92c9-89c4-8e8056169512.htm" />
+        <HelpTOCNode Title="GetTable Method " Url="html/831dc041-9182-5dc9-bab4-2554f744f33f.htm" />
+        <HelpTOCNode Title="Refresh Method " Url="html/b15acede-b56b-10e9-8ee5-a0085e8f5d80.htm" />
+        <HelpTOCNode Title="SubmitChanges Method " Url="html/51464bd7-8e39-3fa7-6b04-9b3a0ac52671.htm" />
+        <HelpTOCNode Title="Translate Method " Url="html/c3119fe5-6232-a34c-ecff-8d4703c3119a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="9c55a0da-fdd0-4793-85d0-84760b223791" Title="OmsDataContext Properties " Url="html/fc693252-4bd6-ca42-d3ff-73b5b1c232d4.htm">
+        <HelpTOCNode Title="Queries Property " Url="html/5ab59dbf-c51d-6218-4cb3-620e4989da59.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="448f792b-b5eb-4254-a189-620718bd3af9" Title="Query Class" Url="html/4e3ebb4a-915c-1cb4-51cd-d879031728ac.htm">
+      <HelpTOCNode Title="Query Members" Url="html/a7501131-1345-b3db-831b-b04d5bb77d84.htm" />
+      <HelpTOCNode Title="Query Constructor " Url="html/1b5109a0-6621-75d3-3712-889c862b5e14.htm" />
+      <HelpTOCNode Title="Query Methods " Url="html/92a26e8e-7233-8b31-5276-4e2e7300f3e7.htm" />
+      <HelpTOCNode Id="7b9373df-06b5-472b-8614-c7ff6b01ff24" Title="Query Properties " Url="html/b15c86dd-10b4-1614-c3df-3b0ac3120113.htm">
+        <HelpTOCNode Title="aux_voltage Property " Url="html/a0a8bfde-50a0-ddb4-a93d-21eaf1d49c88.htm" />
+        <HelpTOCNode Title="battery_voltage Property " Url="html/ae884809-d155-7110-76ae-fe3be5b3e622.htm" />
+        <HelpTOCNode Title="create_date Property " Url="html/a11e051b-64a7-9322-0de1-4bba9530da3b.htm" />
+        <HelpTOCNode Title="data_sentence Property " Url="html/6a8ea707-3138-e4d5-c326-55720626c9cd.htm" />
+        <HelpTOCNode Title="dew_point Property " Url="html/e0721777-290f-37e6-ee8c-24cb59a89910.htm" />
+        <HelpTOCNode Title="gallons Property " Url="html/d05329e3-dd79-d107-15dc-996a37c9398e.htm" />
+        <HelpTOCNode Title="gpp Property " Url="html/c929eec8-ea14-9bfc-7f09-96dffa095342.htm" />
+        <HelpTOCNode Title="gway_config_rev Property " Url="html/d9954878-a512-6a7d-a54d-3649f86bacd9.htm" />
+        <HelpTOCNode Title="gway_id Property " Url="html/3308ed4b-2ef9-4c76-6730-18ca6d425636.htm" />
+        <HelpTOCNode Title="gway_rev Property " Url="html/c50de48a-7d97-56ea-a174-5051d14616a8.htm" />
+        <HelpTOCNode Title="gway_seq_nbr Property " Url="html/c3432861-bb90-f2ee-4663-76707572a3b8.htm" />
+        <HelpTOCNode Title="gway_type Property " Url="html/b4bb75f1-da1f-4274-1cd8-b299708c0ba6.htm" />
+        <HelpTOCNode Title="humidity Property " Url="html/29247253-a7aa-990d-9616-60492ef2718f.htm" />
+        <HelpTOCNode Title="network_id Property " Url="html/6032266a-4a42-b6b6-f89e-b914738f4f32.htm" />
+        <HelpTOCNode Title="read_date Property " Url="html/f1cc9070-4cfc-150d-4b0b-93970da90948.htm" />
+        <HelpTOCNode Title="sensor_config_rev Property " Url="html/678e1d5c-5bf0-219d-1409-9aaa39cdd408.htm" />
+        <HelpTOCNode Title="sensor_id Property " Url="html/5261935a-3b72-ad0d-e806-1a2bd34fb0f8.htm" />
+        <HelpTOCNode Title="sensor_rev Property " Url="html/2d32dbdb-04cc-7fd8-0fec-695197419acb.htm" />
+        <HelpTOCNode Title="sensor_type Property " Url="html/42e0f132-59a2-e170-1fa2-27ec043912b5.htm" />
+        <HelpTOCNode Title="site_nbr Property " Url="html/eb80e64b-cf79-4f0a-c0f9-e7df9430a3c1.htm" />
+        <HelpTOCNode Title="temperature Property " Url="html/8034ce69-467b-72c9-93c0-264b25d41951.htm" />
+        <HelpTOCNode Title="wood_pct Property " Url="html/d92e383e-914f-def5-5aac-6e968f2bc0cd.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="3c9638a3-938b-4f66-a5ec-f295489a316d" Title="OpenVisualization.Services Namespace" Url="html/36dae43e-2b2f-9399-fb3c-03858b8d3761.htm">
+    <HelpTOCNode Id="732d1502-7b39-446d-8c93-e8e2f677b914" Title="GetPriceHistory Class" Url="html/21d63395-19c5-983a-2eca-886bd6e1ab98.htm">
+      <HelpTOCNode Title="GetPriceHistory Members" Url="html/5ab6e0f6-6b63-8147-b3aa-414c40d9d98c.htm" />
+      <HelpTOCNode Title="GetPriceHistory Constructor " Url="html/f0cf5226-40a4-5526-5776-6ed2a04c5f4b.htm" />
+      <HelpTOCNode Id="9e27f4d3-1a56-46de-ac58-92f63880204a" Title="GetPriceHistory Methods " Url="html/2601e402-efd6-7708-b221-3cb3d3951a49.htm">
+        <HelpTOCNode Title="AddOnPreRenderCompleteAsync Method " Url="html/8989c2e2-8fc8-a1ec-5c3b-5932eef227a2.htm" />
+        <HelpTOCNode Title="DataBind Method " Url="html/29d75db5-6cd8-f21b-08bd-f44bd7c01fdf.htm" />
+        <HelpTOCNode Title="Eval Method " Url="html/9196311e-c1b0-14c5-c934-b9272815bd00.htm" />
+        <HelpTOCNode Title="FindControl Method " Url="html/7b050ae6-e9b1-3dd0-7d05-4f3e4c70e478.htm" />
+        <HelpTOCNode Title="GetGlobalResourceObject Method " Url="html/3e591354-8bb1-7473-a6e1-2a60b60e489b.htm" />
+        <HelpTOCNode Title="GetLocalResourceObject Method " Url="html/2bd5b79a-2b6d-6d04-2e6c-3897bdfb0f82.htm" />
+        <HelpTOCNode Title="GetPostBackEventReference Method " Url="html/9c6bf6c6-b6e8-6e55-f145-fea5e7878d44.htm" />
+        <HelpTOCNode Title="InitOutputCache Method " Url="html/a5f579c9-0b24-4f37-8292-ec577bda8a8d.htm" />
+        <HelpTOCNode Title="LoadControl Method " Url="html/9a67c10a-e554-726a-9ad9-9d4e5adc86a6.htm" />
+        <HelpTOCNode Title="Page_Load Method " Url="html/590af4c2-7521-8e98-3f08-12deb624ac15.htm" />
+        <HelpTOCNode Title="ParseControl Method " Url="html/d281abbf-7a9f-adbd-006f-163cf65f6dd9.htm" />
+        <HelpTOCNode Title="RenderControl Method " Url="html/18e06bec-1230-086f-3573-a8a6b1afb432.htm" />
+        <HelpTOCNode Title="SetFocus Method " Url="html/3b172638-95d9-a5f8-088d-502fe8adc91d.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/82865387-aac4-706f-ead2-bc8b3c019390.htm" />
+        <HelpTOCNode Title="XPath Method " Url="html/83581bb8-8fc3-4611-b424-3c09a36ad989.htm" />
+        <HelpTOCNode Title="XPathSelect Method " Url="html/6853d492-bd36-3dd4-faa2-8f6182a8ca5d.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="GetPriceHistory Properties " Url="html/9b0966b3-8936-3b7b-733b-e792d4650d54.htm" />
+      <HelpTOCNode Title="GetPriceHistory Events" Url="html/bd17dc8a-eddb-0141-6b5b-9988dc25bef0.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="21573a37-0cec-4467-bce7-9d6382e64ef3" Title="GetTelemetryData Class" Url="html/821f129c-b061-f5ea-42d6-34c7bdc64051.htm">
+      <HelpTOCNode Title="GetTelemetryData Members" Url="html/07c9ed0d-b0d6-e6f2-8a45-2dedda14b087.htm" />
+      <HelpTOCNode Title="GetTelemetryData Constructor " Url="html/f3cb9422-4f30-beca-c353-348a99898a6e.htm" />
+      <HelpTOCNode Id="0a60cf27-59a6-4995-b4b3-57f0d91ab917" Title="GetTelemetryData Methods " Url="html/e761b308-5223-1f2e-048c-d53d08de690e.htm">
+        <HelpTOCNode Title="AddOnPreRenderCompleteAsync Method " Url="html/ed72391f-54bd-a73d-99bb-416b98b6c037.htm" />
+        <HelpTOCNode Title="DataBind Method " Url="html/bc1f9383-c452-8c86-6f30-b1561ec56332.htm" />
+        <HelpTOCNode Title="Eval Method " Url="html/2034782e-857b-d8aa-658d-1d6e63437ae1.htm" />
+        <HelpTOCNode Title="FindControl Method " Url="html/ceb54977-c3f9-7eec-1eec-9e4fa5296a97.htm" />
+        <HelpTOCNode Title="GetGlobalResourceObject Method " Url="html/1d151e60-2aeb-4e25-cee7-651754295e12.htm" />
+        <HelpTOCNode Title="GetLocalResourceObject Method " Url="html/c7df1f58-aac2-deb7-d1e7-c1a59d9bd90f.htm" />
+        <HelpTOCNode Title="GetPostBackEventReference Method " Url="html/f0402207-cd38-9bd9-95a7-35c3867599f9.htm" />
+        <HelpTOCNode Title="InitOutputCache Method " Url="html/7ab04120-51a4-22aa-fa0d-7e7acc5fb3ef.htm" />
+        <HelpTOCNode Title="LoadControl Method " Url="html/03b9db57-0c8d-c630-7151-5071030ccfde.htm" />
+        <HelpTOCNode Title="Page_Load Method " Url="html/fbda84c6-711f-5294-f819-2c11536af801.htm" />
+        <HelpTOCNode Title="ParseControl Method " Url="html/e914b1d7-7a43-b27b-fb9c-bc63b0b804a4.htm" />
+        <HelpTOCNode Title="RenderControl Method " Url="html/dc5c2cb4-4c88-755b-a39d-b2e77efd16b2.htm" />
+        <HelpTOCNode Title="SetFocus Method " Url="html/58b2d5b0-c71e-5ac7-b0e8-915af47e83c5.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/b1e7f766-a7a1-be87-6127-3fe1586be12f.htm" />
+        <HelpTOCNode Title="XPath Method " Url="html/8d307e04-880e-c55c-96ad-fc31bb241db2.htm" />
+        <HelpTOCNode Title="XPathSelect Method " Url="html/c4c5494c-3482-bf19-473b-3c89b4a6ad97.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="GetTelemetryData Properties " Url="html/beeed589-0ece-4250-8268-c64324c61714.htm" />
+      <HelpTOCNode Title="GetTelemetryData Events" Url="html/bb240790-52df-802b-c869-b87b29a89811.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="0ba4ccaf-ed0b-4999-af2f-368feb271604" Title="OpenVisualization.Web Namespace" Url="html/9d0963fc-c048-5644-ad49-09d9f2c203fd.htm">
+    <HelpTOCNode Id="569dd161-5785-4f9b-b93e-af0ccd750369" Title="Default Class" Url="html/bda3f2f2-4f92-9881-39e7-9e2d6e71ea86.htm">
+      <HelpTOCNode Title="Default Members" Url="html/01fd9951-87d1-59e5-8d08-4195b4c6af3e.htm" />
+      <HelpTOCNode Title="Default Constructor " Url="html/c7c2aafc-d7dd-c7e7-85ec-a7fad63d69ff.htm" />
+      <HelpTOCNode Id="749429c7-374e-4fdd-bf3e-8a5a4b3a2a69" Title="Default Fields" Url="html/20ba9168-507d-139c-a7d0-0f7174413883.htm">
+        <HelpTOCNode Title="btnShowPieChart Field" Url="html/369adfba-fe45-0f9d-0358-46d446376402.htm" />
+        <HelpTOCNode Title="btnShowTelemeteryData Field" Url="html/d0bcf917-39c9-fd3b-1a10-a31a9b300a00.htm" />
+        <HelpTOCNode Title="btnShowTimeSeries Field" Url="html/cce27e44-f842-9f91-d253-d6ccb3d485fd.htm" />
+        <HelpTOCNode Title="Button1 Field" Url="html/7fbb5271-2575-b68f-304b-4899695d317e.htm" />
+        <HelpTOCNode Title="Button2 Field" Url="html/78ae6022-e6cd-d34d-d738-52498cac23cc.htm" />
+        <HelpTOCNode Title="Button3 Field" Url="html/4a876209-6cac-9112-015c-318d4e8e18ba.htm" />
+        <HelpTOCNode Title="Chart1 Field" Url="html/137d5f7a-262f-b7b0-6710-ec67f67e81bd.htm" />
+        <HelpTOCNode Title="Chart2 Field" Url="html/d9c63f48-c344-4de2-1509-74b264723fec.htm" />
+        <HelpTOCNode Title="Chart3 Field" Url="html/37c66650-11c1-b54d-90ee-1c3311e0e526.htm" />
+        <HelpTOCNode Title="enddate Field" Url="html/46601c0d-48fd-543e-5892-f7047743502a.htm" />
+        <HelpTOCNode Title="form2 Field" Url="html/e1e6cd44-7bbe-8d06-7e56-f67cf1820de7.htm" />
+        <HelpTOCNode Title="pnlChartParams Field" Url="html/c381605e-eba1-3a8f-6664-6c9159de9c46.htm" />
+        <HelpTOCNode Title="pnlPieChart Field" Url="html/564725c6-01bb-1be9-80a6-c36e35fc131e.htm" />
+        <HelpTOCNode Title="pnlTelemetryData Field" Url="html/3c93104e-6495-a76e-9167-550c5fa343c0.htm" />
+        <HelpTOCNode Title="pnlTimeSeries Field" Url="html/cb2c366f-a100-6cab-1caf-b76bb07ec7d7.htm" />
+        <HelpTOCNode Title="Scriptmanager1 Field" Url="html/06c8e2a3-ba48-2be9-4dc1-1846dd75533f.htm" />
+        <HelpTOCNode Title="startdate Field" Url="html/55cf3bcc-61a6-0042-22e5-fa6e01a98c19.htm" />
+        <HelpTOCNode Title="ticker Field" Url="html/61b6140c-4c27-8e88-10c1-4be8427f4def.htm" />
+        <HelpTOCNode Title="UpdatePanel1 Field" Url="html/46f7737d-19d6-a7cb-b0bc-9fa6c9bbdc98.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="daeb665b-20bb-4b34-afaa-1f688bd2df98" Title="Default Methods " Url="html/0dbbf5b0-8878-3ab2-cc0f-3bbbd85f4655.htm">
+        <HelpTOCNode Title="AddOnPreRenderCompleteAsync Method " Url="html/64aa410c-bf2e-c487-8dc2-8733b6ea8f47.htm" />
+        <HelpTOCNode Title="btnShowPieChart_Click Method " Url="html/4491e80e-92f5-ddfb-7720-14064ac47bb2.htm" />
+        <HelpTOCNode Title="btnShowTelemetryData_Click Method " Url="html/22c963e9-9ddf-8b9a-5560-eb50e47f03e6.htm" />
+        <HelpTOCNode Title="btnShowTimeSeries_Click Method " Url="html/7e26cb23-08a2-66a7-99e2-35d8e0bf9bf3.htm" />
+        <HelpTOCNode Title="Button1_Click Method " Url="html/df9e2fc5-eab5-c2c1-97e4-fc9ca924cad9.htm" />
+        <HelpTOCNode Title="Button2_Click Method " Url="html/95d48745-d756-50f8-9e63-e62f3900ff1c.htm" />
+        <HelpTOCNode Title="Button3_Click Method " Url="html/723fc9e7-43f3-e5fa-c7e6-b52fb49c2cbf.htm" />
+        <HelpTOCNode Title="DataBind Method " Url="html/aaeca45d-ffea-c9f4-bcbe-d5c6a53eb3f1.htm" />
+        <HelpTOCNode Title="Eval Method " Url="html/57651f25-2c0b-6411-6b0b-f9189ceda8aa.htm" />
+        <HelpTOCNode Title="FindControl Method " Url="html/994d1667-187d-4bb6-9731-4dac0064fd63.htm" />
+        <HelpTOCNode Title="GetGlobalResourceObject Method " Url="html/b78c7d9c-12b0-2b1d-af03-5b9f9d2a7ac4.htm" />
+        <HelpTOCNode Title="GetLocalResourceObject Method " Url="html/08133cc7-9d65-1bf5-aed3-3c87c53f5593.htm" />
+        <HelpTOCNode Title="GetPostBackEventReference Method " Url="html/2f06f87b-e480-7f78-7954-714ffda4344c.htm" />
+        <HelpTOCNode Title="InitOutputCache Method " Url="html/3efff60c-6172-695c-2dd1-c68f7cf9091c.htm" />
+        <HelpTOCNode Title="LoadControl Method " Url="html/7d70e8a3-d910-f1b0-0b7f-9d32267af424.htm" />
+        <HelpTOCNode Title="Page_Load Method " Url="html/88b8b021-96cc-4b43-8a60-c13fc2505ef9.htm" />
+        <HelpTOCNode Title="ParseControl Method " Url="html/91896b54-238f-178d-40b3-bcca6e84a959.htm" />
+        <HelpTOCNode Title="RenderControl Method " Url="html/c1304c9e-cec2-0f98-5ee3-1c0c337685d1.htm" />
+        <HelpTOCNode Title="SetFocus Method " Url="html/719d3a7e-e16f-577a-dd66-69c097da796d.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/cf99cd2e-8341-9884-cf18-9f0130c33d8e.htm" />
+        <HelpTOCNode Title="XPath Method " Url="html/8a63a103-eb15-b5d6-3715-7c6bebb45888.htm" />
+        <HelpTOCNode Title="XPathSelect Method " Url="html/259adfe5-2da0-2b16-702d-2fce23075462.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Default Properties " Url="html/bd3b4717-c280-5887-b21c-2fd841a63906.htm" />
+      <HelpTOCNode Title="Default Events" Url="html/3e6b599a-0e7e-d406-af2c-89ac64a232bc.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
