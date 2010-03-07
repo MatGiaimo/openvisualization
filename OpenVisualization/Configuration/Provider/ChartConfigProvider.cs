@@ -144,9 +144,11 @@ namespace OpenVisualization.Configuration
         /// <param name="chartDefinition">XML string</param>
         public ChartConfigProvider(string chartDefinition)
         {
-            XmlTextReader xmlText = new XmlTextReader(chartDefinition);
+            // Make sure string is uri encoded
+            XmlDocument xChartDefinition = new XmlDocument();
+            xChartDefinition.LoadXml(chartDefinition);
 
-            xDocChartDefinition = XDocument.Load(xmlText);
+            xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(xChartDefinition);
 
             series = new ArrayList();
             chartParams = new Hashtable();
@@ -249,7 +251,7 @@ namespace OpenVisualization.Configuration
 
                 // Process ChartArea Parameters
                 XElement xChartArea = el.Element("ChartArea");
-                FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
+                //FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
 
                 FillConfigParameters(chartParams, el.Elements("Param"));
             }
