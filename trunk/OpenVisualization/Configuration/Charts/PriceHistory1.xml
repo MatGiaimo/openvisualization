@@ -1,4 +1,5 @@
-﻿<root>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
   <Chart Name="PriceHistory1">
     <Uri>
       <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>

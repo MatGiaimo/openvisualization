@@ -10,6 +10,8 @@ using System;
 using System.Reflection;
 
 using OpenVisualization.Configuration;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 
 namespace OpenVisualization.Charting
 {
@@ -44,6 +46,39 @@ namespace OpenVisualization.Charting
         /// </summary>
         public ChartBuilder()
         {
+        }
+
+
+        /// <summary>
+        /// This overloaded constructor creates a chart from the provided ChartConfigProvider
+        /// </summary>
+        /// <param name="ChartConfig"></param>
+        public ChartBuilder(ChartConfigProvider ChartConfig, System.Web.UI.Page ThisPage)
+        {
+            try
+            {
+                currConfig = ChartConfig;
+                chartToBuild = new Chart();
+                chartToBuild.Series.Add(new Series());
+                chartToBuild.ChartAreas.Add(new ChartArea());
+                chartToBuild.ImageLocation = "~/ChartPic_#UID";
+                chartToBuild.Page = ThisPage;
+                chartToBuild.RenderType = RenderType.ImageTag;
+                chartToBuild.ImageType = ChartImageType.Png;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseImageLocation;
+
+                XmlDocument xmlData = GetXmlData();
+
+                BuildXAxisLabels(xmlData);
+
+                FillSeriesData(xmlData);
+                SetObjectParameters(chartToBuild, currConfig.ChartParams);
+                SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -142,6 +177,23 @@ namespace OpenVisualization.Charting
 
             return xmlData;
         }
+
+        public string GetChartHtml()
+        {
+
+            StringBuilder htmlString = new StringBuilder(); // this will hold the string
+
+            using (StringWriter stringWriter = new StringWriter(htmlString))
+            {
+
+                HtmlTextWriter htmlWriter = new HtmlTextWriter(stringWriter);
+
+                chartToBuild.RenderControl(htmlWriter);
+
+                return htmlString.ToString();
+            }
+        }
+
 
         private void SetObjectParameters(Object chartObject, Hashtable ht)
         {
