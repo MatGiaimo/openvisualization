@@ -98,6 +98,15 @@ namespace OpenVisualization.Charting
             FillSeriesData(xmlData);
             SetObjectParameters(chartToBuild, currConfig.ChartParams);
             SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
+            SetObjectParameters(chartToBuild.ChartAreas[0].AxisX, currConfig.ChartAxisXParams);
+            SetObjectParameters(chartToBuild.ChartAreas[0].AxisY, currConfig.ChartAxisYParams);
+
+            if (currConfig.ChartLegendParams.Count > 0)
+            {
+                Legend l = new Legend();
+                SetObjectParameters(l, currConfig.ChartLegendParams);
+                chartToBuild.Legends.Add(l);
+            }
         }
 
         /// <summary>
