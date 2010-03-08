@@ -37,10 +37,18 @@
       <Param name="BackColor">LightGray</Param>
       <Param name="ShadowColor">Blue</Param>
       <Param name="ShadowOffset">5</Param>
-      <XAxis>
+      <AxisX>
+        <Param name="Title">Yahoo!</Param>
+      </AxisX>
+      <AxisY>
         <Param name="Maximum">700</Param>
         <Param name="Minimum">600</Param>
-      </XAxis>
+        <Param name="Interval">10</Param>
+        <Param name="Title">Price</Param>
+      </AxisY>
     </ChartArea>
+    <Legend>
+      <Param name="Enabled">true</Param>
+    </Legend>
   </Chart>
 </root>

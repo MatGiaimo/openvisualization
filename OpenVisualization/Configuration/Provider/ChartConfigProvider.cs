@@ -73,6 +73,10 @@ namespace OpenVisualization.Configuration
         private string uri;
         private Hashtable chartParams;
         private Hashtable chartAreaParams;
+        private Hashtable chartAxisXParams;
+        private Hashtable chartAxisYParams;
+        private Hashtable chartLegendParams;
+        
         #endregion
 
         #region Properties
@@ -126,6 +130,30 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        public Hashtable ChartAxisXParams
+        {
+            get
+            {
+                return chartAxisXParams;
+            }
+        }
+
+        public Hashtable ChartAxisYParams
+        {
+            get
+            {
+                return chartAxisYParams;
+            }
+        }
+
+        public Hashtable ChartLegendParams
+        {
+            get
+            {
+                return chartLegendParams;
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -153,6 +181,9 @@ namespace OpenVisualization.Configuration
             series = new ArrayList();
             chartParams = new Hashtable();
             chartAreaParams = new Hashtable();
+            chartAxisXParams = new Hashtable();
+            chartAxisYParams = new Hashtable();
+            chartLegendParams = new Hashtable();
 
             ParseChartsXDoc();
         }
@@ -167,6 +198,9 @@ namespace OpenVisualization.Configuration
             series = new ArrayList();
             chartParams = new Hashtable();
             chartAreaParams = new Hashtable();
+            chartAxisXParams = new Hashtable();
+            chartAxisYParams = new Hashtable();
+            chartLegendParams = new Hashtable();
 
             ParseChartsXDoc();
         }
@@ -251,8 +285,23 @@ namespace OpenVisualization.Configuration
 
                 // Process ChartArea Parameters
                 XElement xChartArea = el.Element("ChartArea");
-                //FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
 
+                if (xChartArea != null)
+                {
+                    FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
+
+                    // Process Axis Params
+                    FillConfigParameters(chartAxisXParams, xChartArea.Element("AxisX").Elements("Param"));
+                    FillConfigParameters(chartAxisYParams, xChartArea.Element("AxisY").Elements("Param"));
+
+                }
+
+                // Process Legend Params 
+                XElement xLegend = el.Element("Legend");
+                if (xLegend != null)
+                    FillConfigParameters(chartLegendParams, xLegend.Elements("Param"));
+
+                // Process Chart Params
                 FillConfigParameters(chartParams, el.Elements("Param"));
             }
         }

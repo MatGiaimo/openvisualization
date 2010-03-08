@@ -63,7 +63,6 @@
     <Content Include="Configuration\Charts\PriceHistory1.xml" />
     <Content Include="Configuration\Charts\TelemetryData1.xml" />
     <Content Include="Default.aspx" />
-    <Content Include="Services\ChartPage.aspx" />
     <Content Include="Services\GetChart.asmx" />
     <Content Include="Services\GetPriceHistory.aspx" />
     <Content Include="Services\GetStaticChartImage.aspx" />
@@ -88,13 +87,6 @@
       <DependentUpon>Oms.dbml</DependentUpon>
     </Compile>
     <Compile Include="Data\Reader\OMSReader.cs" />
-    <Compile Include="Services\ChartPage.aspx.cs">
-      <DependentUpon>ChartPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Services\ChartPage.aspx.designer.cs">
-      <DependentUpon>ChartPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Services\GetChart.asmx.cs">
       <DependentUpon>GetChart.asmx</DependentUpon>
       <SubType>Component</SubType>
