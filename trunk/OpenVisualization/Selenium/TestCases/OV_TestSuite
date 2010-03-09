@@ -13,6 +13,8 @@
 <tr><td><a href="SimplePieChartExample">SimplePieChartExample</a></td></tr>
 <tr><td><a href="TimeSeriesExample">TimeSeriesExample</a></td></tr>
 <tr><td><a href="TelemetryDataExample">TelemetryDataExample</a></td></tr>
+<tr><td><a href="RestSubmitExample_PriceHistory1Xml">RestSubmitExample_PriceHistory1Xml</a></td></tr>
+<tr><td><a href="RestSubmitExample_TelemetryData1Xml">RestSubmitExample_TelemetryData1Xml</a></td></tr>
 </tbody></table>
 </body>
 </html>
