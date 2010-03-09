@@ -59,13 +59,12 @@ namespace OpenVisualization.Charting
             {
                 currConfig = ChartConfig;
                 chartToBuild = new Chart();
-                chartToBuild.Series.Add(new Series());
                 chartToBuild.ChartAreas.Add(new ChartArea());
                 chartToBuild.ImageLocation = "~/ChartPic_#UID";
                 chartToBuild.Page = ThisPage;
                 chartToBuild.RenderType = RenderType.ImageTag;
                 chartToBuild.ImageType = ChartImageType.Png;
-                chartToBuild.ImageStorageMode = ImageStorageMode.UseImageLocation;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
 
                 XmlDocument xmlData = GetXmlData();
 
@@ -74,6 +73,15 @@ namespace OpenVisualization.Charting
                 FillSeriesData(xmlData);
                 SetObjectParameters(chartToBuild, currConfig.ChartParams);
                 SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
+                SetObjectParameters(chartToBuild.ChartAreas[0].AxisX, currConfig.ChartAxisXParams);
+                SetObjectParameters(chartToBuild.ChartAreas[0].AxisY, currConfig.ChartAxisYParams);
+
+                if (currConfig.ChartLegendParams.Count > 0)
+                {
+                    Legend l = new Legend();
+                    SetObjectParameters(l, currConfig.ChartLegendParams);
+                    chartToBuild.Legends.Add(l);
+                }
             }
             catch (Exception ex)
             {

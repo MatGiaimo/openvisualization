@@ -36,6 +36,9 @@
                         <div>
                             <asp:LinkButton ID="btnShowTelemeteryData" runat="server" OnClick="btnShowTelemetryData_Click">Telemetry Data Example</asp:LinkButton>
                         </div>
+                        <div>
+                            <a href="RESTTest.aspx">REST Submit Example</a>
+                        </div>
                     </td>
                     <td>
                     </td>
@@ -56,10 +59,6 @@
             <asp:Panel ID="pnlTimeSeries" runat="server" Visible="false">
                 <div>
                     <asp:Chart ID="Chart2" runat="server">
-                        <Series>
-                            <asp:Series Name="Series1">
-                            </asp:Series>
-                        </Series>
                         <ChartAreas>
                             <asp:ChartArea Name="ChartArea1">
                             </asp:ChartArea>
@@ -84,10 +83,6 @@
             <asp:Panel ID="pnlTelemetryData" runat="server" Visible="false">
                 <div>
                     <asp:Chart ID="Chart3" runat="server">
-                        <Series>
-                            <asp:Series Name="Series1">
-                            </asp:Series>
-                        </Series>
                         <ChartAreas>
                             <asp:ChartArea Name="ChartArea1">
                             </asp:ChartArea>

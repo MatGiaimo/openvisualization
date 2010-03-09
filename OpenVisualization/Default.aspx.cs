@@ -58,6 +58,13 @@ namespace OpenVisualization.Web
             pnlTelemetryData.Visible = true;
         }
 
+        protected void btnShowRESTImageSubmit_Click(object sender, EventArgs e)
+        {
+            pnlPieChart.Visible = false;
+            pnlTimeSeries.Visible = false;
+            pnlTelemetryData.Visible = false;
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             // Variable declarations

@@ -67,6 +67,7 @@
     <Content Include="Services\GetPriceHistory.aspx" />
     <Content Include="Services\GetStaticChartImage.aspx" />
     <Content Include="Services\GetTelemetryData.aspx" />
+    <Content Include="RESTTest.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +114,13 @@
     </Compile>
     <Compile Include="Services\GetTelemetryData.aspx.designer.cs">
       <DependentUpon>GetTelemetryData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RESTTest.aspx.cs">
+      <DependentUpon>RESTTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RESTTest.aspx.designer.cs">
+      <DependentUpon>RESTTest.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -35,5 +35,8 @@
         </Series>
       </SeriesDefinitions>
     </Data>
+    <Legend>
+      <Param name="Enabled">true</Param>
+    </Legend>
   </Chart>
 </root>
