@@ -11,6 +11,7 @@ using System.Xml;
 using System.Web.UI;
 using System.Web.Compilation;
 using System.Web.UI.DataVisualization.Charting;
+using System.Text;
 
 namespace OpenVisualization.Services
 {
@@ -37,20 +38,48 @@ namespace OpenVisualization.Services
         {
             try
             {
+                //Type type = BuildManager.GetCompiledType("~/Services/GetStaticChartImage.aspx");
+                //GetStaticChartImage pageView = (GetStaticChartImage)Activator.CreateInstance(type);
 
-                GetStaticChartImage cp = new GetStaticChartImage();
+                //StringWriter textWriter = new StringWriter();
+                //HttpContext.Current.Server.Execute((IHttpHandler)pageView, textWriter, false);
+                //return textWriter.ToString();
 
-                Type type = BuildManager.GetCompiledType("~/Services/GetStaticChartImage.aspx");
-                GetStaticChartImage pageView = (GetStaticChartImage)Activator.CreateInstance(type);
+                string baseUrl = Context.Request.Url.GetLeftPart(UriPartial.Authority);
 
-                StringWriter textWriter = new StringWriter();
-                HttpContext.Current.Server.Execute((IHttpHandler)pageView, textWriter, false);
-                return textWriter.ToString();
+                string webPath = baseUrl + "/Services/GetStaticChartImage.aspx";
+
+                return PostXml(webPath, xmlChartConfig);
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+
+        public string PostXml(string url, string xml)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(xml);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentLength = bytes.Length;
+            request.ContentType = "text/xml";
+            using (Stream requestStream = request.GetRequestStream())
+            {
+                requestStream.Write(bytes, 0, bytes.Length);
+            }
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                string message = String.Format("POST failed. Received HTTP {0}",
+                response.StatusCode);
+                throw new ApplicationException(message);
+            }
+            Stream responseStream = response.GetResponseStream();
+            StreamReader responseReader = new StreamReader(responseStream);
+            return responseReader.ReadToEnd();
+        } 
     }
 }

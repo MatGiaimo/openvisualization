@@ -16,19 +16,10 @@ namespace OpenVisualization.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Variable declarations
-            WebClient webClient = new WebClient();
-            XmlDocument xmlChartConfig = new XmlDocument();
-            XmlDocument xmlData = new XmlDocument();
-            // Get the chart config
-            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/TelemetryData1.xml"),
-              UriKind.RelativeOrAbsolute);
-            Stream configData = webClient.OpenRead(uri);
-            XmlTextReader xmlText = new XmlTextReader(configData);
-            xmlChartConfig.Load(xmlText);
-            configData.Close();
+            XmlDocument xmlInput = new XmlDocument();
+            xmlInput.Load(Request.InputStream);
 
-            ChartConfigProvider ccp = new ChartConfigProvider(xmlChartConfig);
+            ChartConfigProvider ccp = new ChartConfigProvider(xmlInput);
 
             ChartBuilder cb = new ChartBuilder(ccp,this.Page);
 
