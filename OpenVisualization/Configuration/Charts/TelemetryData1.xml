@@ -7,6 +7,9 @@
       <Param Name="startdate">2010-01-12</Param>
       <Param Name="enddate">2010-01-13</Param>
     </Uri>
+    <Param name="BackColor">Green</Param>
+    <Param name="Height">400</Param>
+    <Param name="Width">600</Param>
     <Data>
       <SeriesDefinitions>
         <Series id="Read Date">
