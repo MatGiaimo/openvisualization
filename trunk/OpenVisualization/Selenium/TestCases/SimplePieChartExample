@@ -21,6 +21,11 @@
 	<td>btnShowPieChart</td>
 	<td></td>
 </tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>pnlPieChart</td>
+	<td></td>
+</tr>
 
 </tbody></table>
 </body>
