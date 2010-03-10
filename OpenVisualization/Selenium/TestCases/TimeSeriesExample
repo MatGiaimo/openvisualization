@@ -26,6 +26,11 @@
 	<td>Button2</td>
 	<td></td>
 </tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>Chart2</td>
+	<td></td>
+</tr>
 
 </tbody></table>
 </body>
