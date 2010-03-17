@@ -5,7 +5,6 @@
         // checked box
         var xmlChoice = $('.xmlChoice:checked').val();
         var xmlToLoad = "/Configuration/Charts/";
-        var xmlChoice;
 
         xmlToLoad = xmlToLoad + xmlChoice;
 
