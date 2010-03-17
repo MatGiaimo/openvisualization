@@ -60,9 +60,12 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxRESTTest.htm" />
+    <Content Include="AjaxRESTTest.js" />
     <Content Include="Configuration\Charts\PriceHistory1.xml" />
     <Content Include="Configuration\Charts\TelemetryData1.xml" />
     <Content Include="Default.aspx" />
+    <Content Include="Scripts\jquery-1.4.2.js" />
     <Content Include="Services\GetChart.asmx" />
     <Content Include="Services\GetPriceHistory.aspx" />
     <Content Include="Services\GetStaticChartImage.aspx" />
@@ -135,6 +138,14 @@
     <None Include="Data\DataContext\Oms.dbml.layout">
       <DependentUpon>Oms.dbml</DependentUpon>
     </None>
+    <None Include="Selenium\TestCases\GetPriceHistory" />
+    <None Include="Selenium\TestCases\GetTelemetryData" />
+    <None Include="Selenium\TestCases\OV_TestSuite" />
+    <None Include="Selenium\TestCases\RestSubmitExample_PriceHistory1Xml" />
+    <None Include="Selenium\TestCases\RestSubmitExample_TelemetryData1Xml" />
+    <None Include="Selenium\TestCases\SimplePieChartExample" />
+    <None Include="Selenium\TestCases\TelemetryDataExample" />
+    <None Include="Selenium\TestCases\TimeSeriesExample" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
