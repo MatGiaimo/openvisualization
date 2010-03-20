@@ -7,39 +7,61 @@
       <Param Name="startdate">2010-01-12</Param>
       <Param Name="enddate">2010-01-13</Param>
     </Uri>
-    <Param name="BackColor">Green</Param>
-    <Param name="Height">400</Param>
-    <Param name="Width">600</Param>
+    <Param name="BackColor">White</Param>
+    <Param name="Height">320</Param>
+    <Param name="Width">675</Param>
     <Data>
       <SeriesDefinitions>
         <Series id="Read Date">
           <Data>/Telemetry/Data/read_date</Data>
           <Param name="IsXAxisLabel">true</Param>
         </Series>
-        <Series id="Sensor 1">
-          <Data>/Telemetry/Data[sensor_id[.='091F0022']]/temperature</Data>
+        <Series id="Temperature">
+          <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>
           <Param name="ChartType">Line</Param>
           <Param name="Color">Red</Param>
         </Series>
-        <Series id="Sensor 2">
-          <Data>/Telemetry/Data[sensor_id[.='0A3E10D8']]/temperature</Data>
+        <Series id="RH">
+          <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/humidity</Data>
           <Param name="ChartType">Line</Param>
           <Param name="Color">Blue</Param>
+          <Param name="YAxisType">Secondary</Param>
         </Series>
-        <Series id="Sensor 3">
-          <Data>/Telemetry/Data[sensor_id[.='091F0064']]/temperature</Data>
+        <Series id="Dew Pnt">
+          <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/dew_point</Data>
           <Param name="ChartType">Line</Param>
           <Param name="Color">Green</Param>
         </Series>
+        <!-- 
         <Series id="Sensor 4">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>
           <Param name="ChartType">Line</Param>
           <Param name="Color">Yellow</Param>
-        </Series>
+        </Series> -->
       </SeriesDefinitions>
     </Data>
     <Legend>
       <Param name="Enabled">true</Param>
+      <Param name="Docking">Bottom</Param>
+      <Param name="Alignment">Center</Param>
+      <Param name="BorderColor">Black</Param>
+      <Param name="BorderWidth">1</Param>
+      <Param name="ShadowColor">Black</Param>
+      <Param name="ShadowOffset">1</Param>
     </Legend>
+    <ChartArea>
+      <AxisY>
+        <Param name="Title">Degrees Celcius</Param>
+        <Param name="GridLines">false</Param>
+      </AxisY>
+      <AxisY2>
+        <Param name="Title">Percent</Param>
+        <Param name="GridLines">false</Param>
+      </AxisY2>
+      <AxisX>
+        <Param name="Title">Avg value per minute</Param>
+        <Param name="GridLines">false</Param>
+      </AxisX>
+    </ChartArea>
   </Chart>
 </root>
