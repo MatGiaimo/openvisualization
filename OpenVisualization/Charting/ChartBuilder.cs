@@ -75,6 +75,8 @@ namespace OpenVisualization.Charting
                 SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
                 SetObjectParameters(chartToBuild.ChartAreas[0].AxisX, currConfig.ChartAxisXParams);
                 SetObjectParameters(chartToBuild.ChartAreas[0].AxisY, currConfig.ChartAxisYParams);
+                SetObjectParameters(chartToBuild.ChartAreas[0].AxisX2, currConfig.ChartAxisX2Params);
+                SetObjectParameters(chartToBuild.ChartAreas[0].AxisY2, currConfig.ChartAxisY2Params);
 
                 if (currConfig.ChartLegendParams.Count > 0)
                 {
@@ -108,12 +110,36 @@ namespace OpenVisualization.Charting
             SetObjectParameters(chartToBuild.ChartAreas[0], currConfig.ChartAreaParams);
             SetObjectParameters(chartToBuild.ChartAreas[0].AxisX, currConfig.ChartAxisXParams);
             SetObjectParameters(chartToBuild.ChartAreas[0].AxisY, currConfig.ChartAxisYParams);
+            SetObjectParameters(chartToBuild.ChartAreas[0].AxisX2, currConfig.ChartAxisX2Params);
+            SetObjectParameters(chartToBuild.ChartAreas[0].AxisY2, currConfig.ChartAxisY2Params);
 
             if (currConfig.ChartLegendParams.Count > 0)
             {
                 Legend l = new Legend();
                 SetObjectParameters(l, currConfig.ChartLegendParams);
                 chartToBuild.Legends.Add(l);
+            }
+
+            // Process special params
+            if (currConfig.ChartAxisYParams.Contains("GridLines"))
+            {
+                bool val = Convert.ToBoolean(currConfig.ChartAxisYParams["GridLines"]);
+                chartToBuild.ChartAreas[0].AxisY.MajorGrid.Enabled = val;
+            }
+            if (currConfig.ChartAxisY2Params.Contains("GridLines"))
+            {
+                bool val = Convert.ToBoolean(currConfig.ChartAxisY2Params["GridLines"]);
+                chartToBuild.ChartAreas[0].AxisY2.MajorGrid.Enabled = val;
+            }
+            if (currConfig.ChartAxisXParams.Contains("GridLines"))
+            {
+                bool val = Convert.ToBoolean(currConfig.ChartAxisXParams["GridLines"]);
+                chartToBuild.ChartAreas[0].AxisX.MajorGrid.Enabled = val;
+            }
+            if (currConfig.ChartAxisX2Params.Contains("GridLines"))
+            {
+                bool val = Convert.ToBoolean(currConfig.ChartAxisX2Params["GridLines"]);
+                chartToBuild.ChartAreas[0].AxisX2.MajorGrid.Enabled = val;
             }
         }
 
