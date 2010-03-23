@@ -39,6 +39,9 @@
                         <div>
                             <a href="RESTTest.aspx">REST Submit Example</a>
                         </div>
+                        <div>
+                            <a href="AjaxRESTTest.htm">AJAX REST Submit Example</a>
+                        </div>
                     </td>
                     <td>
                     </td>
