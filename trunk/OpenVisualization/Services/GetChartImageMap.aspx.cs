@@ -4,15 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net;
 using System.Xml;
-using System.IO;
 using OpenVisualization.Configuration;
 using OpenVisualization.Charting;
 
 namespace OpenVisualization.Services
 {
-    public partial class GetStaticChartImage : System.Web.UI.Page
+    public partial class GetChartImageMap : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,10 +19,10 @@ namespace OpenVisualization.Services
 
             ChartConfigProvider ccp = new ChartConfigProvider(xmlInput);
 
-            ChartBuilder cb = new ChartBuilder(ccp,this.Page,false);
+            ChartBuilder cb = new ChartBuilder(ccp, this.Page, true);
 
             Response.ContentType = "text/html";
-            Response.Write(cb.GetChartHtml());
+            Response.Write(cb.GetChartHtml()+cb.GetHtmlImageMap());
         }
     }
 }
