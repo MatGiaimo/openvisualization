@@ -70,6 +70,7 @@
     <Content Include="OMSChartTest.htm" />
     <Content Include="Scripts\jquery-1.4.2.js" />
     <Content Include="Services\GetChart.asmx" />
+    <Content Include="Services\GetChartImageMap.aspx" />
     <Content Include="Services\GetPriceHistory.aspx" />
     <Content Include="Services\GetStaticChartImage.aspx" />
     <Content Include="Services\GetTelemetryData.aspx" />
@@ -97,6 +98,13 @@
     <Compile Include="Services\GetChart.asmx.cs">
       <DependentUpon>GetChart.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\GetChartImageMap.aspx.cs">
+      <DependentUpon>GetChartImageMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services\GetChartImageMap.aspx.designer.cs">
+      <DependentUpon>GetChartImageMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\GetPriceHistory.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>

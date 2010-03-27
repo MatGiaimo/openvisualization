@@ -53,18 +53,14 @@ namespace OpenVisualization.Charting
         /// This overloaded constructor creates a chart from the provided ChartConfigProvider
         /// </summary>
         /// <param name="ChartConfig"></param>
-        public ChartBuilder(ChartConfigProvider ChartConfig, System.Web.UI.Page ThisPage)
+        public ChartBuilder(ChartConfigProvider ChartConfig, System.Web.UI.Page ThisPage, bool imageMap)
         {
             try
             {
                 currConfig = ChartConfig;
                 chartToBuild = new Chart();
                 chartToBuild.ChartAreas.Add(new ChartArea());
-                chartToBuild.ImageLocation = "~/ChartPic_#UID";
                 chartToBuild.Page = ThisPage;
-                chartToBuild.RenderType = RenderType.ImageTag;
-                chartToBuild.ImageType = ChartImageType.Png;
-                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
 
                 XmlDocument xmlData = GetXmlData();
 
@@ -76,7 +72,7 @@ namespace OpenVisualization.Charting
                 SetObjectParameters(chartToBuild.ChartAreas[0].AxisX, currConfig.ChartAxisXParams);
                 SetObjectParameters(chartToBuild.ChartAreas[0].AxisY, currConfig.ChartAxisYParams);
                 SetObjectParameters(chartToBuild.ChartAreas[0].AxisX2, currConfig.ChartAxisX2Params);
-                SetObjectParameters(chartToBuild.ChartAreas[0].AxisY2, currConfig.ChartAxisY2Params);
+                SetObjectParameters(chartToBuild.ChartAreas[0].AxisY2, currConfig.ChartAxisY2Params);              
 
                 if (currConfig.ChartLegendParams.Count > 0)
                 {
@@ -84,10 +80,36 @@ namespace OpenVisualization.Charting
                     SetObjectParameters(l, currConfig.ChartLegendParams);
                     chartToBuild.Legends.Add(l);
                 }
+
+                SetRenderMethod(imageMap);
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Will set the chart rendering method to imagemap if imagemap is true, otherwise the chart rendering method will be set as imagetag.
+        /// </summary>
+        /// <param name="imageMap"></param>
+        private void SetRenderMethod(bool imageMap)
+        {
+            if (imageMap)
+            {
+                chartToBuild.ImageLocation = "~/ChartPic_#UID";
+                chartToBuild.RenderType = RenderType.ImageTag;
+                chartToBuild.ImageType = ChartImageType.Png;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
+                chartToBuild.Series[0].ToolTip = "X Value \t= #VALX{f}\nY Value \t= #VALY{n}";
+                
+            }
+            else
+            {
+                chartToBuild.ImageLocation = "~/ChartPic_#UID";
+                chartToBuild.RenderType = RenderType.ImageTag;
+                chartToBuild.ImageType = ChartImageType.Png;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
             }
         }
 
@@ -235,6 +257,12 @@ namespace OpenVisualization.Charting
 
                 return htmlString.ToString();
             }
+        }
+
+        public string GetHtmlImageMap()
+        {
+            chartToBuild.SaveImage("test.png");
+            return chartToBuild.GetHtmlImageMap("test");
         }
 
 

@@ -23,7 +23,8 @@ function loadChartImage(xml) {
     var resultsDiv = $('#chartResults');
 
     $.ajax({
-        url: "/Services/GetStaticChartImage.aspx",
+        //url: "/Services/GetStaticChartImage.aspx",
+        url: "/Services/GetChartImageMap.aspx",
         type: "POST",
         processData: false,
         contentType: "text/xml",
