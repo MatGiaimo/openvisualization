@@ -19,18 +19,18 @@
         <Series id="Temperature">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>
           <Param name="ChartType">Line</Param>
-          <Param name="Color">Red</Param>
+          <!-- <Param name="Color">Red</Param> -->
         </Series>
         <Series id="RH">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/humidity</Data>
           <Param name="ChartType">Line</Param>
-          <Param name="Color">Blue</Param>
+          <!-- <Param name="Color">Blue</Param> -->
           <Param name="YAxisType">Secondary</Param>
         </Series>
         <Series id="Dew Pnt">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/dew_point</Data>
           <Param name="ChartType">Line</Param>
-          <Param name="Color">Green</Param>
+          <!-- <Param name="Color">Green</Param> -->
         </Series>
         <!-- 
         <Series id="Sensor 4">

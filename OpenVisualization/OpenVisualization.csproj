@@ -67,6 +67,7 @@
     <Content Include="Configuration\Charts\PriceHistory1.xml" />
     <Content Include="Configuration\Charts\TelemetryData1.xml" />
     <Content Include="Default.aspx" />
+    <Content Include="OMSChartTest.htm" />
     <Content Include="Scripts\jquery-1.4.2.js" />
     <Content Include="Services\GetChart.asmx" />
     <Content Include="Services\GetPriceHistory.aspx" />
