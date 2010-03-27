@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Telemetry Charting Test</title>
+</head>
+<body>
+<form>
+<table width="600">
+    <tr>
+        <td style="height:350px; border: solid thin black;"><div id="chartImage"></div></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" id="tempChkBox" name="tempChkBox" value="1" />Temp
+            <input type="checkbox" id="rhChkBox" name="rhChkBox" value="1" />RH
+            <input type="checkbox" id="dewPntChkBox" name="dewPntChkBox" value="1" />Dew Point 
+        </td>       
+    </tr>
+    <tr>
+        <td>
+            Start date: <input type="text" size="10" maxlength="10" id="startDateTxt" name="startDateTxt" value="1/12/2010" />
+            End date: <input type="text" size="10" maxlength="10" id="endDateTxt" name="endDateTxt"  value="1/13/2010" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sensor Id: 091F0022 <input type="radio" id="091F0022Rdo" name="sensorId" checked="checked" />
+            0A3E10D8 <input type="radio" id="0A3E10D8Rdo" name="sensorId" />
+            091F0064 <input type="radio" id="091F0064Rdo" name="sensorId" />
+            0A3E018B <input type="radio" id="0A3E018BRdo" name="sensorId" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" name="submitBtn" value="Submit" onclick="javascript:getChart();" />
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
