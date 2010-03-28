@@ -26,10 +26,15 @@ Use this page to share links with the team
   * HTML Help: http://msdn.microsoft.com/en-us/library/ms669985%28VS.85%29.aspx
 
 *IDE*
+  * SharpDevelop: http://www.icsharpcode.net/OpenSource/SD/
   * Visual Studio Web Developer: http://www.microsoft.com/express/Web/
 
 *JSON*
   * See C# Section => http://www.json.org/
+
+*Setup/Installer*
+  * WiX Tutorial - http://www.tramontana.co.hu/wix/
+  * Yet Another WiX Tutorial - http://www.merlinia.com/mdt/WiXTutorial.msl
 
 *Source Control*
   * TortoiseSVN: http://tortoisesvn.tigris.org/
