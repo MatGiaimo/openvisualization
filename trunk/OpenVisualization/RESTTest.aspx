@@ -12,8 +12,8 @@
     <asp:Panel ID="pnlRESTImageSubmit" runat="server" Visible="true">
         <div>
             <asp:RadioButtonList ID="rblConfigs" runat="server">
-                <asp:ListItem Text="PriceHistory1.xml" Value="/Configuration/Charts/PriceHistory1.xml"></asp:ListItem>
-                <asp:ListItem Text="TelemetryData1.xml" Value="/Configuration/Charts/TelemetryData1.xml"></asp:ListItem>
+                <asp:ListItem Text="PriceHistory1.xml" Value="~/Configuration/Charts/PriceHistory1.xml"></asp:ListItem>
+                <asp:ListItem Text="TelemetryData1.xml" Value="~/Configuration/Charts/TelemetryData1.xml"></asp:ListItem>
             </asp:RadioButtonList>
         </div>
         <div>
