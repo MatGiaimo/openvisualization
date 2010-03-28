@@ -8,6 +8,7 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Xml;
+using System.Configuration;
 
 namespace OpenVisualization.Services
 {
@@ -21,10 +22,10 @@ namespace OpenVisualization.Services
         protected void btnSubmitImageXML_Click(object sender, EventArgs e)
         {
 
-            string baseUrl = Context.Request.Url.GetLeftPart(UriPartial.Authority);
+            //string baseUrl = Context.Request.Url.GetLeftPart(UriPartial.Authority);
+            string baseUrl = ConfigurationManager.AppSettings["AppBaseUrl"];
 
             string webPath = baseUrl + "/Services/GetStaticChartImage.aspx";
-
 
             string xmlToUse = rblConfigs.SelectedValue;
 
