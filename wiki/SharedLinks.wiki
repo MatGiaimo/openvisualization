@@ -34,6 +34,7 @@ Use this page to share links with the team
 
 *Setup/Installer*
   * WiX Tutorial - http://www.tramontana.co.hu/wix/
+  * WiX Wiki - http://www.wixwiki.com/index.php?title=Main_Page
   * Yet Another WiX Tutorial - http://www.merlinia.com/mdt/WiXTutorial.msl
 
 *Source Control*
