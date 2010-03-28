@@ -261,7 +261,6 @@ namespace OpenVisualization.Charting
 
         public string GetHtmlImageMap()
         {
-            chartToBuild.SaveImage("test.png");
             return chartToBuild.GetHtmlImageMap("test");
         }
 
