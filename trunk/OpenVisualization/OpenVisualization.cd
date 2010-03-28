@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="0.5" MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="OpenVisualization.Data.ChartDataReaderBase" Collapsed="False">
+    <Position X="0.5" Y="0.5" Width="2.9" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Data.YahooReader" Collapsed="False">
+    <Position X="6.9" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Data.OMSReader" Collapsed="False">
+    <Position X="0.5" Y="2.5" Width="1.8" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Charting.ChartBuilder" Collapsed="False">
+    <Position X="0.5" Y="5.6" Width="2.1" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Enum Name="OpenVisualization.Configuration.DataSourceType" Collapsed="False">
+    <Position X="0.5" Y="9.1" Width="1.8" />
+    <Compartments />
+  </Enum>
+  <Class Name="OpenVisualization.Services.GetStaticChartImage" Collapsed="False">
+    <Position X="0.5" Y="42.3" Width="1.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Services.GetTelemetryData" Collapsed="False">
+    <Position X="0.5" Y="43.6" Width="1.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Services.GetChart" Collapsed="False">
+    <Position X="0.5" Y="37.5" Width="1.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Services.GetChartImageMap" Collapsed="False">
+    <Position X="0.5" Y="39.2" Width="1.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Services.GetPriceHistory" Collapsed="False">
+    <Position X="0.5" Y="40.5" Width="1.8" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Services.RESTTest" Collapsed="False">
+    <Position X="0.5" Y="45.4" Width="2.2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Interface Name="OpenVisualization.Data.IChartDataReader" Collapsed="False">
+    <Position X="0.5" Y="18.7" Width="1.7" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+    </Compartments>
+  </Interface>
+  <Class Name="OpenVisualization.Configuration.ChartConfigSeries" Collapsed="False">
+    <Position X="0.5" Y="10.3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Web.Default" Collapsed="False">
+    <Position X="0.5" Y="20.1" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Data.DataContext.Query" Collapsed="False">
+    <Position X="0.5" Y="28.4" Width="2.4" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Data.DataContext.OmsDataContext" Collapsed="False">
+    <Position X="0.5" Y="25.6" Width="2.3" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenVisualization.Configuration.ChartConfigProvider" Collapsed="False">
+    <Position X="3.9" Y="4.4" Width="2.8" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+</ClassDiagram>
