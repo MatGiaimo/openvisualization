@@ -100,7 +100,7 @@ namespace OpenVisualization.Charting
                 chartToBuild.ImageLocation = "~/ChartPic_#UID";
                 chartToBuild.RenderType = RenderType.ImageTag;
                 chartToBuild.ImageType = ChartImageType.Png;
-                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseImageLocation;
                 chartToBuild.Series[0].ToolTip = "X Value \t= #VALX{f}\nY Value \t= #VALY{n}";
                 
             }
@@ -109,7 +109,7 @@ namespace OpenVisualization.Charting
                 chartToBuild.ImageLocation = "~/ChartPic_#UID";
                 chartToBuild.RenderType = RenderType.ImageTag;
                 chartToBuild.ImageType = ChartImageType.Png;
-                chartToBuild.ImageStorageMode = ImageStorageMode.UseHttpHandler;
+                chartToBuild.ImageStorageMode = ImageStorageMode.UseImageLocation;
             }
         }
 
