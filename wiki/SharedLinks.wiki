@@ -11,6 +11,9 @@ Use this page to share links with the team
 *Charting*  
   * Chart samples: http://code.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
   * Rendering ASP.NET controls by web services: http://bit.ly/4WjFSh, http://bit.ly/KptNc
+  * Visualizing Information with .Net: http://msdn.microsoft.com/en-us/magazine/ee294455.aspx
+  * ASP .Net Charting engine download: http://www.microsoft.com/downloads/details.aspx?FamilyID=130f7986-bf49-4fe5-9ca8-910ae6ea442c&DisplayLang=en
+  * Visual Studio Charting Add-in: http://www.microsoft.com/downloads/details.aspx?familyid=1D69CE13-E1E5-4315-825C-F14D33A303E9&displaylang=en
 
 *Code Analysis*
   * FxCop: http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=9aeaa970-f281-4fb0-aba1-d59d7ed09772
