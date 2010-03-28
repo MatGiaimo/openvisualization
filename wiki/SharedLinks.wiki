@@ -33,9 +33,12 @@ Use this page to share links with the team
   * See C# Section => http://www.json.org/
 
 *Setup/Installer*
-  * WiX Tutorial - http://www.tramontana.co.hu/wix/
-  * WiX Wiki - http://www.wixwiki.com/index.php?title=Main_Page
-  * Yet Another WiX Tutorial - http://www.merlinia.com/mdt/WiXTutorial.msl
+  * WiX Tutorial: http://www.tramontana.co.hu/wix/
+  * WiX Wiki: http://www.wixwiki.com/index.php?title=Main_Page
+  * Yet Another WiX Tutorial: http://www.merlinia.com/mdt/WiXTutorial.msl
+
+*Setup/Installer Validation*
+  * Orca: http://msdn.microsoft.com/en-us/library/aa370557%28VS.85%29.aspx
 
 *Source Control*
   * TortoiseSVN: http://tortoisesvn.tigris.org/
