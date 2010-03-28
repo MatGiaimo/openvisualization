@@ -75,7 +75,7 @@ namespace OpenVisualization.Data
         {
             //filename = SaveStreamToTempFile(data);
 
-            string tempFilePath = @"C:\projects\EEC626\openvisualization\TempData.csv";
+            string tempFilePath = Environment.CurrentDirectory+@"\TempData.csv";
 
             FileStream fs = new FileStream(tempFilePath, FileMode.OpenOrCreate);
 
