@@ -73,7 +73,7 @@ namespace OpenVisualization.Web
             XmlDocument xmlChartConfig = new XmlDocument();
             XmlDocument xmlData = new XmlDocument();
             // Get the chart config
-            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/PriceHistory1.xml"),
+            Uri uri = new Uri(Server.MapPath("~/Configuration/Charts/PriceHistory1.xml"),
               UriKind.RelativeOrAbsolute);
             Stream configData = webClient.OpenRead(uri);
             XmlTextReader xmlText = new XmlTextReader(configData);
@@ -172,7 +172,7 @@ namespace OpenVisualization.Web
             XmlDocument xmlChartConfig = new XmlDocument();
             XmlDocument xmlData = new XmlDocument();
             // Get the chart config
-            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/PriceHistory1.xml"),
+            Uri uri = new Uri(Server.MapPath("~/Configuration/Charts/PriceHistory1.xml"),
               UriKind.RelativeOrAbsolute);
             Stream configData = webClient.OpenRead(uri);
             XmlTextReader xmlText = new XmlTextReader(configData);
@@ -191,7 +191,7 @@ namespace OpenVisualization.Web
             XmlDocument xmlChartConfig = new XmlDocument();
             XmlDocument xmlData = new XmlDocument();
             // Get the chart config
-            Uri uri = new Uri(Server.MapPath("/Configuration/Charts/TelemetryData1.xml"),
+            Uri uri = new Uri(Server.MapPath("~/Configuration/Charts/TelemetryData1.xml"),
               UriKind.RelativeOrAbsolute);
             Stream configData = webClient.OpenRead(uri);
             XmlTextReader xmlText = new XmlTextReader(configData);
