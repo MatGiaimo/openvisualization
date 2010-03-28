@@ -13,7 +13,7 @@ Use this page to share links with the team
   * Rendering ASP.NET controls by web services: http://bit.ly/4WjFSh, http://bit.ly/KptNc
 
 *Code Analysis*
-http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=9aeaa970-f281-4fb0-aba1-d59d7ed09772
+  * FxCop: http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=9aeaa970-f281-4fb0-aba1-d59d7ed09772
 
 *Database Development*
   * SQL Server 2008 Express: http://www.microsoft.com/express/Database/
