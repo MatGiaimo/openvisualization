@@ -23,7 +23,7 @@ function loadChartImage(xml) {
     var resultsDiv = $('#chartResults');
 
     $.ajax({
-        //url: "/Services/GetStaticChartImage.aspx",
+        //url: "/OpenVis/Services/GetChartImageMap.aspx",
         url: "/Services/GetChartImageMap.aspx",
         type: "POST",
         processData: false,

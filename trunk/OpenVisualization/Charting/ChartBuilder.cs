@@ -12,6 +12,7 @@ using System.Reflection;
 using OpenVisualization.Configuration;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using System.Configuration;
 
 namespace OpenVisualization.Charting
 {
@@ -255,13 +256,27 @@ namespace OpenVisualization.Charting
 
                 chartToBuild.RenderControl(htmlWriter);
 
-                return htmlString.ToString();
+                string html = htmlString.ToString();
+
+                string srchStr = "src=\"/";
+
+                int srcIndex = html.IndexOf(srchStr)+srchStr.Length;
+
+                string start = html.Substring(0, srcIndex-1);
+
+                string end = html.Substring(start.Length,html.Length-(start.Length));
+
+                string hostName = ConfigurationManager.AppSettings["ExternalHostName"];
+
+                html = string.Format("{0}{1}{2}", start, hostName, end);
+
+                return html;
             }
         }
 
         public string GetHtmlImageMap()
         {
-            return chartToBuild.GetHtmlImageMap("test");
+            return chartToBuild.GetHtmlImageMap(string.Empty);
         }
 
 
