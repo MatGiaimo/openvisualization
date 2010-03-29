@@ -276,7 +276,7 @@ namespace OpenVisualization.Charting
 
         public string GetHtmlImageMap()
         {
-            return chartToBuild.GetHtmlImageMap(string.Empty);
+            return chartToBuild.GetHtmlImageMap("ImageMap");
         }
 
 
