@@ -25,7 +25,7 @@ namespace OpenVisualization.Services
             //string baseUrl = Context.Request.Url.GetLeftPart(UriPartial.Authority);
             string baseUrl = ConfigurationManager.AppSettings["AppBaseUrl"];
 
-            string webPath = baseUrl + "/Services/GetStaticChartImage.aspx";
+            string webPath = baseUrl + "/Services/GetChartImageMap.aspx";
 
             string xmlToUse = rblConfigs.SelectedValue;
 
