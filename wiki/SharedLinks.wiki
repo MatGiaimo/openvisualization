@@ -36,6 +36,7 @@ Use this page to share links with the team
   * See C# Section => http://www.json.org/
 
 *Setup/Installer*
+  * Windows Installer: http://en.wikipedia.org/wiki/Windows_Installer
   * WiX Tutorial: http://www.tramontana.co.hu/wix/
   * WiX Wiki: http://www.wixwiki.com/index.php?title=Main_Page
   * Yet Another WiX Tutorial: http://www.merlinia.com/mdt/WiXTutorial.msl
