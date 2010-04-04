@@ -31,6 +31,7 @@ Use this page to share links with the team
 *IDE*
   * SharpDevelop: http://www.icsharpcode.net/OpenSource/SD/
   * Visual Studio Web Developer: http://www.microsoft.com/express/Web/
+  * Visual Studio 2008: http://msdn.microsoft.com/en-us/vstudio/default.aspx
 
 *JSON*
   * See C# Section => http://www.json.org/
@@ -46,10 +47,15 @@ Use this page to share links with the team
 
 *Source Control*
   * TortoiseSVN: http://tortoisesvn.tigris.org/
+  * AnkhSVN Subversion SourceControl Provider for Visual Studio: http://ankhsvn.open.collab.net/ 
 
 *Testing*
   * Selenium IDE: http://seleniumhq.org/
   * Selenium Fix (XML HTTP Request error): http://code.google.com/p/selenium/issues/detail?id=388 
+
+*Utilities*
+  * Metamorphose File and Folder Renamer: http://file-folder-ren.sourceforge.net/
+  * DAEMON Tools Mounting and Emulation: http://www.daemon-tools.cc/eng/downloads 
 
 *Virtual Machine*
   * VirtualBox: http://www.virtualbox.org/
