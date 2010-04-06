@@ -18,17 +18,20 @@
         </Series>
         <Series id="Temperature">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>
+          <Tooltip>Date = #VALX{f}\nTemp = #VALY{n}°C</Tooltip>
           <Param name="ChartType">Line</Param>
           <!-- <Param name="Color">Red</Param> -->
         </Series>
         <Series id="RH">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/humidity</Data>
+          <Tooltip>Date = #VALX{f}\nHudmidity = #VALY{n}%</Tooltip>
           <Param name="ChartType">Line</Param>
           <!-- <Param name="Color">Blue</Param> -->
           <Param name="YAxisType">Secondary</Param>
         </Series>
         <Series id="Dew Pnt">
           <Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/dew_point</Data>
+          <Tooltip>Date = #VALX{f}\nDew Point = #VALY{n}°C</Tooltip>
           <Param name="ChartType">Line</Param>
           <!-- <Param name="Color">Green</Param> -->
         </Series>

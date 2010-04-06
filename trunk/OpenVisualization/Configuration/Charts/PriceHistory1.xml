@@ -5,7 +5,7 @@
       <Path>http://localhost:55059/Services/GetPriceHistory.aspx</Path>
       <Param Name="ticker">GOOG</Param>
       <Param Name="startdate">1-1-2008</Param>
-      <Param Name="enddate">1-15-2008</Param>
+      <Param Name="enddate">1-20-2008</Param>
     </Uri>
     <Param name="BackColor">Yellow</Param>
     <Param name="Height">400</Param>
@@ -17,8 +17,9 @@
           <Param name="IsXAxisLabel">true</Param>
           <!-- BOOL TEST -->
         </Series>
-        <Series id="ClosePrice">
+        <Series id="High Price">
           <Data>/YahooFinance/TimeSeries/High</Data>
+          <Tooltip>Date = #VALX{dddd, MMMM dd, yyy}\nPrice = #VALY{c}</Tooltip>
           <Param name="ChartType">Line</Param>
           <!-- ENUM TEST -->
           <Param name="Color">Red</Param>
@@ -26,8 +27,9 @@
           <Param name="MarkerStep">2</Param>
           <!-- INT32 TEST -->
         </Series>
-        <Series id="OpenPrice">
+        <Series id="Low Price">
           <Data>/YahooFinance/TimeSeries/Low</Data>
+          <Tooltip>Date = #VALX{dddd, MMMM dd, yyy}\nPrice = #VALY{c}</Tooltip>
           <Param name="ChartType">Line</Param>
           <Param name="Color">Blue</Param>
         </Series>

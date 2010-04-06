@@ -244,6 +244,15 @@ namespace OpenVisualization.Configuration
                 // Set the xpath to get data
                 currSeries.XPath = xSeries.Element("Data").Value.ToString();
 
+                // Set the legend if it exists
+                XElement xToolTip = xSeries.Element("Tooltip");
+
+                if (xToolTip != null)
+                {
+                    string toolTip = xSeries.Element("Tooltip").Value;
+                    currSeries.ToolTip = toolTip;
+                }
+
                 // Loop through all Param values in the nodelist for the series
                 Object obj = currSeries;
                 FillObjectParameters(ref obj, xSeries.Elements("Param"));
