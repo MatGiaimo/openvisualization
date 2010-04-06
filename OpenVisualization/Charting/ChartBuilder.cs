@@ -102,7 +102,7 @@ namespace OpenVisualization.Charting
                 chartToBuild.RenderType = RenderType.ImageTag;
                 chartToBuild.ImageType = ChartImageType.Png;
                 chartToBuild.ImageStorageMode = ImageStorageMode.UseImageLocation;
-                chartToBuild.Series[0].ToolTip = "X Value \t= #VALX{f}\nY Value \t= #VALY{n}";
+                //chartToBuild.Series[0].ToolTip = "X Value \t= #VALX{f}\nY Value \t= #VALY{n}";
                 
             }
             else
@@ -258,17 +258,18 @@ namespace OpenVisualization.Charting
 
                 string html = htmlString.ToString();
 
-                string srchStr = "src=\"/";
+                // For future use if we ever get to cross-domain ajax scripting
+                //string srchStr = "src=\"/";
 
-                int srcIndex = html.IndexOf(srchStr)+srchStr.Length;
+                //int srcIndex = html.IndexOf(srchStr)+srchStr.Length;
 
-                string start = html.Substring(0, srcIndex-1);
+                //string start = html.Substring(0, srcIndex-1);
 
-                string end = html.Substring(start.Length,html.Length-(start.Length));
+                //string end = html.Substring(start.Length,html.Length-(start.Length));
 
-                string hostName = ConfigurationManager.AppSettings["ExternalHostName"];
+                //string hostName = ConfigurationManager.AppSettings["ExternalHostName"];
 
-                html = string.Format("{0}{1}{2}", start, hostName, end);
+                //html = string.Format("{0}{1}{2}", start, hostName, end);
 
                 return html;
             }
