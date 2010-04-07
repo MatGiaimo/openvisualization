@@ -9,11 +9,11 @@
             // GATHER FORM VARS ------------------------------------------>
             
             var strSensorId = $('input[name=sensorId]:checked').val();
-            var strStartDate = $('#startDateTxt');
-            var strEndDate = $('#endDateTxt');
-            var chkTemp = $('tempChkBox:checked').val();
-            var chkRH = $('rhChkBox:checked').val();
-            var chkDewPnt = $('dewPntChkBox:checked').val();
+            var strStartDate = $('#startDateTxt').val();
+            var strEndDate = $('#endDateTxt').val();
+            var chkTemp = $('#tempChkBox:checked').val();
+            var chkRH = $('#rhChkBox:checked').val();
+            var chkDewPnt = $('#dewPntChkBox:checked').val();
 
             // CREATE XML CONFIG STATIC HEADER/FOOTER --------------------->
             
@@ -32,27 +32,52 @@
                 "</AxisY><AxisY2><Param name=\"Title\">Percent</Param><Param name=\"GridLines\">false</Param>" +
                 "</AxisY2><AxisX><Param name=\"Title\">Avg value per minute</Param><Param name=\"GridLines\">false</Param>" +
                 "</AxisX></ChartArea></Chart></root>";
+                
+            // GATHER XML DATA VALUES -------------------------------------->
 
             var strXMLData = "<Data><SeriesDefinitions><Series id=\"Read Date\"><Data>/Telemetry/Data/read_date</Data>" +
                 "<Param name=\"IsXAxisLabel\">true</Param></Series>";
 
             if (chkTemp != null) {
-                strXMLData += "<Series id=\"Temperature\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>" +
+                strXMLData += "<Series id=\"Temperature\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/temperature</Data>" +
                     "<Param name=\"ChartType\">Line</Param></Series>";
             }
 
             if (chkRH != null) {
-                strXMLData += "<Series id=\"RH\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/humidity</Data>" +
+                strXMLData += "<Series id=\"RH\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/humidity</Data>" +
                     "<Param name=\"ChartType\">Line</Param><Param name=\"YAxisType\">Secondary</Param></Series>";
             }
 
             if (chkDewPnt != null) {
-                strXMLData += "<Series id=\"Dew Pnt\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/dew_point</Data>" +
+                strXMLData += "<Series id=\"Dew Pnt\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/dew_point</Data>" +
                     "<Param name=\"ChartType\">Line</Param></Series>";                    
             }
-            
+
             strXMLData += "</SeriesDefinitions></Data>";
+
+            // PROCESS XML ----------------------------------------------->
+
+            var strXML = strXMLTop + strXMLData + strXMLEnd;
+            //window.alert(strXML);
+            loadChartImage(strXML);
         }
+
+        function loadChartImage(xml) {
+            var resultsDiv = $('#chartImage');
+
+            $.ajax({
+                url: "/Services/GetStaticChartImage.aspx",
+                type: "POST",
+                processData: false,
+                contentType: "text/xml",
+                data: xml,
+                success: function(data) {
+                    resultsDiv.html(data);
+                }
+            });
+        }
+        
+        
     -->
     </script>
 </head>
