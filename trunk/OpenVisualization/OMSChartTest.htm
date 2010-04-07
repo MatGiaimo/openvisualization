@@ -2,6 +2,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>Telemetry Charting Test</title>
+    <script type="text/javascript" language="javascript" src="Scripts/jquery-1.4.2.js"></script>
+    <script language="javascript" type="text/javascript">
+    <!--
+        function getChart() {
+            // GATHER FORM VARS ------------------------------------------>
+            
+            var strSensorId = $('input[name=sensorId]:checked').val();
+            var strStartDate = $('#startDateTxt');
+            var strEndDate = $('#endDateTxt');
+            var chkTemp = $('tempChkBox:checked').val();
+            var chkRH = $('rhChkBox:checked').val();
+            var chkDewPnt = $('dewPntChkBox:checked').val();
+
+            // CREATE XML CONFIG STATIC HEADER/FOOTER --------------------->
+            
+            var strXMLTop = "<?xml version=\"1.0\" encoding=\"utf-8\"?><root><Chart Name=\"PriceHistory1\"><Uri>" +
+                "<Path>http://localhost:55059/Services/GetTelemetryData.aspx</Path>" + 
+                "<Param Name=\"sensors\">" + strSensorId + "</Param>" +
+                "<Param Name=\"startdate\">" + strStartDate + "</Param>" +
+                "<Param Name=\"enddate\">" + strEndDate + "</Param></Uri>";
+            var strXMLEnd = "<Param name=\"BackColor\">White</Param><Param name=\"Height\">320</Param>" +
+                "<Param name=\"Width\">675</Param>" +
+                "<Legend><Param name=\"Enabled\">true</Param><Param name=\"Docking\">Bottom</Param>" +
+                "<Param name=\"Alignment\">Center</Param><Param name=\"BorderColor\">Black</Param>" +
+                "<Param name=\"BorderWidth\">1</Param><Param name=\"ShadowColor\">Black</Param>" +
+                "<Param name=\"ShadowOffset\">1</Param></Legend><ChartArea><AxisY>" +
+                "<Param name=\"Title\">Degrees Celcius</Param><Param name=\"GridLines\">false</Param>" +
+                "</AxisY><AxisY2><Param name=\"Title\">Percent</Param><Param name=\"GridLines\">false</Param>" +
+                "</AxisY2><AxisX><Param name=\"Title\">Avg value per minute</Param><Param name=\"GridLines\">false</Param>" +
+                "</AxisX></ChartArea></Chart></root>";
+
+            var strXMLData = "<Data><SeriesDefinitions><Series id=\"Read Date\"><Data>/Telemetry/Data/read_date</Data>" +
+                "<Param name=\"IsXAxisLabel\">true</Param></Series>";
+
+            if (chkTemp != null) {
+                strXMLData += "<Series id=\"Temperature\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/temperature</Data>" +
+                    "<Param name=\"ChartType\">Line</Param></Series>";
+            }
+
+            if (chkRH != null) {
+                strXMLData += "<Series id=\"RH\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/humidity</Data>" +
+                    "<Param name=\"ChartType\">Line</Param><Param name=\"YAxisType\">Secondary</Param></Series>";
+            }
+
+            if (chkDewPnt != null) {
+                strXMLData += "<Series id=\"Dew Pnt\"><Data>/Telemetry/Data[sensor_id[.='0A3E018B']]/dew_point</Data>" +
+                    "<Param name=\"ChartType\">Line</Param></Series>";                    
+            }
+            
+            strXMLData += "</SeriesDefinitions></Data>";
+        }
+    -->
+    </script>
 </head>
 <body>
 <form>
@@ -24,10 +77,10 @@
     </tr>
     <tr>
         <td>
-            Sensor Id: 091F0022 <input type="radio" id="091F0022Rdo" name="sensorId" checked="checked" />
-            0A3E10D8 <input type="radio" id="0A3E10D8Rdo" name="sensorId" />
-            091F0064 <input type="radio" id="091F0064Rdo" name="sensorId" />
-            0A3E018B <input type="radio" id="0A3E018BRdo" name="sensorId" />
+            Sensor Id: 091F0022 <input type="radio" id="091F0022Rdo" name="sensorId" checked="checked" value="091F0022" />
+            0A3E10D8 <input type="radio" id="0A3E10D8Rdo" name="sensorId" value="0A3E10D8" />
+            091F0064 <input type="radio" id="091F0064Rdo" name="sensorId" value="091F0064" />
+            0A3E018B <input type="radio" id="0A3E018BRdo" name="sensorId" value="0A3E018B" />
         </td>
     </tr>
     <tr>
