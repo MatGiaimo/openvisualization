@@ -1,0 +1,64 @@
+---------------------------------------------------------------------------------------------------------
+Document name: Tools_Listing_and_Location.txt
+
+Document purpose: Provide a list of tools used for OpenVisualization development and where to get them
+
+Author: OpenVisualization Team
+
+Date: 4/10/2010
+
+Project Home: http://code.google.com/p/openvisualization/
+---------------------------------------------------------------------------------------------------------
+
+
+Name: AnkhSvn-2.1.7819.411.msi
+Description: Visual Studio SVN add in
+Location: http://ankhsvn.open.collab.net/
+
+Name: Firefox Setup 3.6.3.exe
+Description: IDE for Selenium IDE based testing
+Location: http://www.mozilla.com/en-US/firefox/personal.html
+
+Name: FxCopSetup.exe
+Description: Code analysis from MS
+Location: http://code.msdn.microsoft.com/codeanalysis/Release/ProjectReleases.aspx?ReleaseId=553
+
+Name: GhostDoc_v2.5.zip
+Description: Visual Studio extension for XML documentation comment generation
+Location: http://submain.com/products/ghostdoc.aspx
+
+Name: htmlhelp.exe
+Description: MS HTML Help used in conjunction with Sandcastle API builds
+Location: http://msdn.microsoft.com/en-us/library/ms669985%28VS.85%29.aspx
+
+Name: MSChart.exe
+Description: MS Chart Controls for MS .NET Framework 3.5
+Location: http://www.microsoft.com/downloads/details.aspx?FamilyId=130F7986-BF49-4FE5-9CA8-910AE6EA442C&displaylang=en
+
+Name: MSChart_VisualStudioAddOn.exe
+Description: MS Chart Controls add-on for MS Visual Studio 2008
+Location: http://www.microsoft.com/downloads/details.aspx?FamilyId=1D69CE13-E1E5-4315-825C-F14D33A303E9&displaylang=en
+
+Name: Sandcastle.msi
+Description: Documentation compilers for managed class libraries
+Location: http://www.microsoft.com/downloads/details.aspx?familyid=E82EA71D-DA89-42EE-A715-696E3A4873B2&displaylang=en
+
+Name: SandcastleBuilderSetup_1803.zip
+Description: Sandcastle Help File Builder
+Location: http://shfb.codeplex.com/Wikipage
+
+Name: SandcastleDocumentingWebProjects.zip
+Description: For website projects, custom code providers are included that make it much easier to obtain the XML comments files needed to create a help file using Sandcastle
+Location: http://sandcastlestyles.codeplex.com/
+
+Name: SCPatch_May08_2_4_10520_Rev3.zip
+Description: This is a patch for the Sandcastle presentation style files that fixes most of the known bugs. It also includes enhancements to existing features
+Location: http://sandcastlestyles.codeplex.com/
+ 
+Name: selenium-ide-1.0.6.xpi
+Description: Selenium is a suite of tools to automate web app testing across many platforms
+Location: http://seleniumhq.org/projects/ide/
+
+Name: TortoiseSVN-1.6.7.18415-win32-svn-1.6.9.msi
+Description: Windows Shell Extension for Subversion
+Location: http://tortoisesvn.tigris.org/
