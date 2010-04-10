@@ -112,7 +112,7 @@
           <!-- Logo image file (optional).  Filename is required. The height,
                  width, altText, placement, and alignment attributes are
                  optional. -->
-          <logoFile filename="C:\projects\eec626\logo.png" height="0" width="0" altText="OpenVisualization" placement="left" alignment="left" />
+          <logoFile filename="C:\projects\EEC626\OpenVisualization\logo.png" height="0" width="0" altText="OpenVisualization" placement="left" alignment="left" />
         </component>
       </ComponentConfig>
     </ComponentConfigurations>
