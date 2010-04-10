@@ -42,6 +42,9 @@
                         <div>
                             <a href="AjaxRESTTest.htm">AJAX REST Submit Example</a>
                         </div>
+                        <div>
+                            <a href="OMSChartTest.htm">OMS Chart Example</a>
+                        </div>
                     </td>
                     <td>
                     </td>
