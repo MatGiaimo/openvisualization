@@ -11,6 +11,7 @@
     <RootNamespace>OpenVisualization</RootNamespace>
     <AssemblyName>OpenVisualization</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +68,7 @@
     <Content Include="Configuration\Charts\PriceHistory1.xml" />
     <Content Include="Configuration\Charts\TelemetryData1.xml" />
     <Content Include="Default.aspx" />
+    <Content Include="logo.ico" />
     <Content Include="OMSChartTest.htm" />
     <Content Include="Scripts\jquery-1.4.2.js" />
     <Content Include="Services\GetChart.asmx" />
@@ -149,14 +151,6 @@
     <None Include="Data\DataContext\Oms.dbml.layout">
       <DependentUpon>Oms.dbml</DependentUpon>
     </None>
-    <None Include="Selenium\TestCases\GetPriceHistory" />
-    <None Include="Selenium\TestCases\GetTelemetryData" />
-    <None Include="Selenium\TestCases\OV_TestSuite" />
-    <None Include="Selenium\TestCases\RestSubmitExample_PriceHistory1Xml" />
-    <None Include="Selenium\TestCases\RestSubmitExample_TelemetryData1Xml" />
-    <None Include="Selenium\TestCases\SimplePieChartExample" />
-    <None Include="Selenium\TestCases\TelemetryDataExample" />
-    <None Include="Selenium\TestCases\TimeSeriesExample" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -178,8 +172,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55059</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/OpenVisualization</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
