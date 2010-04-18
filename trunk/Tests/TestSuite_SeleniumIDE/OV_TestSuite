@@ -17,6 +17,7 @@
 <tr><td><a href="RestSubmitExample_TelemetryData1Xml">RestSubmitExample_TelemetryData1Xml</a></td></tr>
 <tr><td><a href="AjaxRestSubmitExample_PriceHistory1Xml">AjaxRestSubmitExample_PriceHistory1Xml</a></td></tr>
 <tr><td><a href="AjaxRestSubmitExample_TelemetryData1Xml">AjaxRestSubmitExample_TelemetryData1Xml</a></td></tr>
+<tr><td><a href="OMSChartTest">OMSChartTest</a></td></tr>
 </tbody></table>
 </body>
 </html>
