@@ -14,6 +14,9 @@ namespace OpenVisualization.Configuration
     /// </summary>
     public enum DataSourceType
     {
+        /// <summary>
+        /// Public enum URI
+        /// </summary>
         Uri
     }
 
@@ -116,6 +119,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart params.
+        /// </summary>
+        /// <value>The chart params.</value>
         public Hashtable ChartParams
         {
             get
@@ -124,6 +131,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart area params.
+        /// </summary>
+        /// <value>The chart area params.</value>
         public Hashtable ChartAreaParams
         {
             get
@@ -132,6 +143,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart axis X params.
+        /// </summary>
+        /// <value>The chart axis X params.</value>
         public Hashtable ChartAxisXParams
         {
             get
@@ -139,7 +154,11 @@ namespace OpenVisualization.Configuration
                 return chartAxisXParams;
             }
         }
-        
+
+        /// <summary>
+        /// Gets the chart axis x2 params.
+        /// </summary>
+        /// <value>The chart axis x2 params.</value>
         public Hashtable ChartAxisX2Params
         {
             get
@@ -148,6 +167,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart axis Y params.
+        /// </summary>
+        /// <value>The chart axis Y params.</value>
         public Hashtable ChartAxisYParams
         {
             get
@@ -156,6 +179,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart axis y2 params.
+        /// </summary>
+        /// <value>The chart axis y2 params.</value>
         public Hashtable ChartAxisY2Params
         {
             get
@@ -164,6 +191,10 @@ namespace OpenVisualization.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the chart legend params.
+        /// </summary>
+        /// <value>The chart legend params.</value>
         public Hashtable ChartLegendParams
         {
             get

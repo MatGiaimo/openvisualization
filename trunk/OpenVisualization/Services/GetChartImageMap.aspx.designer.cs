@@ -9,8 +9,11 @@
 //------------------------------------------------------------------------------
 
 namespace OpenVisualization.Services {
-    
-    
+
+
+    /// <summary>
+    /// Public partial class GetChartImageMap
+    /// </summary>
     public partial class GetChartImageMap {
     }
 }

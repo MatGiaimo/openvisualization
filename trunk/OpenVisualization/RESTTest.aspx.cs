@@ -12,13 +12,26 @@ using System.Configuration;
 
 namespace OpenVisualization.Services
 {
+    /// <summary>
+    /// Public partial class RESTTest
+    /// </summary>
     public partial class RESTTest : System.Web.UI.Page
     {
+        /// <summary>
+        /// Handles the Load event of the Page control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnSubmitImageXML control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void btnSubmitImageXML_Click(object sender, EventArgs e)
         {
 
@@ -42,6 +55,12 @@ namespace OpenVisualization.Services
             Response.Write(PostXml(webPath, xmlChartConfig.OuterXml));
         }
 
+        /// <summary>
+        /// Posts the XML.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="xml">The XML.</param>
+        /// <returns></returns>
         public string PostXml(string url, string xml)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(xml);

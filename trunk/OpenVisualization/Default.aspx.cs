@@ -21,8 +21,16 @@ using OpenVisualization.Charting;
 
 namespace OpenVisualization.Web
 {
+    /// <summary>
+    /// Public partial class Default
+    /// </summary>
     public partial class Default : System.Web.UI.Page
     {
+        /// <summary>
+        /// Handles the Load event of the Page control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             // Set chart image storage mode
@@ -37,6 +45,11 @@ namespace OpenVisualization.Web
             mySeries.ChartType = SeriesChartType.Pie;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowPieChart control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void btnShowPieChart_Click(object sender, EventArgs e)
         {
             pnlPieChart.Visible = true;
@@ -44,6 +57,11 @@ namespace OpenVisualization.Web
             pnlTelemetryData.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowTimeSeries control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void btnShowTimeSeries_Click(object sender, EventArgs e)
         {
             pnlPieChart.Visible = false;
@@ -51,6 +69,11 @@ namespace OpenVisualization.Web
             pnlTelemetryData.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowTelemetryData control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void btnShowTelemetryData_Click(object sender, EventArgs e)
         {
             pnlPieChart.Visible = false;
@@ -58,6 +81,11 @@ namespace OpenVisualization.Web
             pnlTelemetryData.Visible = true;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btnShowRESTImageSubmit control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void btnShowRESTImageSubmit_Click(object sender, EventArgs e)
         {
             pnlPieChart.Visible = false;
@@ -65,6 +93,11 @@ namespace OpenVisualization.Web
             pnlTelemetryData.Visible = false;
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Button1_Click(object sender, EventArgs e)
         {
             // Variable declarations
@@ -165,6 +198,11 @@ namespace OpenVisualization.Web
             Chart2.Series.Add(series);
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button2 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Button2_Click(object sender, EventArgs e)
         {
             // Variable declarations
@@ -184,6 +222,11 @@ namespace OpenVisualization.Web
             ChartBuilder cb = new ChartBuilder(chartConfig, Chart2);
         }
 
+        /// <summary>
+        /// Handles the Click event of the Button3 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Button3_Click(object sender, EventArgs e)
         {
             // Variable declarations

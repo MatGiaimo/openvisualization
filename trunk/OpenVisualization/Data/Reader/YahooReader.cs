@@ -14,6 +14,9 @@ namespace OpenVisualization.Data
     /// </summary>
     public class YahooReader : ChartDataReaderBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="YahooReader"/> class.
+        /// </summary>
         public YahooReader() : base()
         {
         }
