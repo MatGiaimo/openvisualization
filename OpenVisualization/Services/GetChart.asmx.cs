@@ -27,12 +27,21 @@ namespace OpenVisualization.Services
     public class GetChart : System.Web.Services.WebService
     {
 
+        /// <summary>
+        /// Helloes the world.
+        /// </summary>
+        /// <returns></returns>
         [WebMethod]
         public string HelloWorld()
         {
             return "Hello World";
         }
 
+        /// <summary>
+        /// Gets the static image.
+        /// </summary>
+        /// <param name="xmlChartConfig">The XML chart config.</param>
+        /// <returns></returns>
         [WebMethod]
         public string GetStaticImage(string xmlChartConfig)
         {
@@ -58,6 +67,12 @@ namespace OpenVisualization.Services
             }
         }
 
+        /// <summary>
+        /// Posts the XML.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="xml">The XML.</param>
+        /// <returns></returns>
         public string PostXml(string url, string xml)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(xml);

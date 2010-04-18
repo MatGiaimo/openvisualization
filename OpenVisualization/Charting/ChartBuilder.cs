@@ -53,7 +53,9 @@ namespace OpenVisualization.Charting
         /// <summary>
         /// This overloaded constructor creates a chart from the provided ChartConfigProvider
         /// </summary>
-        /// <param name="ChartConfig"></param>
+        /// <param name="ChartConfig">The chart config.</param>
+        /// <param name="ThisPage">The this page.</param>
+        /// <param name="imageMap">if set to <c>true</c> [image map].</param>
         public ChartBuilder(ChartConfigProvider ChartConfig, System.Web.UI.Page ThisPage, bool imageMap)
         {
             try
@@ -244,6 +246,10 @@ namespace OpenVisualization.Charting
             return xmlData;
         }
 
+        /// <summary>
+        /// Gets the chart HTML.
+        /// </summary>
+        /// <returns></returns>
         public string GetChartHtml()
         {
 
@@ -275,6 +281,10 @@ namespace OpenVisualization.Charting
             }
         }
 
+        /// <summary>
+        /// Gets the HTML image map.
+        /// </summary>
+        /// <returns></returns>
         public string GetHtmlImageMap()
         {
             return chartToBuild.GetHtmlImageMap("ImageMap");

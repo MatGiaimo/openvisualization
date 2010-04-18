@@ -26,6 +26,9 @@ namespace OpenVisualization.Data
     /// </summary>
     public class OMSReader : ChartDataReaderBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OMSReader"/> class.
+        /// </summary>
         public OMSReader() : base()
         {
         }
