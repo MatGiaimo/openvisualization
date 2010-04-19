@@ -15,14 +15,6 @@ namespace OpenVisualization.Data
     public class ChartDataReaderBase : IChartDataReader
     {
         /// <summary>
-        /// Default constructor
-        /// </summary>
-        public ChartDataReaderBase()
-        {
-
-        }
-
-        /// <summary>
         /// Get the XML representation of the data
         /// </summary>
         /// <returns></returns>
