@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 using System.Net;
 using System.IO;
-using OpenVisualization.Configuration;
-using OpenVisualization.Charting;
-using System.Xml;
-using System.Web.UI;
-using System.Web.Compilation;
-using System.Web.UI.DataVisualization.Charting;
 using System.Text;
 
 namespace OpenVisualization.Services
