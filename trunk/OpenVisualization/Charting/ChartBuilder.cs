@@ -1,18 +1,13 @@
 ﻿using System.Collections;
-//using System.Collections.Generic;
 using System.Web.UI.DataVisualization.Charting;
-//using System.Xml.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
 using System.Xml;
 using System;
 using System.Reflection;
-
 using OpenVisualization.Configuration;
 using System.Web.UI;
-//using System.Web.UI.HtmlControls;
-//using System.Configuration;
 
 namespace OpenVisualization.Charting
 {
