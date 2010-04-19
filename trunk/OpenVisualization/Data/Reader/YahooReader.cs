@@ -83,10 +83,8 @@ namespace OpenVisualization.Data
         /// <param name="strStartDate">Start date</param>
         /// <param name="strEndDate">End date</param>
         /// <returns></returns>
-        private string BuildYahooURI(string strTicker, string strStartDate, string strEndDate)
+        private static string BuildYahooURI(string strTicker, string strStartDate, string strEndDate)
         {
-            string strReturn;
-
             DateTime dStart = Convert.ToDateTime(strStartDate);
             DateTime dEnd = Convert.ToDateTime(strEndDate);
             string sStartDay = dStart.Day.ToString();
@@ -112,7 +110,7 @@ namespace OpenVisualization.Data
             sYahooURI.Append(sEndYear);
             sYahooURI.Append("&g=d");
             sYahooURI.Append("&ignore=.csv");
-            strReturn = sYahooURI.ToString();
+            string strReturn = sYahooURI.ToString();
 
             return strReturn;
         }
@@ -125,14 +123,13 @@ namespace OpenVisualization.Data
         public override XmlDocument getXML()
         {
             XmlDocument xReturn = new XmlDocument();
-            DataSet result;
 
             string sYahooURI = BuildYahooURI(Ticker, StartDate, EndDate);
 
             WebClient wc = new WebClient();
             Stream yData = wc.OpenRead(sYahooURI);
 
-            result = GenerateDataSet(yData);
+            DataSet result = GenerateDataSet(yData);
 
             StringWriter stringWriter = new StringWriter();
             XmlTextWriter xmlTextwriter = new XmlTextWriter(stringWriter);
