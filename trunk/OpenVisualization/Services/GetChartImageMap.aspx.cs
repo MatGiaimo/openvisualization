@@ -19,7 +19,7 @@ namespace OpenVisualization.Services
 
             ChartConfigProvider ccp = new ChartConfigProvider(xmlInput);
 
-            ChartBuilder cb = new ChartBuilder(ccp, this.Page, true);
+            ChartBuilder cb = new ChartBuilder(ccp, Page, true);
 
             Response.ContentType = "text/html";
             Response.Write(cb.GetChartHtml()+cb.GetHtmlImageMap());

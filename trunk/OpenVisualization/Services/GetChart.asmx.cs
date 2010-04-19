@@ -15,7 +15,7 @@ namespace OpenVisualization.Services
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class GetChart : System.Web.Services.WebService
+    public class GetChart : WebService
     {
 
         /// <summary>

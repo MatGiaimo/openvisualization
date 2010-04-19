@@ -33,8 +33,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("Sensors must be set"));
                 }
-                else
-                    return _sensors;
+                return _sensors;
             }
             set
             {
@@ -55,8 +54,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("StartDate must be set"));
                 }
-                else
-                    return _startDate;
+                return _startDate;
             }
             set
             {
@@ -77,8 +75,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("EndDate must be set"));
                 }
-                else
-                    return _endDate;
+                return _endDate;
             }
             set
             {
@@ -94,13 +91,13 @@ namespace OpenVisualization.Data
         {
             XmlDocument xReturn = new XmlDocument();
 
-            DateTime startDate = new DateTime();
+            DateTime startDate;
             startDate = DateTime.Parse(StartDate);
 
-            DateTime endDate = new DateTime();
+            DateTime endDate;
             endDate = DateTime.Parse(EndDate);
 
-            OpenVisualization.Data.DataContext.OmsDataContext db = new OpenVisualization.Data.DataContext.OmsDataContext();
+            DataContext.OmsDataContext db = new DataContext.OmsDataContext();
 
             var results = from q in db.Queries
                           where Sensors.Contains(q.sensor_id)

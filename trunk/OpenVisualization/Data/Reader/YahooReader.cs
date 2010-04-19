@@ -33,8 +33,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("Ticker must be set"));
                 }
-                else
-                    return _ticker;
+                return _ticker;
             }
             set
             {
@@ -55,8 +54,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("StartDate must be set"));
                 }
-                else
-                    return _startDate;
+                return _startDate;
             }
             set
             {
@@ -77,8 +75,7 @@ namespace OpenVisualization.Data
                 {
                     throw (new Exception("EndDate must be set"));
                 }
-                else
-                    return _endDate;
+                return _endDate;
             }
             set
             {
@@ -95,7 +92,7 @@ namespace OpenVisualization.Data
         /// <returns></returns>
         private string BuildYahooURI(string strTicker, string strStartDate, string strEndDate)
         {
-            string strReturn = "";
+            string strReturn;
 
             DateTime dStart = Convert.ToDateTime(strStartDate);
             DateTime dEnd = Convert.ToDateTime(strEndDate);
@@ -135,7 +132,7 @@ namespace OpenVisualization.Data
         public override XmlDocument getXML()
         {
             XmlDocument xReturn = new XmlDocument();
-            DataSet result = new DataSet();
+            DataSet result;
 
             string sYahooURI = BuildYahooURI(Ticker, StartDate, EndDate);
 

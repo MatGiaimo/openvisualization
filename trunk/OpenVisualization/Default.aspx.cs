@@ -111,7 +111,7 @@ namespace OpenVisualization.Web
             // The first child contains the root URI
             if (lst != null)
             {
-                dataURI.Append(lst.Item(0).InnerText.ToString());
+                dataURI.Append(lst.Item(0).InnerText);
 
                 // If the textboxes are full use the values else use the config file
                 if (!string.IsNullOrEmpty(ticker.Text) && startdate.SelectedDate != null && enddate.SelectedDate != null)
@@ -143,7 +143,7 @@ namespace OpenVisualization.Web
 
                         // In this case the desired parameters are hard coded into the XML.
                         // in a 'real' server you'd likely accept them as params to this page
-                        dataURI.Append(lst.Item(lp).Attributes.Item(0).Value.ToString());
+                        dataURI.Append(lst.Item(lp).Attributes.Item(0).Value);
                         dataURI.Append("=");
                         dataURI.Append(lst.Item(lp).InnerText);
                     }

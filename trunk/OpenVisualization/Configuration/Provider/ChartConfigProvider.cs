@@ -224,7 +224,7 @@ namespace OpenVisualization.Configuration
             XmlDocument xChartDefinition = new XmlDocument();
             xChartDefinition.LoadXml(chartDefinition);
 
-            xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(xChartDefinition);
+            xDocChartDefinition = DocumentToXDocumentReader(xChartDefinition);
 
             series = new ArrayList();
             chartParams = new Hashtable();
@@ -244,7 +244,7 @@ namespace OpenVisualization.Configuration
         /// <param name="chartDefinition">XmlDocument configuration</param>
         public ChartConfigProvider(XmlDocument chartDefinition)
         {
-            xDocChartDefinition = ChartConfigProvider.DocumentToXDocumentReader(chartDefinition);
+            xDocChartDefinition = DocumentToXDocumentReader(chartDefinition);
             series = new ArrayList();
             chartParams = new Hashtable();
             chartAreaParams = new Hashtable();
@@ -271,10 +271,10 @@ namespace OpenVisualization.Configuration
                 // Set the Name (id in current xml definition)
                 if (xSeries != null)
                 {
-                    currSeries.Name = xSeries.Attribute("id").Value.ToString();
+                    currSeries.Name = xSeries.Attribute("id").Value;
 
                     // Set the xpath to get data
-                    currSeries.XPath = xSeries.Element("Data").Value.ToString();
+                    currSeries.XPath = xSeries.Element("Data").Value;
 
                     // Set the legend if it exists
                     XElement xToolTip = xSeries.Element("Tooltip");
@@ -318,7 +318,7 @@ namespace OpenVisualization.Configuration
 
                         if (xUri != null)
                         {
-                            string uriPath = xUri.Element("Path").Value.ToString();
+                            string uriPath = xUri.Element("Path").Value;
 
                             dataURI.Append(uriPath);
                         }
@@ -342,9 +342,9 @@ namespace OpenVisualization.Configuration
 
                             // In this case the desired parameters are hard coded into the XML.
                             // in a 'real' server you'd likely accept them as params to this page
-                            if (xParam != null) dataURI.Append(xParam.Attribute("Name").Value.ToString());
+                            if (xParam != null) dataURI.Append(xParam.Attribute("Name").Value);
                             dataURI.Append("=");
-                            if (xParam != null) dataURI.Append(xParam.Value.ToString());
+                            if (xParam != null) dataURI.Append(xParam.Value);
                             paramCount++;
                         }
                     }
@@ -392,8 +392,8 @@ namespace OpenVisualization.Configuration
             {
                 if (xe != null)
                 {
-                    string name = xe.Attribute("name").Value.ToString();
-                    string val = xe.Value.ToString();
+                    string name = xe.Attribute("name").Value;
+                    string val = xe.Value;
 
                     ht.Add(name, val);
                 }
@@ -407,8 +407,8 @@ namespace OpenVisualization.Configuration
             {
                 if (xe != null)
                 {
-                    string name = xe.Attribute("name").Value.ToString();
-                    string val = xe.Value.ToString();
+                    string name = xe.Attribute("name").Value;
+                    string val = xe.Value;
 
                     PropertyInfo pi = chartObject.GetType().GetProperty(name);
 
