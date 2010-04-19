@@ -9,7 +9,7 @@ namespace OpenVisualization.Services
     /// </summary>
     public partial class GetPriceHistory : System.Web.UI.Page
     {
-        YahooReader yahooRdr = new YahooReader();
+        readonly YahooReader yahooRdr = new YahooReader();
 
         /// <summary>
         /// Handles the Load event of the Page control.

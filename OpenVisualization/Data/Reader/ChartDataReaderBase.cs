@@ -31,9 +31,9 @@ namespace OpenVisualization.Data
         protected void Copy(Stream source, Stream target)
         {
             byte[] buffer = new byte[0x10000];
-            int bytes;
             try
             {
+                int bytes;
                 while ((bytes = source.Read(buffer, 0, buffer.Length)) > 0)
                 {
                     target.Write(buffer, 0, bytes);
@@ -63,7 +63,7 @@ namespace OpenVisualization.Data
 
             fs.Close();
 
-            String conn = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\;Extended Properties=""Text;HDR=No;FMT=Delimited""";
+            const string conn = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\;Extended Properties=""Text;HDR=No;FMT=Delimited""";
 
             OleDbConnection cn = new OleDbConnection(conn);
             OleDbCommand cmd = new OleDbCommand(string.Format(@"SELECT * FROM {0}", tempFilePath), cn);

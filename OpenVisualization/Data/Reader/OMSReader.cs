@@ -84,11 +84,9 @@ namespace OpenVisualization.Data
         {
             XmlDocument xReturn = new XmlDocument();
 
-            DateTime startDate;
-            startDate = DateTime.Parse(StartDate);
+            DateTime startDate = DateTime.Parse(StartDate);
 
-            DateTime endDate;
-            endDate = DateTime.Parse(EndDate);
+            DateTime endDate = DateTime.Parse(EndDate);
 
             DataContext.OmsDataContext db = new DataContext.OmsDataContext();
 

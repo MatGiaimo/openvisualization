@@ -69,17 +69,17 @@ namespace OpenVisualization.Configuration
     public class ChartConfigProvider
     {
         #region Private members
-        private XDocument xDocChartDefinition;
-        private ArrayList series;
+        private readonly XDocument xDocChartDefinition;
+        private readonly ArrayList series;
         private DataSourceType dataSource;
         private string uri;
-        private Hashtable chartParams;
-        private Hashtable chartAreaParams;
-        private Hashtable chartAxisXParams;
-        private Hashtable chartAxisX2Params;
-        private Hashtable chartAxisYParams;
-        private Hashtable chartAxisY2Params;
-        private Hashtable chartLegendParams;
+        private readonly Hashtable chartParams;
+        private readonly Hashtable chartAreaParams;
+        private readonly Hashtable chartAxisXParams;
+        private readonly Hashtable chartAxisX2Params;
+        private readonly Hashtable chartAxisYParams;
+        private readonly Hashtable chartAxisY2Params;
+        private readonly Hashtable chartLegendParams;
         
         #endregion
 
@@ -242,7 +242,7 @@ namespace OpenVisualization.Configuration
         /// Overloaded constructor that builds a configuration from an XmlDocument
         /// </summary>
         /// <param name="chartDefinition">XmlDocument configuration</param>
-        public ChartConfigProvider(XmlDocument chartDefinition)
+        public ChartConfigProvider(XmlNode chartDefinition)
         {
             xDocChartDefinition = DocumentToXDocumentReader(chartDefinition);
             series = new ArrayList();
@@ -385,7 +385,7 @@ namespace OpenVisualization.Configuration
             }
         }
 
-        private void FillConfigParameters(Hashtable ht, IEnumerable<XElement> paramElements)
+        private static void FillConfigParameters(IDictionary ht, IEnumerable<XElement> paramElements)
         {
             // Loop through all Param values in the nodelist for the series
             foreach (XElement xe in paramElements)
@@ -400,7 +400,7 @@ namespace OpenVisualization.Configuration
             }
         }
 
-        private void FillObjectParameters(ref Object chartObject, IEnumerable<XElement> paramElements)
+        private static void FillObjectParameters(ref Object chartObject, IEnumerable<XElement> paramElements)
         {
             // Loop through all Param values in the nodelist for the series
             foreach (XElement xe in paramElements)
@@ -448,7 +448,7 @@ namespace OpenVisualization.Configuration
         /// </summary>
         /// <param name="doc"></param>
         /// <returns></returns>
-        private static XDocument DocumentToXDocumentReader(XmlDocument doc)
+        private static XDocument DocumentToXDocumentReader(XmlNode doc)
         {
             return XDocument.Load(new XmlNodeReader(doc));
         }

@@ -20,12 +20,12 @@ namespace OpenVisualization.Charting
         /// <summary>
         /// The current working configuration for the chart
         /// </summary>
-        private ChartConfigProvider currConfig;
+        private readonly ChartConfigProvider currConfig;
 
         /// <summary>
         /// The chart object used to provide the chart
         /// </summary>
-        private Chart chartToBuild;
+        private readonly Chart chartToBuild;
 
         /// <summary>
         /// Label for the xAxis seris
@@ -167,7 +167,7 @@ namespace OpenVisualization.Charting
         /// Parse the xAxis values from the XML
         /// </summary>
         /// <param name="xmlData">XmlDocument containing data in the standardized format</param>
-        private void BuildXAxisLabels(XmlDocument xmlData)
+        private void BuildXAxisLabels(XmlNode xmlData)
         {
             xAxisLabelValues = new ArrayList();
 
@@ -194,7 +194,7 @@ namespace OpenVisualization.Charting
         /// Populates the Chart Series with data values from the XML
         /// </summary>
         /// <param name="xmlData">XmlDocument containing data in the standardized format</param>
-        private void FillSeriesData(XmlDocument xmlData)
+        private void FillSeriesData(XmlNode xmlData)
         {
             foreach (ChartConfigSeries ccSeries in currConfig.Series)
             {
@@ -287,7 +287,7 @@ namespace OpenVisualization.Charting
         }
 
 
-        private void SetObjectParameters(Object chartObject, Hashtable ht)
+        private static void SetObjectParameters(Object chartObject, IDictionary ht)
         {
             foreach (string name in ht.Keys)
             {

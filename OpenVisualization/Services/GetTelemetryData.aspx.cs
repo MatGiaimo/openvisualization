@@ -9,7 +9,7 @@ namespace OpenVisualization.Services
     /// </summary>
     public partial class GetTelemetryData : System.Web.UI.Page
     {
-        OMSReader omsRdr = new OMSReader();
+        readonly OMSReader omsRdr = new OMSReader();
 
         /// <summary>
         /// Handles the Load event of the Page control.
