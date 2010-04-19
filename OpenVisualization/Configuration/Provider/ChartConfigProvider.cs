@@ -269,23 +269,26 @@ namespace OpenVisualization.Configuration
                 ChartConfigSeries currSeries = new ChartConfigSeries();
 
                 // Set the Name (id in current xml definition)
-                currSeries.Name = xSeries.Attribute("id").Value.ToString();
-
-                // Set the xpath to get data
-                currSeries.XPath = xSeries.Element("Data").Value.ToString();
-
-                // Set the legend if it exists
-                XElement xToolTip = xSeries.Element("Tooltip");
-
-                if (xToolTip != null)
+                if (xSeries != null)
                 {
-                    string toolTip = xSeries.Element("Tooltip").Value;
-                    currSeries.ToolTip = toolTip;
+                    currSeries.Name = xSeries.Attribute("id").Value.ToString();
+
+                    // Set the xpath to get data
+                    currSeries.XPath = xSeries.Element("Data").Value.ToString();
+
+                    // Set the legend if it exists
+                    XElement xToolTip = xSeries.Element("Tooltip");
+
+                    if (xToolTip != null)
+                    {
+                        string toolTip = xSeries.Element("Tooltip").Value;
+                        currSeries.ToolTip = toolTip;
+                    }
                 }
 
                 // Loop through all Param values in the nodelist for the series
                 Object obj = currSeries;
-                FillObjectParameters(ref obj, xSeries.Elements("Param"));
+                if (xSeries != null) FillObjectParameters(ref obj, xSeries.Elements("Param"));
 
                 currSeries = (ChartConfigSeries)obj; // Possible redundant code
                 series.Add(currSeries);
@@ -297,79 +300,88 @@ namespace OpenVisualization.Configuration
         /// </summary>
         private void ParseChartsXDoc()
         {
-            IEnumerable<XElement> xChartList = xDocChartDefinition.Root.Elements("Chart");
-
-            foreach (XElement el in xChartList)
+            if (xDocChartDefinition.Root != null)
             {
-                // We're starting with Uri DataSourceTypes so lets check for that first
-                // We only support one uri config (for now) so use SelectSingleNode
-                StringBuilder dataURI = new StringBuilder();
+                IEnumerable<XElement> xChartList = xDocChartDefinition.Root.Elements("Chart");
 
-                XElement xUri = el.Element("Uri");
-
-                try
+                foreach (XElement el in xChartList)
                 {
-                    dataSource = DataSourceType.Uri;
+                    // We're starting with Uri DataSourceTypes so lets check for that first
+                    // We only support one uri config (for now) so use SelectSingleNode
+                    StringBuilder dataURI = new StringBuilder();
 
-                    string uriPath = xUri.Element("Path").Value.ToString();
+                    XElement xUri = el.Element("Uri");
 
-                    dataURI.Append(uriPath);
+                    try
+                    {
+                        dataSource = DataSourceType.Uri;
+
+                        if (xUri != null)
+                        {
+                            string uriPath = xUri.Element("Path").Value.ToString();
+
+                            dataURI.Append(uriPath);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Uri path not found",ex);
+                    }
+
+                    if (xUri != null)
+                    {
+                        IEnumerable<XElement> xParamList = xUri.Elements("Param");
+
+                        int paramCount = 1;
+                        foreach (XElement xParam in xParamList)
+                        {
+                            if (paramCount == 1)
+                                dataURI.Append("?");
+                            else
+                                dataURI.Append("&");
+
+                            // In this case the desired parameters are hard coded into the XML.
+                            // in a 'real' server you'd likely accept them as params to this page
+                            if (xParam != null) dataURI.Append(xParam.Attribute("Name").Value.ToString());
+                            dataURI.Append("=");
+                            if (xParam != null) dataURI.Append(xParam.Value.ToString());
+                            paramCount++;
+                        }
+                    }
+
+                    // Set the uri variable for access through property
+                    uri = dataURI.ToString();
+
+                    //Get the series definitions
+                    BuildSeries(el.Descendants("Data").Descendants("SeriesDefinitions").Descendants("Series"));
+
+                    // Process ChartArea Parameters
+                    XElement xChartArea = el.Element("ChartArea");
+
+                    if (xChartArea != null)
+                    {
+                        FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
+
+                        // Process Axis Params
+                        if (xChartArea.Element("AxisX") != null)
+                            FillConfigParameters(chartAxisXParams, xChartArea.Element("AxisX").Elements("Param"));
+                        if (xChartArea.Element("AxisY") != null)
+                            FillConfigParameters(chartAxisYParams, xChartArea.Element("AxisY").Elements("Param"));
+                        if (xChartArea.Element("AxisX2") != null)
+                            FillConfigParameters(chartAxisX2Params, xChartArea.Element("AxisX2").Elements("Param"));
+                        if (xChartArea.Element("AxisY2") != null)
+                            FillConfigParameters(chartAxisY2Params, xChartArea.Element("AxisY2").Elements("Param"));
+
+                    }
+
+                    // Process Legend Params 
+                    XElement xLegend = el.Element("Legend");
+                    if (xLegend != null)
+                        FillConfigParameters(chartLegendParams, xLegend.Elements("Param"));
+
+                    // Process Chart Params
+                    FillConfigParameters(chartParams, el.Elements("Param"));
                 }
-                catch (Exception ex)
-                {
-                    throw new Exception("Uri path not found",ex);
-                }
-                             
-                IEnumerable<XElement> xParamList = xUri.Elements("Param");
-
-                int paramCount = 1;
-                foreach (XElement xParam in xParamList)
-                {
-                    if (paramCount == 1)
-                        dataURI.Append("?");
-                    else
-                        dataURI.Append("&");
-
-                    // In this case the desired parameters are hard coded into the XML.
-                    // in a 'real' server you'd likely accept them as params to this page
-                    dataURI.Append(xParam.Attribute("Name").Value.ToString());
-                    dataURI.Append("=");
-                    dataURI.Append(xParam.Value.ToString());
-                    paramCount++;
-                }
-
-                // Set the uri variable for access through property
-                uri = dataURI.ToString();
-
-                //Get the series definitions
-                BuildSeries(el.Descendants("Data").Descendants("SeriesDefinitions").Descendants("Series"));
-
-                // Process ChartArea Parameters
-                XElement xChartArea = el.Element("ChartArea");
-
-                if (xChartArea != null)
-                {
-                    FillConfigParameters(chartAreaParams, xChartArea.Elements("Param"));
-
-                    // Process Axis Params
-                    if (xChartArea.Element("AxisX") != null)
-                        FillConfigParameters(chartAxisXParams, xChartArea.Element("AxisX").Elements("Param"));
-                    if (xChartArea.Element("AxisY") != null)
-                        FillConfigParameters(chartAxisYParams, xChartArea.Element("AxisY").Elements("Param"));
-                    if (xChartArea.Element("AxisX2") != null)
-                        FillConfigParameters(chartAxisX2Params, xChartArea.Element("AxisX2").Elements("Param"));
-                    if (xChartArea.Element("AxisY2") != null)
-                        FillConfigParameters(chartAxisY2Params, xChartArea.Element("AxisY2").Elements("Param"));
-
-                }
-
-                // Process Legend Params 
-                XElement xLegend = el.Element("Legend");
-                if (xLegend != null)
-                    FillConfigParameters(chartLegendParams, xLegend.Elements("Param"));
-
-                // Process Chart Params
-                FillConfigParameters(chartParams, el.Elements("Param"));
             }
         }
 
@@ -378,10 +390,13 @@ namespace OpenVisualization.Configuration
             // Loop through all Param values in the nodelist for the series
             foreach (XElement xe in paramElements)
             {
-                string name = xe.Attribute("name").Value.ToString();
-                string val = xe.Value.ToString();
+                if (xe != null)
+                {
+                    string name = xe.Attribute("name").Value.ToString();
+                    string val = xe.Value.ToString();
 
-                ht.Add(name, val);
+                    ht.Add(name, val);
+                }
             }
         }
 
@@ -390,35 +405,38 @@ namespace OpenVisualization.Configuration
             // Loop through all Param values in the nodelist for the series
             foreach (XElement xe in paramElements)
             {
-                string name = xe.Attribute("name").Value.ToString();
-                string val = xe.Value.ToString();
-
-                PropertyInfo pi = chartObject.GetType().GetProperty(name);
-
-                // Evaluate special cases: Enum, Color, etc. Else do basic conversion
-                try
+                if (xe != null)
                 {
-                    Object o;
+                    string name = xe.Attribute("name").Value.ToString();
+                    string val = xe.Value.ToString();
 
-                    if (pi.PropertyType.BaseType.FullName == "System.Enum")
-                    {
-                        o = Enum.Parse(pi.PropertyType, val);
-                    }
-                    else if (pi.PropertyType.FullName == "System.Drawing.Color")
-                    {
-                        o = System.Drawing.Color.FromName(val);
-                    }
-                    else
-                    {
-                        o = Convert.ChangeType(val, pi.PropertyType);
-                    }
+                    PropertyInfo pi = chartObject.GetType().GetProperty(name);
 
-                    pi.SetValue(chartObject, o, null);
-                }
-                catch (Exception e)
-                // DO NOTHING ... Yet
-                {
+                    // Evaluate special cases: Enum, Color, etc. Else do basic conversion
+                    try
+                    {
+                        Object o;
 
+                        if (pi.PropertyType.BaseType.FullName == "System.Enum")
+                        {
+                            o = Enum.Parse(pi.PropertyType, val);
+                        }
+                        else if (pi.PropertyType.FullName == "System.Drawing.Color")
+                        {
+                            o = System.Drawing.Color.FromName(val);
+                        }
+                        else
+                        {
+                            o = Convert.ChangeType(val, pi.PropertyType);
+                        }
+
+                        pi.SetValue(chartObject, o, null);
+                    }
+                    catch (Exception e)
+                        // DO NOTHING ... Yet
+                    {
+
+                    }
                 }
             }
         }

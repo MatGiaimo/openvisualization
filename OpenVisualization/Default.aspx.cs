@@ -109,41 +109,44 @@ namespace OpenVisualization.Web
               xmlChartConfig.SelectNodes("/root/Chart[@Name='PriceHistory1']/Uri/*");
 
             // The first child contains the root URI
-            dataURI.Append(lst.Item(0).InnerText.ToString());
+            if (lst != null)
+            {
+                dataURI.Append(lst.Item(0).InnerText.ToString());
 
-            // If the textboxes are full use the values else use the config file
-            if (!string.IsNullOrEmpty(ticker.Text) && startdate.SelectedDate != null && enddate.SelectedDate != null)
-            {
-                dataURI.Append("?");
-                dataURI.Append(ticker.ID);
-                dataURI.Append("=");
-                dataURI.Append(ticker.Text);
-                dataURI.Append("&");
-                dataURI.Append(startdate.ID);
-                dataURI.Append("=");
-                dataURI.Append(string.Format("{0:MM-dd-yyyy}",startdate.SelectedDate));
-                dataURI.Append("&");
-                dataURI.Append(enddate.ID);
-                dataURI.Append("=");
-                dataURI.Append(string.Format("{0:MM-dd-yyyy}", enddate.SelectedDate));
-            }
-            else
-            {
-                // The rest of the children of this node contain the parameters
-                // the first parameter is prefixed with ?, the rest with &
-                // i.e. http://url?firstparam=firstval&secondparam=secondval etc
-                for (int lp = 1; lp < lst.Count; lp++)
+                // If the textboxes are full use the values else use the config file
+                if (!string.IsNullOrEmpty(ticker.Text) && startdate.SelectedDate != null && enddate.SelectedDate != null)
                 {
-                    if (lp == 1)
-                        dataURI.Append("?");
-                    else
-                        dataURI.Append("&");
-
-                    // In this case the desired parameters are hard coded into the XML.
-                    // in a 'real' server you'd likely accept them as params to this page
-                    dataURI.Append(lst.Item(lp).Attributes.Item(0).Value.ToString());
+                    dataURI.Append("?");
+                    dataURI.Append(ticker.ID);
                     dataURI.Append("=");
-                    dataURI.Append(lst.Item(lp).InnerText);
+                    dataURI.Append(ticker.Text);
+                    dataURI.Append("&");
+                    dataURI.Append(startdate.ID);
+                    dataURI.Append("=");
+                    dataURI.Append(string.Format("{0:MM-dd-yyyy}",startdate.SelectedDate));
+                    dataURI.Append("&");
+                    dataURI.Append(enddate.ID);
+                    dataURI.Append("=");
+                    dataURI.Append(string.Format("{0:MM-dd-yyyy}", enddate.SelectedDate));
+                }
+                else
+                {
+                    // The rest of the children of this node contain the parameters
+                    // the first parameter is prefixed with ?, the rest with &
+                    // i.e. http://url?firstparam=firstval&secondparam=secondval etc
+                    for (int lp = 1; lp < lst.Count; lp++)
+                    {
+                        if (lp == 1)
+                            dataURI.Append("?");
+                        else
+                            dataURI.Append("&");
+
+                        // In this case the desired parameters are hard coded into the XML.
+                        // in a 'real' server you'd likely accept them as params to this page
+                        dataURI.Append(lst.Item(lp).Attributes.Item(0).Value.ToString());
+                        dataURI.Append("=");
+                        dataURI.Append(lst.Item(lp).InnerText);
+                    }
                 }
             }
 
@@ -161,30 +164,34 @@ namespace OpenVisualization.Web
             // I'm taking the first series, because I only have 1
             // A 'real' server would iterate through all the matching nodes on the
             // XPath
-            string xPath = lst.Item(0).InnerText;
-
-            // I've read the XPath that determines the data location, so I can
-            // create a nodelist from that
-            XmlNodeList data = xmlData.SelectNodes(xPath);
-            Series series = new Series();
-
-            // I'm hard coding for 'Line' here -- the 'real' server should
-            // read the chart type from the config
-            series.ChartType = SeriesChartType.Line;
-            double nCurrent = 0.0;
-
-            // I can now iterate through all the values of the node list, and
-            foreach (XmlNode nd in data)
+            if (lst != null)
             {
-                // .. create a DataPoint from them, which is added to the Series
-                DataPoint d = new DataPoint(nCurrent, Convert.ToDouble(nd.
-                  InnerText));
-                series.Points.Add(d);
-                nCurrent++;
-            }
+                string xPath = lst.Item(0).InnerText;
 
-            // Finally I add the series to my chart
-            Chart2.Series.Add(series);
+                // I've read the XPath that determines the data location, so I can
+                // create a nodelist from that
+                XmlNodeList data = xmlData.SelectNodes(xPath);
+                Series series = new Series();
+
+                // I'm hard coding for 'Line' here -- the 'real' server should
+                // read the chart type from the config
+                series.ChartType = SeriesChartType.Line;
+                double nCurrent = 0.0;
+
+                // I can now iterate through all the values of the node list, and
+                if (data != null)
+                    foreach (XmlNode nd in data)
+                    {
+                        // .. create a DataPoint from them, which is added to the Series
+                        DataPoint d = new DataPoint(nCurrent, Convert.ToDouble(nd.
+                                                                                   InnerText));
+                        series.Points.Add(d);
+                        nCurrent++;
+                    }
+
+                // Finally I add the series to my chart
+                Chart2.Series.Add(series);
+            }
         }
 
         /// <summary>
