@@ -21,17 +21,17 @@ namespace OpenVisualization.Services
             string strTicker, strStartDate, strEndDate;
 
             if (Request.Params["ticker"] != null)
-                strTicker = Request.Params["ticker"].ToString();
+                strTicker = Request.Params["ticker"];
             else
                 strTicker = "MSFT";
 
             if (Request.Params["startdate"] != null)
-                strStartDate = Request.Params["startdate"].ToString();
+                strStartDate = Request.Params["startdate"];
             else
                 strStartDate = "12-1-2009";
 
             if (Request.Params["enddate"] != null)
-                strEndDate = Request.Params["enddate"].ToString();
+                strEndDate = Request.Params["enddate"];
             else
                 strEndDate = "1-26-2010";
 

@@ -51,7 +51,7 @@ namespace OpenVisualization.Charting
         /// <param name="ChartConfig">The chart config.</param>
         /// <param name="ThisPage">The this page.</param>
         /// <param name="imageMap">if set to <c>true</c> [image map].</param>
-        public ChartBuilder(ChartConfigProvider ChartConfig, System.Web.UI.Page ThisPage, bool imageMap)
+        public ChartBuilder(ChartConfigProvider ChartConfig, Page ThisPage, bool imageMap)
         {
             try
             {
@@ -175,7 +175,7 @@ namespace OpenVisualization.Charting
             //Get the xAxisLabel values
             foreach (ChartConfigSeries ccSeries in currConfig.Series)
             {
-                if (ccSeries.IsXAxisLabel == true)
+                if (ccSeries.IsXAxisLabel)
                 {
                     xAxisLabelSeriesName = ccSeries.Name;
 
@@ -219,9 +219,8 @@ namespace OpenVisualization.Charting
                             }
                             xAxisIndex++;
                         }
-                    xAxisIndex = 0;
 
-                    chartToBuild.Series.Add((Series)ccSeries);
+                    chartToBuild.Series.Add(ccSeries);
                 }
             }
         }

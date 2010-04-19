@@ -22,17 +22,17 @@ namespace OpenVisualization.Services
             string strStartDate, strEndDate;
 
             if (Request.Params["sensors"] != null)
-                sensors = Request.Params["sensors"].ToString().Split(new char[] { ',' });
+                sensors = Request.Params["sensors"].Split(new[] { ',' });
             else
-                sensors = new string[] { "091F0022" };
+                sensors = new[] { "091F0022" };
 
             if (Request.Params["startdate"] != null)
-                strStartDate = Request.Params["startdate"].ToString();
+                strStartDate = Request.Params["startdate"];
             else
                 strStartDate = "2010-01-12";
 
             if (Request.Params["enddate"] != null)
-                strEndDate = Request.Params["enddate"].ToString();
+                strEndDate = Request.Params["enddate"];
             else
                 strEndDate = "2010-01-13";
 

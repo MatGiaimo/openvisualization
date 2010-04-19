@@ -112,7 +112,7 @@ namespace OpenVisualization.Data
                 // Use reflection to get property names, to create table, Only first time, others will follow 
                 if (oProps == null)
                 {
-                    oProps = ((Type)rec.GetType()).GetProperties();
+                    oProps = rec.GetType().GetProperties();
                     foreach (PropertyInfo pi in oProps)
                     {
                         Type colType = pi.PropertyType;
