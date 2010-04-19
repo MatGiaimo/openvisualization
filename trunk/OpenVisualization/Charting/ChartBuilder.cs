@@ -181,10 +181,11 @@ namespace OpenVisualization.Charting
 
                     XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
 
-                    foreach (XmlNode nd in data)
-                    {
-                        xAxisLabelValues.Add(DateTime.Parse(nd.InnerText));
-                    }
+                    if (data != null)
+                        foreach (XmlNode nd in data)
+                        {
+                            xAxisLabelValues.Add(DateTime.Parse(nd.InnerText));
+                        }
                 }
             }
         }
@@ -204,19 +205,20 @@ namespace OpenVisualization.Charting
                     XmlNodeList data = xmlData.SelectNodes(ccSeries.XPath);
 
                     int xAxisIndex = 0;
-                    foreach (XmlNode nd in data)
-                    {
-                        if (xAxisLabelValues.Count > 0)
+                    if (data != null)
+                        foreach (XmlNode nd in data)
                         {
-                            ccSeries.Points.AddXY(xAxisLabelValues[xAxisIndex], nd.InnerText);
+                            if (xAxisLabelValues.Count > 0)
+                            {
+                                ccSeries.Points.AddXY(xAxisLabelValues[xAxisIndex], nd.InnerText);
 
+                            }
+                            else
+                            {
+                                ccSeries.Points.AddXY(xAxisIndex, nd.InnerText);
+                            }
+                            xAxisIndex++;
                         }
-                        else
-                        {
-                            ccSeries.Points.AddXY(xAxisIndex, nd.InnerText);
-                        }
-                        xAxisIndex++;
-                    }
                     xAxisIndex = 0;
 
                     chartToBuild.Series.Add((Series)ccSeries);
