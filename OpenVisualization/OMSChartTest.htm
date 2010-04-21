@@ -2,9 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <title>Telemetry Charting Test</title>
+    <link type="text/css" href="css/ui-lightness/jquery-ui-1.7.2.custom.css" rel="stylesheet" /> 
     <script type="text/javascript" language="javascript" src="Scripts/jquery-1.4.2.js"></script>
+    <script type="text/javascript" language="javascript" src="Scripts/jquery-ui-1.8.custom.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Scripts/timepicker.js"></script>
+
     <script language="javascript" type="text/javascript">
     <!--
+        $(function() {
+            $('.datetime').datepicker({
+                duration: '',
+                showTime: true,
+                constrainInput: false,
+                stepMinutes: 1,
+                stepHours: 1,
+                altTimeField: '',
+                time24h: false
+            });
+        });
+        
         function getChart() {
             // GATHER FORM VARS ------------------------------------------>
             
@@ -14,6 +30,8 @@
             var chkTemp = $('#tempChkBox:checked').val();
             var chkRH = $('#rhChkBox:checked').val();
             var chkDewPnt = $('#dewPntChkBox:checked').val();
+            var mkrChkBox = $('#mkrChkBox').val();
+            var toolTip = $('#ttChkBox').val();
 
             // CREATE XML CONFIG STATIC HEADER/FOOTER --------------------->
             
@@ -40,17 +58,40 @@
 
             if (chkTemp != null) {
                 strXMLData += "<Series id=\"Temperature\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/temperature</Data>" +
-                    "<Param name=\"ChartType\">Line</Param></Series>";
+                    "<Param name=\"ChartType\">Line</Param>";
+                
+                if (mkrChkBox != null) {
+                    strXMLData += "<Param name=\"MarkerStyle\">Triangle</Param><Param name=\"MarkerSize\">4</Param>"+
+                    "<Param name=\"MarkerColor\">Blue</Param>"
+                }
+                if (toolTip != null) {
+                    strXMLData += "<Tooltip>Date = #VALX{f}\nTemp = #VALY{n}°C</Tooltip>"
+                }
+                strXMLData += "</Series>";    
             }
 
             if (chkRH != null) {
                 strXMLData += "<Series id=\"RH\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/humidity</Data>" +
-                    "<Param name=\"ChartType\">Line</Param><Param name=\"YAxisType\">Secondary</Param></Series>";
+                    "<Param name=\"ChartType\">Line</Param><Param name=\"YAxisType\">Secondary</Param>";
+                if (mkrChkBox != null) {
+                    strXMLData += "<Param name=\"MarkerStyle\">Diamond</Param><Param name=\"MarkerSize\">4</Param><Param name=\"MarkerColor\">Orange</Param>"
+                }
+                if (toolTip != null) {
+                    strXMLData += "<Tooltip>Date = #VALX{f}\nHudmidity = #VALY{n}%</Tooltip>"
+                }
+                strXMLData += "</Series>";    
             }
 
             if (chkDewPnt != null) {
                 strXMLData += "<Series id=\"Dew Pnt\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/dew_point</Data>" +
-                    "<Param name=\"ChartType\">Line</Param></Series>";                    
+                    "<Param name=\"ChartType\">Line</Param>";
+                if (mkrChkBox != null) {
+                    strXMLData += "<Param name=\"MarkerStyle\">Square</Param><Param name=\"MarkerSize\">4</Param><Param name=\"MarkerColor\">Red</Param>"
+                }
+                if (toolTip != null) {
+                    strXMLData += "<Tooltip>Date = #VALX{f}\nDew Point = #VALY{n}°C</Tooltip>"
+                }
+                strXMLData += "</Series>";                        
             }
 
             strXMLData += "</SeriesDefinitions></Data>";
@@ -64,9 +105,16 @@
 
         function loadChartImage(xml) {
             var resultsDiv = $('#chartImage');
+            var toolTip = $('#ttChkBox').val();
+
+            var chartUrl = "/Services/GetStaticChartImage.aspx";
+
+            if (toolTip != null) {
+                chartUrl = "/Services/GetChartImageMap.aspx";
+            }
 
             $.ajax({
-                url: "/Services/GetStaticChartImage.aspx",
+                url: chartUrl,
                 type: "POST",
                 processData: false,
                 contentType: "text/xml",
@@ -82,7 +130,6 @@
     </script>
 </head>
 <body>
-<form>
 <table width="600">
     <tr>
         <td style="height:350px; border: solid thin black;"><div id="chartImage"></div></td>
@@ -96,8 +143,8 @@
     </tr>
     <tr>
         <td>
-            Start date: <input type="text" size="10" maxlength="10" id="startDateTxt" name="startDateTxt" value="1/12/2010" />
-            End date: <input type="text" size="10" maxlength="10" id="endDateTxt" name="endDateTxt"  value="1/13/2010" />
+            Start date: <input type="text" size="10" maxlength="10" id="startDateTxt" class="datetime" name="startDateTxt" value="1/12/2010" />
+            End date: <input type="text" size="10" maxlength="10" id="endDateTxt" class="datetime" name="endDateTxt"  value="1/13/2010" />
         </td>
     </tr>
     <tr>
@@ -110,10 +157,15 @@
     </tr>
     <tr>
         <td>
+           <input type="checkbox" id="ttChkBox" name="ttChkBox" value="1" /> Tooltips 
+           <input type="checkbox" id="mkrChkBox" name="mkrChkBox" value="0" /> Marker
+        </td>
+    </tr>
+    <tr>
+        <td>
             <input type="button" name="submitBtn" value="Submit" onclick="javascript:getChart();" />
         </td>
     </tr>
 </table>
-</form>
 </body>
 </html>
