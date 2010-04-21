@@ -23,15 +23,16 @@
         
         function getChart() {
             // GATHER FORM VARS ------------------------------------------>
-            
+
             var strSensorId = $('input[name=sensorId]:checked').val();
+            var strMkrSize = $('#mkrSize :selected').val()
             var strStartDate = $('#startDateTxt').val();
             var strEndDate = $('#endDateTxt').val();
             var chkTemp = $('#tempChkBox:checked').val();
             var chkRH = $('#rhChkBox:checked').val();
             var chkDewPnt = $('#dewPntChkBox:checked').val();
-            var mkrChkBox = $('#mkrChkBox').val();
-            var toolTip = $('#ttChkBox').val();
+            var mkrChkBox = $('#mkrChkBox:checked').val();
+            var toolTip = $('#ttChkBox:checked').val();
 
             // CREATE XML CONFIG STATIC HEADER/FOOTER --------------------->
             
@@ -61,7 +62,7 @@
                     "<Param name=\"ChartType\">Line</Param>";
                 
                 if (mkrChkBox != null) {
-                    strXMLData += "<Param name=\"MarkerStyle\">Triangle</Param><Param name=\"MarkerSize\">4</Param>"+
+                    strXMLData += "<Param name=\"MarkerStyle\">Triangle</Param><Param name=\"MarkerSize\">" + strMkrSize + "</Param>" +
                     "<Param name=\"MarkerColor\">Blue</Param>"
                 }
                 if (toolTip != null) {
@@ -74,7 +75,7 @@
                 strXMLData += "<Series id=\"RH\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/humidity</Data>" +
                     "<Param name=\"ChartType\">Line</Param><Param name=\"YAxisType\">Secondary</Param>";
                 if (mkrChkBox != null) {
-                    strXMLData += "<Param name=\"MarkerStyle\">Diamond</Param><Param name=\"MarkerSize\">4</Param><Param name=\"MarkerColor\">Orange</Param>"
+                    strXMLData += "<Param name=\"MarkerStyle\">Diamond</Param><Param name=\"MarkerSize\">" + strMkrSize + "</Param><Param name=\"MarkerColor\">Orange</Param>"
                 }
                 if (toolTip != null) {
                     strXMLData += "<Tooltip>Date = #VALX{f}\nHudmidity = #VALY{n}%</Tooltip>"
@@ -86,7 +87,7 @@
                 strXMLData += "<Series id=\"Dew Pnt\"><Data>/Telemetry/Data[sensor_id[.='" + strSensorId + "']]/dew_point</Data>" +
                     "<Param name=\"ChartType\">Line</Param>";
                 if (mkrChkBox != null) {
-                    strXMLData += "<Param name=\"MarkerStyle\">Square</Param><Param name=\"MarkerSize\">4</Param><Param name=\"MarkerColor\">Red</Param>"
+                    strXMLData += "<Param name=\"MarkerStyle\">Square</Param><Param name=\"MarkerSize\">" + strMkrSize + "</Param><Param name=\"MarkerColor\">Red</Param>"
                 }
                 if (toolTip != null) {
                     strXMLData += "<Tooltip>Date = #VALX{f}\nDew Point = #VALY{n}°C</Tooltip>"
@@ -105,7 +106,7 @@
 
         function loadChartImage(xml) {
             var resultsDiv = $('#chartImage');
-            var toolTip = $('#ttChkBox').val();
+            var toolTip = $('#ttChkBox:checked').val();
 
             var chartUrl = "/Services/GetStaticChartImage.aspx";
 
@@ -157,8 +158,16 @@
     </tr>
     <tr>
         <td>
-           <input type="checkbox" id="ttChkBox" name="ttChkBox" value="1" /> Tooltips 
-           <input type="checkbox" id="mkrChkBox" name="mkrChkBox" value="0" /> Marker
+           <input type="checkbox" id="ttChkBox" name="ttChkBox" checked="checked" value="1"/> Tooltips 
+           <input type="checkbox" id="mkrChkBox" name="mkrChkBox" checked="checked" value="1"/> Marker
+           <select name="mkrSize" id="mkrSize">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4" selected="selected">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+           </select>
         </td>
     </tr>
     <tr>
