@@ -18,9 +18,6 @@ Use this page to share links with the team
 *Code Analysis*
   * FxCop: http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=9aeaa970-f281-4fb0-aba1-d59d7ed09772
 
-*Database Development*
-  * SQL Server 2008 Express: http://www.microsoft.com/express/Database/
-
 *Documentation*
   * Sandcastle: http://www.codeplex.com/Sandcastle
   * Sandcastle Help File Builder: http://www.codeplex.com/SHFB
@@ -30,8 +27,6 @@ Use this page to share links with the team
   * GhostDoc XML Documentation: http://submain.com/products/ghostdoc.aspx  
  
 *IDE*
-  * SharpDevelop: http://www.icsharpcode.net/OpenSource/SD/
-  * Visual Studio Web Developer: http://www.microsoft.com/express/Web/
   * Visual Studio 2008: http://msdn.microsoft.com/en-us/vstudio/default.aspx
 
 *JSON*
