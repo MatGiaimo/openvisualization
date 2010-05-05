@@ -15,8 +15,9 @@ Use this page to share links with the team
   * ASP .Net Charting engine download: http://www.microsoft.com/downloads/details.aspx?FamilyID=130f7986-bf49-4fe5-9ca8-910ae6ea442c&DisplayLang=en
   * Visual Studio Charting Add-in: http://www.microsoft.com/downloads/details.aspx?familyid=1D69CE13-E1E5-4315-825C-F14D33A303E9&displaylang=en
 
-*Code Analysis*
+*Code Analysis and Refactoring*
   * FxCop: http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=9aeaa970-f281-4fb0-aba1-d59d7ed09772
+  * Resharper: http://www.jetbrains.com/resharper/
 
 *Documentation*
   * Sandcastle: http://www.codeplex.com/Sandcastle
